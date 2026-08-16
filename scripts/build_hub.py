@@ -9,7 +9,9 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
-REPOS = ROOT / "data" / "repos"
+LOCAL_REPOS = ROOT / "data" / "repos"
+REMOTE_CACHE = ROOT / ".cache" / "repos"
+SYNC_STATUS = ROOT / ".cache" / "sync-status.json"
 OUT = ROOT / "site-data"
 COLLECTIONS = ("tools", "toolsets", "cases", "opportunities", "intelligence", "sources", "activity")
 
@@ -40,32 +42,49 @@ def validate(snapshot: dict, path: Path) -> list[str]:
     return errors
 
 
+def snapshot_files() -> list[tuple[Path, str]]:
+    files = [(p, "local") for p in sorted(LOCAL_REPOS.glob("*.json"))]
+    files += [(p, "remote") for p in sorted(REMOTE_CACHE.glob("*.json"))] if REMOTE_CACHE.exists() else []
+    return files
+
+
 def snapshots() -> tuple[list[dict], list[str]]:
-    docs, errors, seen = [], [], set()
-    for path in sorted(REPOS.glob("*.json")):
+    errors, chosen = [], {}
+    # Local is last-known-good fallback; a valid remote snapshot with the same id
+    # replaces it for this build.
+    for path, origin in snapshot_files():
         try:
             doc = load(path)
         except (OSError, json.JSONDecodeError) as exc:
             errors.append(f"{path}: {exc}")
             continue
-        errors.extend(validate(doc, path))
-        rid = doc.get("repo", {}).get("id")
-        if rid in seen:
-            errors.append(f"duplicate repo id: {rid}")
-        seen.add(rid)
-        docs.append(doc)
-    return docs, errors
+        item_errors = validate(doc, path)
+        errors.extend(item_errors)
+        if item_errors:
+            continue
+        rid = doc["repo"]["id"]
+        if rid in chosen and origin == "local":
+            errors.append(f"duplicate local repo id: {rid}")
+            continue
+        if rid not in chosen or origin == "remote":
+            chosen[rid] = {**doc, "_snapshot_origin": origin}
+    return list(chosen.values()), errors
 
 
 def aggregate(docs: list[dict]) -> dict:
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
-    result = {"schema_version": 1, "generated_at": now, "repositories": [], "counts": {"repositories": len(docs)}}
+    result = {"schema_version": 1, "generated_at": now, "repositories": [], "counts": {"repositories": len(docs)}, "sync": {}}
+    if SYNC_STATUS.exists():
+        try:
+            result["sync"] = load(SYNC_STATUS)
+        except (OSError, json.JSONDecodeError):
+            result["sync"] = {"status": "invalid-sync-report"}
     for name in COLLECTIONS:
         result[name] = []
         result["counts"][name] = 0
-    for doc in docs:
+    for doc in sorted(docs, key=lambda d: d["repo"]["full_name"].lower()):
         repo = doc["repo"]
-        result["repositories"].append({**repo, "generated_at": doc["generated_at"], "source_commit": doc["source_commit"], "stats": doc.get("stats", {})})
+        result["repositories"].append({**repo, "generated_at": doc["generated_at"], "source_commit": doc["source_commit"], "snapshot_origin": doc.get("_snapshot_origin", "local"), "stats": doc.get("stats", {}), "agent_ops": doc.get("agent_ops", {})})
         for name in COLLECTIONS:
             for item in doc.get(name, []):
                 result[name].append({"repo_id": repo["id"], "repo_full_name": repo["full_name"], **item})
@@ -88,7 +107,8 @@ def main() -> int:
     hub = aggregate(docs)
     (OUT / "hub.json").write_text(json.dumps(hub, indent=2) + "\n", encoding="utf-8")
     for doc in docs:
-        (OUT / f"repo-{doc['repo']['id']}.json").write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
+        clean = {k: v for k, v in doc.items() if not k.startswith("_")}
+        (OUT / f"repo-{doc['repo']['id']}.json").write_text(json.dumps(clean, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(hub["counts"], indent=2))
     return 0
 
