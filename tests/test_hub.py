@@ -22,8 +22,10 @@ def test_remote_registry_is_valid_without_network():
     assert proc.returncode == 0, proc.stdout + proc.stderr
     assert "1 repositories" in proc.stdout
     registry = json.loads((ROOT / "data/repositories.json").read_text())
-    assert registry["repositories"][0]["id"] == "cipher-solving-suite"
-    assert registry["repositories"][0]["snapshot_url"].startswith("https://kaibuzz0.github.io/")
+    entry = registry["repositories"][0]
+    assert entry["id"] == "cipher-solving-suite"
+    assert entry["snapshot_url"].startswith("https://kaibuzz0.github.io/")
+    assert entry["stale_after_hours"] == 168
 
 
 def test_hub_builder_validates_without_remote_cache():
@@ -58,3 +60,40 @@ def test_snapshot_schema_declares_prompts_and_evidence():
     schema = json.loads((ROOT / "schemas/repo-snapshot.schema.json").read_text())
     assert schema["properties"]["prompts"]["type"] == "array"
     assert schema["properties"]["evidence"]["type"] == "array"
+
+
+def test_hub_tracks_snapshot_staleness():
+    builder = (ROOT / "scripts/build_hub.py").read_text()
+    assert "DEFAULT_STALE_HOURS = 168" in builder
+    assert '"snapshot_age_hours"' in builder
+    assert '"snapshot_stale"' in builder
+    assert '"stale_repositories"' in builder
+
+
+def test_onboarding_kit_generator(tmp_path):
+    output = tmp_path / "kit"
+    proc = run(
+        "scripts/onboard_repository.py",
+        "--repo-id", "example-repo",
+        "--full-name", "example/example-repo",
+        "--snapshot-url", "https://example.github.io/example-repo/data/repo-snapshot.json",
+        "--output", str(output),
+    )
+    assert proc.returncode == 0, proc.stdout + proc.stderr
+    assert (output / "export_repo_snapshot.py").exists()
+    config = json.loads((output / "command-site.config.json").read_text())
+    entry = json.loads((output / "registry-entry.json").read_text())
+    assert config["repo_id"] == "example-repo"
+    assert entry["snapshot_url"].startswith("https://example.github.io/")
+
+
+def test_onboarding_kit_rejects_unapproved_transport(tmp_path):
+    proc = run(
+        "scripts/onboard_repository.py",
+        "--repo-id", "bad-repo",
+        "--full-name", "example/bad-repo",
+        "--snapshot-url", "https://example.com/repo-snapshot.json",
+        "--output", str(tmp_path / "bad"),
+    )
+    assert proc.returncode == 1
+    assert "not approved" in proc.stdout
