@@ -4,14 +4,14 @@ Append concise, truthful handoffs here when material state changes.
 
 Each entry should include: date/time, branch/PR, objective, files changed, validations, risks, and exact next action.
 
-### 2026-08-16 23:50 UTC — ChatGPT / Command Workbench v3
-- **Branch / PR:** `feature/command-workbench-v3` / PR pending.
+### 2026-08-16 23:55 UTC — ChatGPT / Command Workbench v3
+- **Branch / PR:** `feature/command-workbench-v3` / PR #9.
 - **Objective:** Advance the live multi-repository hub into a VS Code-inspired operator workbench with reusable management/development tools and a safe execution boundary.
-- **Changed:** added `data/workspace-tools.json`, `data/workspace-settings.json`, `scripts/connect_repository.py`, and `docs/WORKSPACE_RUNNER_PROTOCOL.md`; upgraded `site/index.html`, `site/app.css`, `site/app.js`, `scripts/build_hub.py`, CI, tests, README, current state, and work queue.
-- **Verification:** branch CI pending. CI now compiles orchestration scripts, checks JavaScript syntax with Node, runs pytest, validates the registry/snapshots, and builds aggregate data on Python 3.11/3.12/3.13.
-- **Evidence / artifacts:** Repository Manager is plan-first and requires explicit `--apply`; Workbench Editor stores scratch content only in browser localStorage; Run and Debug emits bounded trusted-runner launch requests rather than executing Python in Pages; aggregate `hub.json` contains hub-owned workspace tools/settings.
+- **Changed:** added `data/workspace-tools.json`, `data/workspace-settings.json`, `scripts/connect_repository.py`, and `docs/WORKSPACE_RUNNER_PROTOCOL.md`; upgraded `site/index.html`, `site/app.css`, `site/app.js`, `scripts/build_hub.py`, CI, tests, README, current state, work queue, and agent contract.
+- **Verification:** PR #9 passed Python 3.11, 3.12 and 3.13. Every job passed Python compilation, `node --check site/app.js`, pytest, remote-registry validation, snapshot validation, aggregate build, and diagnostics upload.
+- **Evidence / artifacts:** Repository Manager is plan-first and requires explicit `--apply`; Workbench Editor stores scratch content only in browser localStorage; Run and Debug emits bounded trusted-runner launch requests rather than executing Python in Pages; aggregate `hub.json` includes hub-owned workspace tools/settings.
 - **Known risks / blockers:** the static site cannot directly execute local Python or make authorized GitHub writes without a separate authenticated runner/agent boundary. That is deliberate, documented, and represented in the UI.
-- **Next action:** open the PR, wait for all three CI jobs, fix any failure, merge only when green, then verify the production Pages deployment and live cipher snapshot ingestion.
+- **Next action:** merge PR #9, then verify the production Pages deployment and confirm live cipher snapshot ingestion plus the new workbench data/surfaces.
 
 ### 2026-08-16 23:27 UTC — ChatGPT / first production spoke + Command Center v2
 - **Branch / PR:** hub PRs #4 and #5 merged; source repository PR `kaibuzz0/cipher-solving-suite#20` merged; reconciliation branch `ops/reconcile-first-spoke-state`.
