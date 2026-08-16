@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "theme": "vscode-dark-plus",
+  "title": "GitHub Command Workbench",
+  "refresh_minutes": 30,
+  "editor": {
+    "font_size": 13,
+    "tab_size": 2,
+    "word_wrap": false,
+    "autosave_local": true
+  },
+  "workbench": {
+    "show_status_bar": true,
+    "show_activity_bar": true,
+    "show_bottom_panel": true,
+    "default_view": "home"
+  },
+  "runner": {
+    "mode": "adapter",
+    "allow_browser_code_execution": false,
+    "protocol": "docs/WORKSPACE_RUNNER_PROTOCOL.md"
+  }
+}
