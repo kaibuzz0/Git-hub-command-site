@@ -1,4 +1,5 @@
 {
   "schema_version": 1,
+  "notice": "Register public remote repository snapshots here. This file stores connection metadata, not repository contents or credentials.",
   "repositories": []
 }

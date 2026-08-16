@@ -1,0 +1,9 @@
+{
+  "name": "GitHub Command Site",
+  "short_name": "GitHub Command",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#181818",
+  "theme_color": "#181818",
+  "description": "Static multi-repository GitHub command center"
+}
