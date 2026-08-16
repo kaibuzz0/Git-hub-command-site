@@ -1,132 +1,90 @@
-const state={hub:null,view:'home',query:'',repoFilter:''};
+const state={hub:null,view:'home',query:'',repoFilter:'',editorLanguage:'json'};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeUrl=u=>{try{const x=new URL(String(u));return x.protocol==='https:'?x.href:'#'}catch{return'#'}};
-const GROUPS=[
-  ['Repositories','repositories'],['Tools','tools'],['Toolsets','toolsets'],['Cases','cases'],
-  ['Opportunities','opportunities'],['Intelligence','intelligence'],['Sources','sources'],
-  ['Prompts','prompts'],['Evidence','evidence'],['Activity','activity']
-];
-const COLLECTIONS=GROUPS.slice(1).map(x=>x[1]);
+const GROUPS=[['Repositories','repositories'],['Tools','tools'],['Toolsets','toolsets'],['Cases','cases'],['Opportunities','opportunities'],['Intelligence','intelligence'],['Sources','sources'],['Prompts','prompts'],['Evidence','evidence'],['Activity','activity']];
+const VIEWS=['home','repositories','search','source-control','run-debug','editor','workspace-tools','settings'];
 
 async function boot(){
   try{
     state.hub=await fetch('site-data/hub.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()});
-    const sync=state.hub.sync?.results||[];
-    const errors=sync.filter(x=>x.status==='error').length;
+    const sync=state.hub.sync?.results||[],errors=sync.filter(x=>x.status==='error').length;
     $('#status').textContent=`${state.hub.counts.repositories} repos • ${new Date(state.hub.generated_at).toLocaleString()}`;
     $('#syncState').textContent=sync.length?`${sync.length} remote • ${errors} errors`:'snapshot registry';
-    renderTree(); render(); palette('');
-  }catch(e){
-    $('#status').textContent='data unavailable';
-    $('#content').innerHTML='<h1 class="title">GitHub Command Site</h1><p class="muted">Aggregate repository data has not been deployed yet.</p>';
-  }
+    $('#runnerState').textContent=`runner: ${state.hub.workspace_settings?.runner?.mode||'adapter'}`;
+    renderTree();render();palette('');
+  }catch(e){$('#status').textContent='data unavailable';$('#content').innerHTML='<h1 class="title">GitHub Command Workbench</h1><p class="bad">Aggregate data is unavailable.</p>'}
 }
-
 function itemKey(x){return String(x.id||x.full_name||x.url||x.path||x.name||x.title||JSON.stringify(x))}
 function labelOf(x){return x.name||x.title||x.full_name||x.id||x.path||'item'}
 function repoMatches(x){return !state.repoFilter||x.id===state.repoFilter||x.repo_id===state.repoFilter}
 function textMatches(x){const q=state.query.trim().toLowerCase();return !q||JSON.stringify(x).toLowerCase().includes(q)}
 function items(kind){return (state.hub?.[kind]||[]).filter(x=>repoMatches(x)&&textMatches(x))}
-function filterLabel(){const r=state.hub?.repositories.find(x=>x.id===state.repoFilter);return r?` • ${r.full_name}`:''}
+function setView(v){state.view=v;document.querySelectorAll('.activity button[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===v));renderTree();render()}
+function showOutput(text){$('#panelOutput').textContent=text;$('#bottomPanel').classList.remove('hidden')}
+function copyText(text){navigator.clipboard?.writeText(text).then(()=>showOutput('Copied to clipboard.')).catch(()=>showOutput(text))}
 
 function renderTree(){
-  const h=state.hub; if(!h)return;
-  let html='<div class="tree-group"><div class="tree-title">Workspace</div>';
-  html+=`<div class="tree-item ${!state.repoFilter?'selected':''}" data-repo-filter="">◫ All repositories</div>`;
-  for(const r of h.repositories||[])html+=`<div class="tree-item ${state.repoFilter===r.id?'selected':''}" data-repo-filter="${esc(r.id)}">▣ ${esc(r.full_name)}</div>`;
-  html+='</div>';
-  for(const [label,key] of GROUPS.slice(1)){
-    const rows=(h[key]||[]).filter(repoMatches);
-    html+=`<div class="tree-group"><div class="tree-title" data-open-view="${key}">${label}<span class="badge">${rows.length}</span></div>`;
-    for(const x of rows.slice(0,60))html+=`<div class="tree-item" data-kind="${key}" data-key="${esc(itemKey(x))}">${esc(labelOf(x))}</div>`;
-    html+='</div>';
-  }
-  $('#tree').innerHTML=html;
-  document.querySelectorAll('[data-repo-filter]').forEach(el=>el.onclick=()=>{state.repoFilter=el.dataset.repoFilter;renderTree();render()});
-  document.querySelectorAll('[data-open-view]').forEach(el=>el.onclick=()=>{state.view=el.dataset.openView;render()});
-  document.querySelectorAll('.tree-item[data-kind]').forEach(el=>el.onclick=()=>detail(el.dataset.kind,el.dataset.key));
-}
-
-function metricCard(label,value,tone=''){return `<div class="metric ${tone}"><div class="metric-label">${esc(label)}</div><div class="metric-value">${esc(value)}</div></div>`}
-function healthCards(h){const x=h.health||{};return `<div class="metrics">${metricCard('Sources due',x.sources_due||0,(x.sources_due||0)?'warn-card':'')}${metricCard('Toolsets attention',x.toolsets_needing_attention||0,(x.toolsets_needing_attention||0)?'warn-card':'')}${metricCard('P1 queue',x.queue_p1||0,(x.queue_p1||0)?'warn-card':'')}${metricCard('Integration inbox',x.integration_items||0,(x.integration_items||0)?'warn-card':'')}${metricCard('Evidence review',x.artifacts_review_before_move||0,(x.artifacts_review_before_move||0)?'warn-card':'')}${metricCard('Known debt',x.known_debt||0,(x.known_debt||0)?'warn-card':'') }</div>`}
-function syncPanel(){const rows=state.hub.sync?.results||[];if(!rows.length)return'';return `<section><div class="section-head"><h2>Repository sync</h2><span class="muted">remote snapshot transport</span></div>${rows.map(x=>`<div class="row"><span class="${x.status==='error'?'bad':x.status==='fetched'?'good':'muted'}">●</span> <b>${esc(x.id)}</b> <span class="pill">${esc(x.status)}</span>${x.source_commit?`<span class="muted">${esc(x.source_commit.slice(0,8))}</span>`:''}${x.error?`<div class="bad small">${esc(x.error)}</div>`:''}</div>`).join('')}</section>`}
-function repoCard(r){const health=r.health||{};const warnings=Object.values(health).reduce((a,b)=>a+(Number(b)||0),0);return `<div class="card repo-card" data-repo="${esc(r.id)}"><div class="card-top"><b>${esc(r.full_name)}</b><span class="status-dot ${warnings?'warn-dot':'good-dot'}"></span></div><p class="muted">${esc(r.description||'Connected repository')}</p><div><span class="pill">${esc(r.default_branch)}</span><span class="pill">${esc(r.snapshot_origin||'remote')}</span><span class="pill">${esc((r.source_commit||'').slice(0,8))}</span></div><div class="mini-stats"><span>tools ${r.stats?.tools||0}</span><span>cases ${r.stats?.active_cases||0}</span><span>opp ${r.stats?.opportunities||0}</span></div></div>`}
-function globalSearch(){const q=state.query.trim();if(!q)return'';const found=[];for(const [label,key] of GROUPS){for(const x of (state.hub[key]||[])){if(repoMatches(x)&&textMatches(x))found.push({label,key,x})}}return `<section><div class="section-head"><h2>Search results</h2><span class="muted">${found.length} matches</span></div>${found.slice(0,40).map(({label,key,x})=>`<div class="row clickable" data-search-kind="${key}" data-search-key="${esc(itemKey(x))}"><b>${esc(labelOf(x))}</b><span class="pill">${esc(label)}</span><div class="muted">${esc(x.repo_full_name||x.url||x.path||'')}</div></div>`).join('')||'<p class="muted">No matches.</p>'}</section>`}
-
-function render(){
   if(!state.hub)return;
-  if(state.view==='home')return renderHome();
-  if(state.view==='repositories')return renderRepositories();
-  return listView(state.view);
+  $('#sidebarTitle').textContent=state.view==='workspace-tools'?'WORKSPACE TOOLS':state.view==='run-debug'?'RUN AND DEBUG':state.view==='settings'?'SETTINGS':'EXPLORER';
+  let h='<div class="tree-group"><div class="tree-title">Repositories</div><div class="tree-item" data-repo-filter="">All repositories</div>';
+  for(const r of state.hub.repositories||[])h+=`<div class="tree-item ${state.repoFilter===r.id?'selected':''}" data-repo-filter="${esc(r.id)}">▱ ${esc(r.full_name)}</div>`;
+  h+='</div>';
+  if(state.view==='workspace-tools'){
+    h+='<div class="tree-group"><div class="tree-title">Installed</div>';
+    for(const t of state.hub.workspace_tools||[])h+=`<div class="tree-item" data-workspace-tool="${esc(t.id)}">⬡ ${esc(t.name)}</div>`;
+    h+='</div>';
+  }else{
+    for(const [label,key] of GROUPS.slice(1)){const rows=(state.hub[key]||[]).filter(repoMatches);h+=`<div class="tree-group"><div class="tree-title" data-open-view="${key}">${label}<span class="badge">${rows.length}</span></div>`;for(const x of rows.slice(0,40))h+=`<div class="tree-item" data-kind="${key}" data-key="${esc(itemKey(x))}">${esc(labelOf(x))}</div>`;h+='</div>'}
+  }
+  $('#tree').innerHTML=h;
+  document.querySelectorAll('[data-repo-filter]').forEach(e=>e.onclick=()=>{state.repoFilter=e.dataset.repoFilter;renderTree();render()});
+  document.querySelectorAll('[data-open-view]').forEach(e=>e.onclick=()=>{state.view=e.dataset.openView;render()});
+  document.querySelectorAll('[data-kind]').forEach(e=>e.onclick=()=>detail(e.dataset.kind,e.dataset.key));
+  document.querySelectorAll('[data-workspace-tool]').forEach(e=>e.onclick=()=>workspaceToolDetail(e.dataset.workspaceTool));
 }
+function metric(label,value,warn=false){return `<div class="metric ${warn?'warn-card':''}"><span class="metric-label">${esc(label)}</span><span class="metric-value">${esc(value)}</span></div>`}
+function healthCards(h){const x=h.health||{};return `<div class="metrics">${metric('Sources due',x.sources_due||0,!!x.sources_due)}${metric('P1 queue',x.queue_p1||0,!!x.queue_p1)}${metric('Known debt',x.known_debt||0,!!x.known_debt)}${metric('Stale repos',x.stale_repositories||0,!!x.stale_repositories)}${metric('Tools',state.hub?.counts?.workspace_tools||0,false)}</div>`}
+function repoCard(r){const stale=r.health?.snapshot_stale;return `<div class="card" data-repo="${esc(r.id)}"><div class="card-top"><b>${esc(r.full_name)}</b><span class="status-dot ${stale?'warn-dot':'good-dot'}"></span></div><p class="muted">${esc(r.description||'Connected repository')}</p><span class="pill">${esc(r.default_branch)}</span><span class="pill">${esc(r.snapshot_origin)}</span><span class="pill">${esc((r.source_commit||'').slice(0,8))}</span></div>`}
+function row(kind,x){return `<div class="row clickable" data-row-kind="${kind}" data-row-key="${esc(itemKey(x))}"><b>${esc(labelOf(x))}</b><div class="muted">${esc(x.repo_full_name||x.category||x.url||'')}</div></div>`}
+function render(){if(!state.hub)return;if(state.view==='home')return renderHome();if(state.view==='repositories')return renderRepositories();if(state.view==='search')return renderSearch();if(state.view==='source-control')return renderSourceControl();if(state.view==='run-debug')return renderRunDebug();if(state.view==='editor')return renderEditor();if(state.view==='workspace-tools')return renderWorkspaceTools();if(state.view==='settings')return renderSettings();return listView(state.view)}
 function renderHome(){
-  const h=state.hub,c=h.counts;
-  $('#crumb').textContent=`COMMAND / HOME${filterLabel()}`;
-  const recent=items('activity').slice(0,8), opp=items('opportunities').slice(0,6);
-  $('#content').innerHTML=`<div class="hero"><div><h1 class="title">Multi-Repo Command Center</h1><p class="muted">One static workspace over validated repository snapshots.</p></div><button class="action-btn" id="clearFilter">${state.repoFilter?'Clear repo filter':'All repositories'}</button></div>${globalSearch()}<section><div class="section-head"><h2>Workspace health</h2><span class="muted">aggregated attention signals</span></div>${healthCards(h)}</section><section><div class="section-head"><h2>Repositories</h2><span class="muted">${h.repositories.length} connected</span></div><div class="grid">${h.repositories.filter(repoMatches).map(repoCard).join('')||'<p class="muted">No repositories connected.</p>'}</div></section><div class="two-col"><section><div class="section-head"><h2>Recent activity</h2><span class="muted">latest exported commits/events</span></div>${recent.map(activityRow).join('')||'<p class="muted">No activity exported.</p>'}</section><section><div class="section-head"><h2>Opportunity radar</h2><span class="muted">catalog/discovery records</span></div>${opp.map(x=>itemRow('opportunities',x)).join('')||'<p class="muted">No opportunities exported.</p>'}</section></div>${syncPanel()}`;
-  document.querySelectorAll('[data-repo]').forEach(e=>e.onclick=()=>repoView(e.dataset.repo));
-  document.querySelectorAll('[data-search-kind]').forEach(e=>e.onclick=()=>detail(e.dataset.searchKind,e.dataset.searchKey));
-  document.querySelectorAll('[data-row-kind]').forEach(e=>e.onclick=()=>detail(e.dataset.rowKind,e.dataset.rowKey));
-  $('#clearFilter').onclick=()=>{state.repoFilter='';renderTree();render()};
+  $('#crumb').textContent='WORKBENCH / COMMAND CENTER';const recent=items('activity').slice(0,8),opp=items('opportunities').slice(0,6);
+  $('#content').innerHTML=`<div class="hero"><div><h1 class="title">GitHub Command Workbench</h1><p class="muted">VS Code-inspired operator workspace for connected repositories, automation, tools, editing, and runner adapters.</p></div><button class="action-btn" id="connectRepo">Connect Repository</button></div><section><div class="section-head"><h2>Workspace health</h2><span class="muted">live aggregate</span></div>${healthCards(state.hub)}</section><section><div class="section-head"><h2>Repositories</h2><span class="muted">${state.hub.repositories.length} connected</span></div><div class="grid">${state.hub.repositories.map(repoCard).join('')}</div></section><div class="two-col"><section><div class="section-head"><h2>Recent activity</h2></div>${recent.map(x=>row('activity',x)).join('')||'<div class="empty-state">No activity.</div>'}</section><section><div class="section-head"><h2>Opportunity radar</h2></div>${opp.map(x=>row('opportunities',x)).join('')||'<div class="empty-state">No opportunities.</div>'}</section></div>`;
+  $('#connectRepo').onclick=renderRepositoryManager;bindRows();bindRepos();
 }
 function renderRepositories(){
-  $('#crumb').textContent=`COMMAND / REPOSITORIES${filterLabel()}`;
-  $('#content').innerHTML=`<h1 class="title">Repositories</h1><div class="grid">${state.hub.repositories.filter(repoMatches).map(repoCard).join('')}</div>`;
-  document.querySelectorAll('[data-repo]').forEach(e=>e.onclick=()=>repoView(e.dataset.repo));
+  $('#crumb').textContent='WORKBENCH / EXPLORER / REPOSITORIES';$('#content').innerHTML=`<div class="hero"><h1 class="title">Repositories</h1><button class="action-btn" id="repoManager">Repository Manager</button></div><div class="grid">${state.hub.repositories.filter(repoMatches).map(repoCard).join('')}</div>`;$('#repoManager').onclick=renderRepositoryManager;bindRepos()
 }
-function activityRow(x){return `<div class="row clickable" data-row-kind="activity" data-row-key="${esc(itemKey(x))}"><div><b>${esc(x.title||x.name||x.id)}</b></div><div class="muted">${esc(x.repo_full_name||'')} ${x.timestamp?`• ${esc(new Date(x.timestamp).toLocaleString())}`:''}</div></div>`}
-function itemRow(kind,x){return `<div class="row clickable" data-row-kind="${kind}" data-row-key="${esc(itemKey(x))}"><div class="row-main"><b>${esc(labelOf(x))}</b>${statusPills(x)}</div><div class="muted">${esc(x.repo_full_name||x.url||x.path||x.category||'')}</div></div>`}
-function statusPills(x){const values=[x.status,x.state,x.maturity,x.health,x.confidence,x.freshness_state].filter(Boolean).slice(0,3);return values.map(v=>`<span class="pill">${esc(v)}</span>`).join('')}
-function listView(kind){
-  const rows=items(kind);
-  $('#crumb').textContent=`COMMAND / ${String(kind).toUpperCase()}${filterLabel()}`;
-  $('#content').innerHTML=`<div class="section-head"><h1 class="title">${esc(kind)}</h1><span class="muted">${rows.length} visible</span></div>${rows.map(x=>itemRow(kind,x)).join('')||'<p class="muted">Nothing here yet.</p>'}`;
-  document.querySelectorAll('[data-row-kind]').forEach(e=>e.onclick=()=>detail(e.dataset.rowKind,e.dataset.rowKey));
+function renderSearch(){
+  $('#crumb').textContent='WORKBENCH / SEARCH';const q=state.query.trim().toLowerCase(),results=[];for(const [label,key] of GROUPS)for(const x of state.hub[key]||[])if(repoMatches(x)&&(!q||JSON.stringify(x).toLowerCase().includes(q)))results.push({label,key,x});
+  $('#content').innerHTML=`<h1 class="title">Search</h1><p class="muted">Use the Explorer search box to search connected repository metadata.</p>${results.slice(0,100).map(v=>`<div class="row clickable" data-row-kind="${v.key}" data-row-key="${esc(itemKey(v.x))}"><b>${esc(labelOf(v.x))}</b><span class="pill">${esc(v.label)}</span><div class="muted">${esc(v.x.repo_full_name||'')}</div></div>`).join('')}`;bindRows()
 }
-
-function repoView(id){
-  const r=state.hub.repositories.find(x=>x.id===id);if(!r)return;
-  state.repoFilter=id;renderTree();
-  $('#crumb').textContent=`COMMAND / REPOSITORIES / ${r.full_name}`;
-  const counts=GROUPS.slice(1).map(([label,key])=>[label,(state.hub[key]||[]).filter(x=>x.repo_id===id).length]);
-  const ops=r.agent_ops||{}, priorities=ops.current_state?.priorities||[], handoffs=ops.recent_handoffs||[];
-  const links=(r.links||[]).map(x=>`<a class="link-card" href="${safeUrl(x.url)}" target="_blank" rel="noopener">${esc(x.name||x.id||'Open')}</a>`).join('');
-  $('#content').innerHTML=`<div class="hero"><div><h1 class="title">${esc(r.full_name)}</h1><p class="muted">${esc(r.description||'')}</p></div><a class="action-btn" href="${safeUrl(r.url)}" target="_blank" rel="noopener">Open GitHub ↗</a></div><div class="link-strip">${links}</div><section><div class="section-head"><h2>Repository health</h2><span class="muted">snapshot ${esc((r.source_commit||'').slice(0,8))} • ${esc(r.snapshot_origin)}</span></div>${healthCards({health:r.health})}</section><section><div class="section-head"><h2>Capabilities</h2><span class="muted">click a collection to filter</span></div><div class="metrics">${counts.map(([label,n])=>`<button class="metric metric-btn" data-repo-section="${label.toLowerCase()}"><span class="metric-label">${esc(label)}</span><span class="metric-value">${n}</span></button>`).join('')}</div></section><div class="two-col"><section><div class="section-head"><h2>Current priorities</h2><span class="muted">Agent Ops</span></div>${priorities.map(p=>`<div class="row">${esc(p)}</div>`).join('')||'<p class="muted">No structured priorities exported.</p>'}</section><section><div class="section-head"><h2>Recent handoffs</h2><span class="muted">${handoffs.length}</span></div>${handoffs.slice(0,5).map(h=>`<div class="row"><b>${esc(h.agent||'agent')}</b> <span class="pill">${esc(h.task||'handoff')}</span><div class="muted">${esc(h.objective||h.next_action||'')}</div></div>`).join('')||'<p class="muted">No handoffs exported.</p>'}</section></div><section><div class="section-head"><h2>Snapshot provenance</h2><span class="muted">generated ${esc(r.generated_at)}</span></div><pre>${esc(JSON.stringify({source_commit:r.source_commit,origin:r.snapshot_origin,stats:r.stats},null,2))}</pre></section>`;
-  document.querySelectorAll('[data-repo-section]').forEach(e=>e.onclick=()=>{state.view=e.dataset.repoSection;render()});
+function renderSourceControl(){
+  $('#crumb').textContent='WORKBENCH / SOURCE CONTROL';const repos=state.hub.repositories.filter(repoMatches);$('#content').innerHTML=`<h1 class="title">Source Control</h1><p class="muted">The static workbench is read-only. Open an authorized GitHub or VS Code for Web session for repository writes.</p><div class="grid">${repos.map(r=>`<div class="card"><b>${esc(r.full_name)}</b><p class="muted">${esc((r.source_commit||'').slice(0,12))} • ${esc(r.default_branch)}</p><div class="button-row"><a class="action-btn" target="_blank" rel="noopener" href="${safeUrl(r.url)}">GitHub</a><a class="secondary-btn" target="_blank" rel="noopener" href="${safeUrl('https://vscode.dev/github/'+r.full_name)}">VS Code for Web</a></div></div>`).join('')}</div>`
 }
-
-function relationRows(kind,x){
-  const rel=[];
-  const caseId=x.related_case||x.case_id||x.case;
-  if(caseId){const c=(state.hub.cases||[]).find(v=>v.repo_id===x.repo_id&&(v.id===caseId||v.case_id===caseId));if(c)rel.push(['Case','cases',c])}
-  if(x.source_id){const s=(state.hub.sources||[]).find(v=>v.repo_id===x.repo_id&&v.id===x.source_id);if(s)rel.push(['Source','sources',s])}
-  if(x.toolset_id){const t=(state.hub.toolsets||[]).find(v=>v.repo_id===x.repo_id&&v.id===x.toolset_id);if(t)rel.push(['Toolset','toolsets',t])}
-  return rel;
+function renderWorkspaceTools(){
+  $('#crumb').textContent='WORKBENCH / TOOLS';$('#content').innerHTML=`<div class="hero"><div><h1 class="title">Workspace Tools</h1><p class="muted">Hub-owned operator tools. Remote snapshots cannot inject executable tools.</p></div><button class="action-btn" id="repoManageTool">Repository Manager</button></div><div class="grid">${(state.hub.workspace_tools||[]).map(t=>`<div class="card" data-tool-card="${esc(t.id)}"><div class="tool-icon">⬡</div><b>${esc(t.name)}</b><p class="muted">${esc(t.description)}</p><div class="tool-meta"><span class="pill">${esc(t.category)}</span><span class="pill">${esc(t.execution)}</span><span class="pill">${esc(t.status)}</span></div></div>`).join('')}</div>`;$('#repoManageTool').onclick=renderRepositoryManager;document.querySelectorAll('[data-tool-card]').forEach(e=>e.onclick=()=>workspaceToolDetail(e.dataset.toolCard))
 }
-function detail(kind,key){
-  const x=(state.hub[kind]||[]).find(v=>itemKey(v)===key&&repoMatches(v))||(state.hub[kind]||[]).find(v=>itemKey(v)===key);if(!x)return;
-  $('#crumb').textContent=`COMMAND / ${kind.toUpperCase()} / DETAIL`;
-  const links=[];for(const [k,v] of Object.entries(x)){if(typeof v==='string'&&/^https:\/\//.test(v))links.push([k,v])}
-  const relations=relationRows(kind,x);
-  $('#content').innerHTML=`<div class="hero"><div><h1 class="title">${esc(labelOf(x))}</h1><p class="muted">${esc(x.repo_full_name||'')}</p></div>${x.repo_id?`<button class="action-btn" id="openRepoFromDetail">Repository</button>`:''}</div>${links.length?`<div class="link-strip">${links.map(([k,v])=>`<a class="link-card" href="${safeUrl(v)}" target="_blank" rel="noopener">${esc(k)} ↗</a>`).join('')}</div>`:''}${relations.length?`<section><div class="section-head"><h2>Related</h2></div>${relations.map(([label,k,v])=>`<div class="row clickable" data-related-kind="${k}" data-related-key="${esc(itemKey(v))}"><b>${esc(label)}</b> ${esc(labelOf(v))}</div>`).join('')}</section>`:''}<section><div class="section-head"><h2>Record</h2><span class="muted">validated snapshot data</span></div><pre>${esc(JSON.stringify(x,null,2))}</pre></section>`;
-  if($('#openRepoFromDetail'))$('#openRepoFromDetail').onclick=()=>repoView(x.repo_id);
-  document.querySelectorAll('[data-related-kind]').forEach(e=>e.onclick=()=>detail(e.dataset.relatedKind,e.dataset.relatedKey));
+function workspaceToolDetail(id){const t=(state.hub.workspace_tools||[]).find(x=>x.id===id);if(!t)return;$('#crumb').textContent=`WORKBENCH / TOOLS / ${t.name}`;$('#content').innerHTML=`<h1 class="title">${esc(t.name)}</h1><p>${esc(t.description)}</p><div class="tool-meta"><span class="pill">${esc(t.status)}</span><span class="pill">${esc(t.execution)}</span></div>${t.entrypoint?`<h2>Entrypoint</h2><pre>${esc(t.entrypoint)}</pre><button class="action-btn" id="copyEntry">Copy command</button>`:''}<h2>Capabilities</h2>${(t.capabilities||[]).map(x=>`<div class="row">${esc(x)}</div>`).join('')}${t.protocol?`<p class="muted">Protocol: ${esc(t.protocol)}</p>`:''}`;if($('#copyEntry'))$('#copyEntry').onclick=()=>copyText(t.entrypoint)}
+function renderRepositoryManager(){
+  $('#crumb').textContent='WORKBENCH / MANAGEMENT / REPOSITORY MANAGER';$('#content').innerHTML=`<div class="hero"><div><h1 class="title">Repository Manager</h1><p class="muted">Generate the hub-side connection command and integration plan for a new or existing repository.</p></div></div><div class="form-card"><div class="form-grid"><div class="field"><label>Mode</label><select id="rmMode"><option value="existing">Existing repository</option><option value="new">New repository</option></select></div><div class="field"><label>Repository ID</label><input id="rmId" placeholder="my-project"></div><div class="field"><label>GitHub full name</label><input id="rmFull" placeholder="OWNER/REPOSITORY"></div><div class="field"><label>Snapshot URL</label><input id="rmUrl" placeholder="https://OWNER.github.io/REPOSITORY/data/repo-snapshot.json"></div></div><div class="button-row"><button class="action-btn" id="rmPlan">Build connection command</button><button class="secondary-btn" id="rmEditor">Open plan in editor</button></div></div><h2>Orchestrator flow</h2><div class="row">1. Validate identity and duplicate registrations.</div><div class="row">2. Generate the portable connector kit.</div><div class="row">3. Register the endpoint only with explicit <code>--apply</code>.</div><div class="row">4. Emit validation/build commands and a handoff plan.</div><div class="row">5. Target-repository changes require target authorization.</div>`;
+  const command=()=>`python scripts/connect_repository.py --repo-id ${$('#rmId').value.trim()||'<repo-id>'} --full-name ${$('#rmFull').value.trim()||'<OWNER/REPO>'} --snapshot-url ${$('#rmUrl').value.trim()||'<snapshot-url>'} --mode ${$('#rmMode').value} --apply`;$('#rmPlan').onclick=()=>showOutput(command());$('#rmEditor').onclick=()=>{localStorage.setItem('command-workbench-editor',JSON.stringify({command:command(),note:'Review before running with repository authorization.'},null,2));setView('editor')}
 }
-
-function allCommands(){
-  const base=[{label:'Home',run:()=>{state.view='home';render()}},{label:'Clear repository filter',run:()=>{state.repoFilter='';renderTree();render()}},...GROUPS.map(([label,key])=>({label:`Open ${label}`,run:()=>{state.view=key;render()}}))];
-  for(const r of state.hub?.repositories||[])base.push({label:`Repository: ${r.full_name}`,run:()=>repoView(r.id)});
-  for(const [,kind] of GROUPS.slice(1))for(const x of (state.hub?.[kind]||[]).slice(0,100))base.push({label:`${kind}: ${labelOf(x)}`,run:()=>detail(kind,itemKey(x))});
-  return base;
+function renderRunDebug(){
+  $('#crumb').textContent='WORKBENCH / RUN AND DEBUG';const r=state.hub.repositories.find(x=>x.id===state.repoFilter)||state.hub.repositories[0],spec={schema_version:1,request_id:'run-'+Date.now(),repo_id:r?.id||'select-repo',operation:'python-debug',working_directory:'.',command:['python','-m','pdb','script.py'],timeout_seconds:120,artifacts:[]};
+  $('#content').innerHTML=`<div class="hero"><div><h1 class="title">Run and Debug</h1><p class="muted">Prepare trusted-runner requests without executing arbitrary code in GitHub Pages.</p></div><button class="action-btn" id="copyDebug">Copy launch spec</button></div><div class="two-col"><section><div class="section-head"><h2>Python Debug Adapter</h2><span class="pill">adapter-ready</span></div><p>Supports pdb, pytest, compile checks, and structured result envelopes through an authorized local/agent runner.</p><pre>${esc(JSON.stringify(spec,null,2))}</pre></section><section><div class="section-head"><h2>Safety boundary</h2></div><div class="row">Browser code execution: <b class="good">disabled</b></div><div class="row">Credentials in browser: <b class="good">disabled</b></div><div class="row">Remote snapshot commands: <b class="good">data only</b></div><div class="row">Execution: <b>trusted runner / GitHub Actions / authorized agent</b></div></section></div>`;$('#copyDebug').onclick=()=>copyText(JSON.stringify(spec,null,2))
 }
-function palette(q){if(!state.hub)return;const rows=allCommands().filter(x=>x.label.toLowerCase().includes(q.toLowerCase())).slice(0,30);$('#paletteResults').innerHTML=rows.map((x,i)=>`<div class="palette-result" data-i="${i}">${esc(x.label)}</div>`).join('');document.querySelectorAll('.palette-result').forEach(e=>e.onclick=()=>{rows[+e.dataset.i].run();closePalette()})}
-function openPalette(){$('#palette').classList.remove('hidden');$('#paletteInput').value='';palette('');$('#paletteInput').focus()}
-function closePalette(){$('#palette').classList.add('hidden')}
-
-document.querySelectorAll('.activity button[data-view]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.activity button').forEach(x=>x.classList.remove('active'));b.classList.add('active');state.view=b.dataset.view;render()});
-$('#search').oninput=e=>{state.query=e.target.value;renderTree();render()};
-$('#paletteBtn').onclick=openPalette;$('#paletteInput').oninput=e=>palette(e.target.value);$('#palette').onclick=e=>{if(e.target.id==='palette')closePalette()};
-document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openPalette()}if(e.key==='Escape')closePalette()});
-if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
-boot();
+function renderEditor(){
+  $('#crumb').textContent='WORKBENCH / EDITOR';const saved=localStorage.getItem('command-workbench-editor')||'{\n  "workspace": "GitHub Command Workbench"\n}';$('#content').innerHTML=`<div class="hero"><div><h1 class="title">Workbench Editor</h1><p class="muted">Browser-local scratch/config editor. Nothing is committed automatically.</p></div></div><div class="editor-shell"><div class="editor-tabs"><div class="editor-tab">scratch.${state.editorLanguage==='python'?'py':state.editorLanguage==='markdown'?'md':'json'} ●</div><div class="editor-toolbar"><select id="editorLang"><option value="json">JSON</option><option value="python">Python</option><option value="markdown">Markdown</option><option value="text">Text</option></select><button class="secondary-btn" id="copyEditor">Copy</button><button class="secondary-btn" id="clearEditor">Clear</button></div></div><textarea id="codeEditor" class="code-editor" spellcheck="false">${esc(saved)}</textarea><div class="editor-status">local buffer • autosave • no repository write</div></div>`;$('#editorLang').value=state.editorLanguage;$('#editorLang').onchange=e=>{state.editorLanguage=e.target.value;renderEditor()};$('#codeEditor').oninput=e=>localStorage.setItem('command-workbench-editor',e.target.value);$('#copyEditor').onclick=()=>copyText($('#codeEditor').value);$('#clearEditor').onclick=()=>{$('#codeEditor').value='';localStorage.removeItem('command-workbench-editor')}
+}
+function renderSettings(){const s=state.hub.workspace_settings||{};$('#crumb').textContent='WORKBENCH / SETTINGS';$('#content').innerHTML=`<h1 class="title">Settings</h1><p class="muted">Canonical deployment settings plus browser-local preferences.</p><div class="two-col"><section><div class="section-head"><h2>Workbench</h2></div><div class="row"><b>Theme</b><div class="muted">${esc(s.theme||'vscode-dark-plus')}</div></div><div class="row"><b>Refresh cadence</b><div class="muted">${esc(s.refresh_minutes||30)} minutes</div></div><div class="row"><b>Runner mode</b><div class="muted">${esc(s.runner?.mode||'adapter')}</div></div></section><section><div class="section-head"><h2>Editor</h2></div><div class="row">Font size: ${esc(s.editor?.font_size||13)}</div><div class="row">Tab size: ${esc(s.editor?.tab_size||2)}</div><div class="row">Autosave local: ${s.editor?.autosave_local?'on':'off'}</div><div class="row">Browser execution: ${s.runner?.allow_browser_code_execution?'on':'off'}</div></section></div><h2>Raw settings</h2><pre>${esc(JSON.stringify(s,null,2))}</pre>`}
+function listView(kind){const rows=items(kind);$('#crumb').textContent=`WORKBENCH / ${String(kind).toUpperCase()}`;$('#content').innerHTML=`<h1 class="title">${esc(kind)}</h1>${rows.map(x=>row(kind,x)).join('')||'<div class="empty-state">Nothing here yet.</div>'}`;bindRows()}
+function detail(kind,key){const x=(state.hub[kind]||[]).find(v=>itemKey(v)===key);if(!x)return;$('#crumb').textContent=`WORKBENCH / ${kind.toUpperCase()} / DETAIL`;$('#content').innerHTML=`<h1 class="title">${esc(labelOf(x))}</h1><p class="muted">${esc(x.repo_full_name||'')}</p><pre>${esc(JSON.stringify(x,null,2))}</pre>`}
+function repoView(id){const r=state.hub.repositories.find(x=>x.id===id);if(!r)return;state.repoFilter=id;renderTree();$('#crumb').textContent=`WORKBENCH / REPOSITORIES / ${r.full_name}`;$('#content').innerHTML=`<div class="hero"><div><h1 class="title">${esc(r.full_name)}</h1><p class="muted">${esc(r.description||'')}</p></div><div class="button-row"><a class="action-btn" target="_blank" rel="noopener" href="${safeUrl(r.url)}">GitHub</a><a class="secondary-btn" target="_blank" rel="noopener" href="${safeUrl('https://vscode.dev/github/'+r.full_name)}">VS Code for Web</a></div></div>${healthCards({health:r.health})}<h2>Snapshot</h2><pre>${esc(JSON.stringify({generated_at:r.generated_at,source_commit:r.source_commit,origin:r.snapshot_origin,health:r.health},null,2))}</pre>`}
+function bindRows(){document.querySelectorAll('[data-row-kind]').forEach(e=>e.onclick=()=>detail(e.dataset.rowKind,e.dataset.rowKey))}
+function bindRepos(){document.querySelectorAll('[data-repo]').forEach(e=>e.onclick=()=>repoView(e.dataset.repo))}
+function commands(){const list=[...VIEWS.map(v=>({label:`View: ${v}`,run:()=>setView(v)})),{label:'Repository Manager: connect repository',run:renderRepositoryManager},{label:'Editor: open scratch buffer',run:()=>setView('editor')},{label:'Run and Debug: Python adapter',run:()=>setView('run-debug')}];for(const r of state.hub?.repositories||[])list.push({label:`Repository: ${r.full_name}`,run:()=>repoView(r.id)});for(const t of state.hub?.workspace_tools||[])list.push({label:`Tool: ${t.name}`,run:()=>workspaceToolDetail(t.id)});return list}
+function palette(q){const rows=commands().filter(x=>x.label.toLowerCase().includes(q.toLowerCase())).slice(0,30);$('#paletteResults').innerHTML=rows.map((x,i)=>`<div class="palette-result" data-palette="${i}">${esc(x.label)}</div>`).join('');document.querySelectorAll('[data-palette]').forEach(e=>e.onclick=()=>{rows[+e.dataset.palette].run();closePalette()})}
+function openPalette(){$('#palette').classList.remove('hidden');$('#paletteInput').value='';palette('');$('#paletteInput').focus()}function closePalette(){$('#palette').classList.add('hidden')}
+document.querySelectorAll('.activity button[data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));$('#search').oninput=e=>{state.query=e.target.value;if(state.view!=='search'&&state.query)setView('search');else render()};$('#paletteBtn').onclick=openPalette;$('#paletteInput').oninput=e=>palette(e.target.value);$('#palette').onclick=e=>{if(e.target.id==='palette')closePalette()};$('#closePanel').onclick=()=>$('#bottomPanel').classList.add('hidden');document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openPalette()}if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'&&state.view==='editor'){e.preventDefault();localStorage.setItem('command-workbench-editor',$('#codeEditor')?.value||'');showOutput('Local editor buffer saved.')}if(e.key==='Escape')closePalette()});if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});boot();
