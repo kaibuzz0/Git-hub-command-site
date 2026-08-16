@@ -1,64 +1,107 @@
-# GitHub Command Site
+# GitHub Command Workbench
 
-A central, static, multi-repository command center for GitHub projects.
+A central, static, multi-repository command center and operator workspace for GitHub projects.
 
-The hub repository owns the **website code, snapshot contract, aggregate data model, sync logic, validation, and GitHub Pages deployment**. Connected repositories remain independent sources of truth and publish small bounded metadata snapshots that the hub can ingest.
+The hub owns the **VS Code-inspired workbench UI, snapshot contract, repository registry, sync logic, workspace tool registry, aggregation, validation, and GitHub Pages deployment**. Connected repositories remain independent sources of truth and publish bounded metadata snapshots that the hub can ingest.
 
-**Live command center:** https://kaibuzz0.github.io/Git-hub-command-site/
+**Live workbench:** https://kaibuzz0.github.io/Git-hub-command-site/
 
 ## Architecture
 
 ```text
-Connected repo A ─┐
-Connected repo B ─┼─> public repo snapshot ─> sync/validate ─> aggregate hub.json ─> static VS Code-style UI
-Connected repo C ─┘
+Connected repositories
+        │
+        ├─ canonical project state
+        ▼
+Bounded repository snapshots
+        │
+        ▼
+Registry + sync + validation
+        │
+        ▼
+Aggregate hub model
+        │
+        ├─ repository collections
+        ├─ health / freshness
+        ├─ workspace tools
+        └─ workspace settings
+        ▼
+VS Code-inspired Command Workbench
 ```
 
-A connected repository can publish `.command-site/repo-snapshot.json`, a Pages-hosted `data/repo-snapshot.json`, or another approved GitHub-hosted snapshot endpoint. The hub registry lives at `data/repositories.json`.
+The browser remains a static security boundary. It can search, inspect, edit browser-local scratch/config text, prepare repository connection plans, create trusted-runner request payloads, and open authorized GitHub/VS Code for Web sessions. It does **not** silently execute local Python, store GitHub credentials, or mutate repositories from remote snapshot data.
 
-The UI is generic. New repositories and normal additions to tools, toolsets, cases, opportunities, intelligence, sources, prompts, evidence, Agent Ops, and activity should appear from snapshot data without bespoke HTML edits.
+## Command Workbench surfaces
 
-## First connected repository
+The UI now follows the Microsoft VS Code workbench model with an Activity Bar and dedicated surfaces for:
 
-`kaibuzz0/cipher-solving-suite` is the first production spoke. Its normal Pages build generates a bounded snapshot from canonical repository state, and this hub successfully fetches it from:
+- Command Center / workspace health;
+- Explorer / connected repositories;
+- Search;
+- Source Control links and repository state;
+- Run and Debug;
+- browser-local Workbench Editor;
+- Workspace Tools;
+- Settings;
+- Command Palette (`Ctrl+K`);
+- bottom Output panel.
 
-`https://kaibuzz0.github.io/cipher-solving-suite/data/repo-snapshot.json`
+The canonical hub-owned tool registry lives at `data/workspace-tools.json`. Workspace settings live at `data/workspace-settings.json`.
 
-The first verified aggregate contained 11 tools, 1 toolset, 1 case, 21 opportunities, 6 intelligence records, 16 sources, 5 prompts, and 40 evidence records.
+## Repository Manager
 
-## Add another repository
-
-Generate a reusable onboarding kit:
+Plan a connection without modifying anything:
 
 ```bash
-python scripts/onboard_repository.py \
+python scripts/connect_repository.py \
   --repo-id my-repo \
   --full-name OWNER/REPOSITORY \
   --snapshot-url https://OWNER.github.io/REPOSITORY/data/repo-snapshot.json
 ```
 
-The generated kit contains the portable exporter, connector configuration, hub registry entry, and setup instructions. An authorized AI can adapt that exporter to the target repository's existing canonical data instead of inventing another database.
+Apply the hub-side integration explicitly:
 
-Then:
+```bash
+python scripts/connect_repository.py \
+  --repo-id my-repo \
+  --full-name OWNER/REPOSITORY \
+  --snapshot-url https://OWNER.github.io/REPOSITORY/data/repo-snapshot.json \
+  --apply
+```
 
-1. Read `docs/CONNECTED_REPOSITORY_PROTOCOL.md` and `docs/ARCHITECTURE_BLUEPRINT.md`.
-2. Copy/adapt the generated exporter in the connected repository.
-3. Publish a schema-v1 snapshot from canonical repository data.
-4. Add the generated registry entry to `data/repositories.json`.
-5. Run remote-registry and snapshot validation.
-6. Merge normally. The hub refresh workflow fetches registered snapshots and regenerates the static site.
+`--apply` generates the portable connector kit and adds the validated hub registry entry. The target repository still must be modified through its own authorized workflow. The generated integration plan makes those remaining steps explicit.
 
-Each registry entry can set `stale_after_hours`; the default is seven days. Aggregate health tracks stale repository snapshots instead of silently treating old data as current.
+For a new repository, add `--mode new`; for an existing repository, the default mode is `existing`.
 
-The hub also supports checked-in `data/repos/<repo-id>.json` last-known-good snapshots when a remote source is temporarily unavailable.
+## Trusted runner and Python debugging
+
+GitHub Pages cannot safely run a local Python debugger. Instead the Run and Debug surface prepares bounded requests following `docs/WORKSPACE_RUNNER_PROTOCOL.md`. An authorized local runner, GitHub Actions workflow, or repository-authorized AI can execute operations such as:
+
+- Python `pdb` debugging;
+- pytest;
+- compile checks;
+- builds and validation;
+- repository connection operations.
+
+The runner returns a bounded structured result which the workbench can display as data.
+
+## Connected repository contract
+
+A connected repository can publish `.command-site/repo-snapshot.json`, a Pages-hosted `data/repo-snapshot.json`, or another approved GitHub-hosted snapshot endpoint. The hub registry lives at `data/repositories.json`.
+
+Snapshots can contain tools, toolsets, cases, opportunities, intelligence, sources, prompts, evidence metadata, Agent Ops, activity, links, stats, and repository identity. They must not contain credentials, secrets, private keys, wallet seeds, private user data, unbounded file bodies, or uncontrolled scan output.
+
+`kaibuzz0/cipher-solving-suite` remains the first production spoke and proves the end-to-end snapshot flow.
 
 ## Development
 
 ```bash
 python -m pytest tests/ -vv --tb=short
+python -m py_compile scripts/*.py connectors/*.py
+node --check site/app.js
 python scripts/sync_repositories.py --validate
 python scripts/build_hub.py --validate
 python scripts/build_hub.py
 ```
 
-See `AGENTS.md` before making structural changes.
+Read `AGENTS.md`, `docs/ARCHITECTURE_BLUEPRINT.md`, and `docs/WORKSPACE_RUNNER_PROTOCOL.md` before structural changes.

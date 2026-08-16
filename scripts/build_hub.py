@@ -13,12 +13,11 @@ LOCAL_REPOS = ROOT / "data" / "repos"
 REMOTE_CACHE = ROOT / ".cache" / "repos"
 SYNC_STATUS = ROOT / ".cache" / "sync-status.json"
 REGISTRY = ROOT / "data" / "repositories.json"
+WORKSPACE_TOOLS = ROOT / "data" / "workspace-tools.json"
+WORKSPACE_SETTINGS = ROOT / "data" / "workspace-settings.json"
 OUT = ROOT / "site-data"
 DEFAULT_STALE_HOURS = 168
-COLLECTIONS = (
-    "tools", "toolsets", "cases", "opportunities", "intelligence",
-    "sources", "prompts", "evidence", "activity",
-)
+COLLECTIONS = ("tools", "toolsets", "cases", "opportunities", "intelligence", "sources", "prompts", "evidence", "activity")
 
 
 def load(path: Path) -> dict:
@@ -35,24 +34,17 @@ def parse_time(value: str) -> datetime | None:
 
 def validate(snapshot: dict, path: Path) -> list[str]:
     errors: list[str] = []
-    if snapshot.get("schema_version") != 1:
-        errors.append(f"{path}: schema_version must be 1")
+    if snapshot.get("schema_version") != 1: errors.append(f"{path}: schema_version must be 1")
     repo = snapshot.get("repo")
-    if not isinstance(repo, dict):
-        return errors + [f"{path}: missing repo object"]
+    if not isinstance(repo, dict): return errors + [f"{path}: missing repo object"]
     for field in ("id", "full_name", "url", "default_branch"):
         if not repo.get(field): errors.append(f"{path}: repo.{field} missing")
-    if repo.get("url") and urlparse(str(repo["url"])).scheme != "https":
-        errors.append(f"{path}: repo.url must use https")
-    if not snapshot.get("generated_at"):
-        errors.append(f"{path}: generated_at missing")
-    elif parse_time(snapshot["generated_at"]) is None:
-        errors.append(f"{path}: generated_at must be an ISO timestamp")
-    if not snapshot.get("source_commit"):
-        errors.append(f"{path}: source_commit missing")
+    if repo.get("url") and urlparse(str(repo["url"])).scheme != "https": errors.append(f"{path}: repo.url must use https")
+    if not snapshot.get("generated_at"): errors.append(f"{path}: generated_at missing")
+    elif parse_time(snapshot["generated_at"]) is None: errors.append(f"{path}: generated_at must be an ISO timestamp")
+    if not snapshot.get("source_commit"): errors.append(f"{path}: source_commit missing")
     for name in COLLECTIONS + ("links",):
-        if name in snapshot and not isinstance(snapshot[name], list):
-            errors.append(f"{path}: {name} must be an array")
+        if name in snapshot and not isinstance(snapshot[name], list): errors.append(f"{path}: {name} must be an array")
     if "agent_ops" in snapshot and not isinstance(snapshot["agent_ops"], dict): errors.append(f"{path}: agent_ops must be an object")
     if "stats" in snapshot and not isinstance(snapshot["stats"], dict): errors.append(f"{path}: stats must be an object")
     return errors
@@ -68,13 +60,11 @@ def snapshots() -> tuple[list[dict], list[str]]:
     errors, chosen = [], {}
     for path, origin in snapshot_files():
         try: doc = load(path)
-        except (OSError, json.JSONDecodeError) as exc:
-            errors.append(f"{path}: {exc}"); continue
+        except (OSError, json.JSONDecodeError) as exc: errors.append(f"{path}: {exc}"); continue
         item_errors = validate(doc, path); errors.extend(item_errors)
         if item_errors: continue
         rid = doc["repo"]["id"]
-        if rid in chosen and origin == "local":
-            errors.append(f"duplicate local repo id: {rid}"); continue
+        if rid in chosen and origin == "local": errors.append(f"duplicate local repo id: {rid}"); continue
         if rid not in chosen or origin == "remote": chosen[rid] = {**doc, "_snapshot_origin": origin}
     return list(chosen.values()), errors
 
@@ -91,34 +81,27 @@ def repo_health(doc: dict, now_dt: datetime, stale_hours: int) -> dict:
     generated = parse_time(doc.get("generated_at", ""))
     age_hours = round(max(0.0, (now_dt - generated).total_seconds() / 3600), 2) if generated else None
     stale = age_hours is None or age_hours > stale_hours
-    return {
-        "sources_due": int(stats.get("sources_due", 0) or 0),
-        "toolsets_needing_attention": int(stats.get("toolsets_needing_attention", 0) or 0),
-        "artifacts_review_before_move": int(stats.get("artifacts_review_before_move", 0) or 0),
-        "queue_p1": int(agent_summary.get("queue_p1", 0) or 0),
-        "integration_items": int(agent_summary.get("integration_items", 0) or 0),
-        "known_debt": int(agent_summary.get("known_debt", 0) or 0),
-        "snapshot_age_hours": age_hours,
-        "stale_after_hours": stale_hours,
-        "snapshot_stale": stale,
-    }
+    return {"sources_due":int(stats.get("sources_due",0) or 0),"toolsets_needing_attention":int(stats.get("toolsets_needing_attention",0) or 0),"artifacts_review_before_move":int(stats.get("artifacts_review_before_move",0) or 0),"queue_p1":int(agent_summary.get("queue_p1",0) or 0),"integration_items":int(agent_summary.get("integration_items",0) or 0),"known_debt":int(agent_summary.get("known_debt",0) or 0),"snapshot_age_hours":age_hours,"stale_after_hours":stale_hours,"snapshot_stale":stale}
+
+
+def workspace_data() -> tuple[list[dict], dict]:
+    tools_doc = load(WORKSPACE_TOOLS) if WORKSPACE_TOOLS.exists() else {"tools": []}
+    settings = load(WORKSPACE_SETTINGS) if WORKSPACE_SETTINGS.exists() else {}
+    tools = tools_doc.get("tools", []) if isinstance(tools_doc.get("tools"), list) else []
+    return tools, settings
 
 
 def aggregate(docs: list[dict]) -> dict:
-    now_dt = datetime.now(timezone.utc).replace(microsecond=0)
-    now = now_dt.isoformat().replace("+00:00", "Z")
-    thresholds = stale_thresholds()
-    result = {"schema_version":1,"generated_at":now,"repositories":[],"counts":{"repositories":len(docs)},"sync":{},"health":{
-        "sources_due":0,"toolsets_needing_attention":0,"artifacts_review_before_move":0,"queue_p1":0,"integration_items":0,"known_debt":0,"stale_repositories":0}}
+    now_dt = datetime.now(timezone.utc).replace(microsecond=0); now = now_dt.isoformat().replace("+00:00", "Z")
+    thresholds = stale_thresholds(); workbench_tools, settings = workspace_data()
+    result = {"schema_version":1,"generated_at":now,"repositories":[],"counts":{"repositories":len(docs),"workspace_tools":len(workbench_tools)},"sync":{},"workspace_tools":workbench_tools,"workspace_settings":settings,"health":{"sources_due":0,"toolsets_needing_attention":0,"artifacts_review_before_move":0,"queue_p1":0,"integration_items":0,"known_debt":0,"stale_repositories":0}}
     if SYNC_STATUS.exists():
         try: result["sync"] = load(SYNC_STATUS)
         except (OSError, json.JSONDecodeError): result["sync"] = {"status":"invalid-sync-report"}
-    for name in COLLECTIONS:
-        result[name]=[]; result["counts"][name]=0
+    for name in COLLECTIONS: result[name]=[]; result["counts"][name]=0
     for doc in sorted(docs,key=lambda d:d["repo"]["full_name"].lower()):
         repo=doc["repo"]; health=repo_health(doc,now_dt,thresholds.get(repo["id"],DEFAULT_STALE_HOURS))
-        for key in ("sources_due","toolsets_needing_attention","artifacts_review_before_move","queue_p1","integration_items","known_debt"):
-            result["health"][key]+=health[key]
+        for key in ("sources_due","toolsets_needing_attention","artifacts_review_before_move","queue_p1","integration_items","known_debt"): result["health"][key]+=health[key]
         result["health"]["stale_repositories"] += int(health["snapshot_stale"])
         result["repositories"].append({**repo,"generated_at":doc["generated_at"],"source_commit":doc["source_commit"],"snapshot_origin":doc.get("_snapshot_origin","local"),"stats":doc.get("stats",{}),"agent_ops":doc.get("agent_ops",{}),"health":health,"links":doc.get("links",[])})
         for name in COLLECTIONS:
@@ -128,15 +111,12 @@ def aggregate(docs: list[dict]) -> dict:
 
 
 def main() -> int:
-    p=argparse.ArgumentParser(); p.add_argument("--validate",action="store_true"); args=p.parse_args()
-    docs,errors=snapshots()
+    p=argparse.ArgumentParser(); p.add_argument("--validate",action="store_true"); args=p.parse_args(); docs,errors=snapshots()
     if errors: print("\n".join(errors)); return 1
     if args.validate: print(f"Valid snapshots: {len(docs)}"); return 0
-    OUT.mkdir(exist_ok=True); hub=aggregate(docs)
-    (OUT/"hub.json").write_text(json.dumps(hub,indent=2)+"\n",encoding="utf-8")
+    OUT.mkdir(exist_ok=True); hub=aggregate(docs); (OUT/"hub.json").write_text(json.dumps(hub,indent=2)+"\n",encoding="utf-8")
     for doc in docs:
         clean={k:v for k,v in doc.items() if not k.startswith("_")}; (OUT/f"repo-{doc['repo']['id']}.json").write_text(json.dumps(clean,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({"counts":hub["counts"],"health":hub["health"]},indent=2)); return 0
-
 
 if __name__=="__main__": raise SystemExit(main())

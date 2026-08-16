@@ -4,19 +4,18 @@
 
 - [x] Build and merge the multi-repo command-center foundation.
 - [x] Add remote snapshot synchronization, sync health, command palette and PWA groundwork.
-- [x] Merge the first production connected-repository exporter in `kaibuzz0/cipher-solving-suite` (PR #20).
-- [x] Publish the cipher command-site snapshot through its successful GitHub Pages build.
-- [x] Merge the main Command Center v2 data/UI architecture and first real repository registry entry (PR #4).
-- [x] Merge the remaining hub governance layer (PR #5).
-- [ ] Enable GitHub Pages once in this hub repository's settings using **Source: GitHub Actions**.
-- [ ] Verify live end-to-end hub sync from the published `cipher-solving-suite` snapshot into aggregate `hub.json` and the rendered UI.
+- [x] Connect and verify `kaibuzz0/cipher-solving-suite` as the first production spoke.
+- [x] Deploy the live central GitHub Pages command center.
+- [x] Add reusable onboarding kit generation and stale-snapshot health.
+- [ ] Validate and merge Command Workbench v3: VS Code-style operator shell, workspace tools, repository manager, editor, settings, and runner/debug adapter boundary.
+- [ ] Verify post-merge live Pages deployment with the production cipher snapshot and workspace tool registry.
 
 ## P2
 
-- [ ] Add repository-dispatch/GitHub App refresh so connected repo updates can trigger near-immediate hub rebuilds instead of waiting for schedule.
-- [ ] Add richer cross-repository relationships and saved workspace views.
-- [ ] Add optional GitHub PR/check/issue activity collectors without requiring browser-side API credentials.
-- [ ] Add stale-snapshot age thresholds and stronger health warnings.
-- [ ] Package the connected-repository exporter as a reusable toolset/template for fast onboarding of future repos.
-- [ ] Add a repository onboarding wizard/checklist in the command site documentation.
-- [ ] Add a last-known-good snapshot promotion workflow after a remote snapshot passes validation, without hiding later remote failures.
+- [ ] Add repository-dispatch or GitHub App refresh for near-immediate connected-repo rebuilds.
+- [ ] Add an authenticated trusted-runner transport for approved test/build/debug requests.
+- [ ] Add richer repository file metadata browsing and editor-to-authorized-write handoff.
+- [ ] Add optional GitHub PR/check/issue activity collectors without browser-side API credentials.
+- [ ] Add saved workspace layouts, tabs, and recently opened resources.
+- [ ] Add last-known-good snapshot promotion after successful validation without hiding later remote failures.
+- [ ] Add extension/tool contribution points that remain hub-owned and signed/allowlisted rather than executable snapshot content.
