@@ -4,10 +4,12 @@
 
 - [x] Build and merge the multi-repo command-center foundation.
 - [x] Add remote snapshot synchronization, sync health, command palette and PWA groundwork.
-- [ ] Merge the first production connected-repository exporter in `kaibuzz0/cipher-solving-suite`.
-- [ ] Merge Command Center v2 with the first real repository registry entry.
-- [ ] Enable GitHub Pages once in repository settings using **Source: GitHub Actions**.
-- [ ] Verify live end-to-end sync from `cipher-solving-suite` Pages snapshot into the hub UI.
+- [x] Merge the first production connected-repository exporter in `kaibuzz0/cipher-solving-suite` (PR #20).
+- [x] Publish the cipher command-site snapshot through its successful GitHub Pages build.
+- [x] Merge the main Command Center v2 data/UI architecture and first real repository registry entry (PR #4).
+- [ ] Merge the remaining governance reconciliation in hub PR #5.
+- [ ] Enable GitHub Pages once in this hub repository's settings using **Source: GitHub Actions**.
+- [ ] Verify live end-to-end hub sync from the published `cipher-solving-suite` snapshot into aggregate `hub.json` and the rendered UI.
 
 ## P2
 
@@ -17,3 +19,4 @@
 - [ ] Add stale-snapshot age thresholds and stronger health warnings.
 - [ ] Package the connected-repository exporter as a reusable toolset/template for fast onboarding of future repos.
 - [ ] Add a repository onboarding wizard/checklist in the command site documentation.
+- [ ] Add a last-known-good snapshot promotion workflow after a remote snapshot passes validation, without hiding later remote failures.
