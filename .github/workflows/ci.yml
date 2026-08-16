@@ -1,0 +1,35 @@
+name: Validate hub
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11','3.12','3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install pytest
+      - name: Run tests
+        run: python -m pytest tests/ -vv --tb=short --junitxml=test-results.xml
+      - name: Validate snapshots
+        run: python scripts/build_hub.py --validate
+      - name: Build aggregate data
+        run: python scripts/build_hub.py
+      - name: Upload diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hub-validation-${{ matrix.python-version }}
+          path: |
+            test-results.xml
+            site-data/
