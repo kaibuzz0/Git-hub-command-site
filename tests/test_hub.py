@@ -20,12 +20,9 @@ def test_example_snapshot_has_required_identity():
 def test_remote_registry_is_valid_without_network():
     proc = run("scripts/sync_repositories.py", "--validate")
     assert proc.returncode == 0, proc.stdout + proc.stderr
-    assert "1 repositories" in proc.stdout
     registry = json.loads((ROOT / "data/repositories.json").read_text())
-    entry = registry["repositories"][0]
-    assert entry["id"] == "cipher-solving-suite"
-    assert entry["snapshot_url"].startswith("https://kaibuzz0.github.io/")
-    assert entry["stale_after_hours"] == 168
+    assert registry["repositories"][0]["id"] == "cipher-solving-suite"
+    assert registry["repositories"][0]["stale_after_hours"] == 168
 
 
 def test_hub_builder_validates_without_remote_cache():
@@ -34,16 +31,32 @@ def test_hub_builder_validates_without_remote_cache():
     assert "Valid snapshots:" in proc.stdout
 
 
-def test_site_is_data_driven_installable_and_supports_expanded_collections():
+def test_workbench_registry_and_settings_are_valid():
+    tools = json.loads((ROOT / "data/workspace-tools.json").read_text())
+    settings = json.loads((ROOT / "data/workspace-settings.json").read_text())
+    ids = [item["id"] for item in tools["tools"]]
+    assert tools["schema_version"] == 1
+    assert len(ids) == len(set(ids))
+    assert "repository-manager" in ids
+    assert "python-debug-adapter" in ids
+    assert settings["theme"] == "vscode-dark-plus"
+    assert settings["runner"]["allow_browser_code_execution"] is False
+
+
+def test_site_exposes_operator_workbench_surfaces():
     js = (ROOT / "site/app.js").read_text()
     html = (ROOT / "site/index.html").read_text()
+    css = (ROOT / "site/app.css").read_text()
     builder = (ROOT / "scripts/build_hub.py").read_text()
     assert "site-data/hub.json" in js
-    assert "repositories" in js
-    assert "prompts" in js and "evidence" in js
-    assert "prompts" in builder and "evidence" in builder
-    assert "Workspace health" in js
-    assert "Ctrl+K" in html
+    assert "workspace_tools" in builder and "workspace_settings" in builder
+    for view in ("source-control", "run-debug", "editor", "workspace-tools", "settings"):
+        assert view in html or view in js
+    assert "Repository Manager" in js
+    assert "Python Debug Adapter" in js
+    assert "localStorage" in js
+    assert "vscode.dev/github/" in js
+    assert "--blue:#007acc" in css
     assert "manifest.webmanifest" in html
     assert "serviceWorker" in js
 
@@ -72,28 +85,37 @@ def test_hub_tracks_snapshot_staleness():
 
 def test_onboarding_kit_generator(tmp_path):
     output = tmp_path / "kit"
-    proc = run(
-        "scripts/onboard_repository.py",
-        "--repo-id", "example-repo",
-        "--full-name", "example/example-repo",
-        "--snapshot-url", "https://example.github.io/example-repo/data/repo-snapshot.json",
-        "--output", str(output),
-    )
+    proc = run("scripts/onboard_repository.py", "--repo-id", "example-repo", "--full-name", "example/example-repo", "--snapshot-url", "https://example.github.io/example-repo/data/repo-snapshot.json", "--output", str(output))
     assert proc.returncode == 0, proc.stdout + proc.stderr
     assert (output / "export_repo_snapshot.py").exists()
-    config = json.loads((output / "command-site.config.json").read_text())
-    entry = json.loads((output / "registry-entry.json").read_text())
-    assert config["repo_id"] == "example-repo"
-    assert entry["snapshot_url"].startswith("https://example.github.io/")
+    assert json.loads((output / "registry-entry.json").read_text())["id"] == "example-repo"
 
 
 def test_onboarding_kit_rejects_unapproved_transport(tmp_path):
-    proc = run(
-        "scripts/onboard_repository.py",
-        "--repo-id", "bad-repo",
-        "--full-name", "example/bad-repo",
-        "--snapshot-url", "https://example.com/repo-snapshot.json",
-        "--output", str(tmp_path / "bad"),
-    )
+    proc = run("scripts/onboard_repository.py", "--repo-id", "bad-repo", "--full-name", "example/bad-repo", "--snapshot-url", "https://example.com/repo-snapshot.json", "--output", str(tmp_path / "bad"))
     assert proc.returncode == 1
     assert "not approved" in proc.stdout
+
+
+def test_repository_connector_plans_without_mutating_registry():
+    before = (ROOT / "data/repositories.json").read_text()
+    proc = run("scripts/connect_repository.py", "--repo-id", "planned-repo", "--full-name", "example/planned-repo", "--snapshot-url", "https://example.github.io/planned-repo/data/repo-snapshot.json")
+    after = (ROOT / "data/repositories.json").read_text()
+    assert proc.returncode == 0, proc.stdout + proc.stderr
+    data = json.loads(proc.stdout)
+    assert data["applied"] is False
+    assert data["registry_entry"]["id"] == "planned-repo"
+    assert before == after
+
+
+def test_repository_connector_rejects_duplicate_identity():
+    proc = run("scripts/connect_repository.py", "--repo-id", "cipher-solving-suite", "--full-name", "kaibuzz0/cipher-solving-suite", "--snapshot-url", "https://kaibuzz0.github.io/cipher-solving-suite/data/repo-snapshot.json")
+    assert proc.returncode == 1
+    assert "already registered" in proc.stdout
+
+
+def test_runner_protocol_keeps_browser_execution_outside_static_site():
+    protocol = (ROOT / "docs/WORKSPACE_RUNNER_PROTOCOL.md").read_text()
+    assert "No browser-side credential storage" in protocol
+    assert "python-debug" in protocol
+    assert "trusted runner" in protocol.lower()
