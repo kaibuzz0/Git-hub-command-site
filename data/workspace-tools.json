@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "tools": [
+    {
+      "id": "repository-manager",
+      "name": "Repository Manager",
+      "category": "management",
+      "status": "ready",
+      "execution": "local-or-authorized-agent",
+      "description": "Plan and apply the hub side of connecting a new or existing repository, generate its connector kit, and register its snapshot endpoint.",
+      "entrypoint": "python scripts/connect_repository.py",
+      "capabilities": ["plan", "generate-connector-kit", "register", "validate-identity", "emit-handoff-plan"]
+    },
+    {
+      "id": "snapshot-sync",
+      "name": "Snapshot Sync",
+      "category": "operations",
+      "status": "ready",
+      "execution": "github-actions-or-local",
+      "description": "Fetch bounded public repository snapshots, validate identity and transport, and expose sync health.",
+      "entrypoint": "python scripts/sync_repositories.py",
+      "capabilities": ["validate-registry", "fetch", "identity-check", "bounded-transport", "sync-health"]
+    },
+    {
+      "id": "hub-builder",
+      "name": "Hub Builder",
+      "category": "operations",
+      "status": "ready",
+      "execution": "github-actions-or-local",
+      "description": "Validate connected snapshots and aggregate repository data, health, workspace tools, and settings into the static command-center model.",
+      "entrypoint": "python scripts/build_hub.py",
+      "capabilities": ["validate", "aggregate", "freshness-health", "site-data"]
+    },
+    {
+      "id": "workbench-editor",
+      "name": "Workbench Editor",
+      "category": "development",
+      "status": "ready",
+      "execution": "browser-local",
+      "description": "VS Code-inspired local scratch/config editor. Content stays in browser localStorage unless explicitly copied into an authorized workflow.",
+      "capabilities": ["text-edit", "autosave-local", "json-config", "markdown", "python", "copy-buffer"]
+    },
+    {
+      "id": "python-debug-adapter",
+      "name": "Python Debug Adapter",
+      "category": "development",
+      "status": "adapter-ready",
+      "execution": "local-or-authorized-agent",
+      "description": "Defines a bounded launch/debug request contract for a trusted runner. Static GitHub Pages never executes local Python itself.",
+      "protocol": "docs/WORKSPACE_RUNNER_PROTOCOL.md",
+      "capabilities": ["launch-spec", "pdb", "pytest", "py-compile", "structured-result"]
+    },
+    {
+      "id": "browser-vscode",
+      "name": "Open in VS Code for Web",
+      "category": "development",
+      "status": "ready",
+      "execution": "external-browser-ide",
+      "description": "Open a connected GitHub repository in Microsoft's browser-based VS Code surface for full file navigation and editing under the user's GitHub authorization.",
+      "capabilities": ["vscode.dev", "repository-open", "authorized-editing"]
+    },
+    {
+      "id": "command-palette",
+      "name": "Command Palette",
+      "category": "navigation",
+      "status": "ready",
+      "execution": "browser-local",
+      "description": "Keyboard-first navigation and workbench command discovery.",
+      "capabilities": ["ctrl-k", "view-navigation", "repo-navigation", "tool-launch"]
+    }
+  ]
+}
