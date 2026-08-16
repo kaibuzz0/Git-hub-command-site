@@ -18,7 +18,7 @@ REGISTRY = ROOT / "data" / "repositories.json"
 CACHE = ROOT / ".cache" / "repos"
 STATUS = ROOT / ".cache" / "sync-status.json"
 MAX_BYTES = 2_000_000
-ALLOWED_HOSTS = {"raw.githubusercontent.com"}
+STATIC_HOSTS = {"raw.githubusercontent.com"}
 
 
 def now_iso() -> str:
@@ -32,6 +32,12 @@ def load_registry() -> dict:
     return data
 
 
+def approved_host(hostname: str | None) -> bool:
+    if not hostname:
+        return False
+    return hostname in STATIC_HOSTS or hostname.endswith(".github.io")
+
+
 def validate_entry(entry: dict) -> list[str]:
     errors = []
     for field in ("id", "snapshot_url"):
@@ -41,24 +47,27 @@ def validate_entry(entry: dict) -> list[str]:
     parsed = urlparse(url)
     if parsed.scheme != "https":
         errors.append("snapshot_url must use https")
-    if parsed.hostname not in ALLOWED_HOSTS:
-        errors.append(f"snapshot_url host must be one of {sorted(ALLOWED_HOSTS)}")
+    if not approved_host(parsed.hostname):
+        errors.append("snapshot_url host must be raw.githubusercontent.com or a public *.github.io host")
     return errors
 
 
 def fetch_json(url: str) -> dict:
     req = Request(url, headers={"User-Agent": "github-command-site/1"})
     with urlopen(req, timeout=20) as response:
+        content_type = response.headers.get("Content-Type", "")
         raw = response.read(MAX_BYTES + 1)
     if len(raw) > MAX_BYTES:
         raise ValueError("snapshot exceeds 2 MB limit")
+    if content_type and "json" not in content_type and "text/plain" not in content_type and "octet-stream" not in content_type:
+        raise ValueError(f"unexpected snapshot content type: {content_type}")
     return json.loads(raw.decode("utf-8"))
 
 
 def main() -> int:
-    p = argparse.ArgumentParser()
-    p.add_argument("--validate", action="store_true", help="validate registry without network access")
-    args = p.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--validate", action="store_true", help="validate registry without network access")
+    args = parser.parse_args()
     registry = load_registry()
     seen = set()
     problems = []
@@ -67,7 +76,7 @@ def main() -> int:
         if rid in seen:
             problems.append(f"duplicate registry id: {rid}")
         seen.add(rid)
-        problems.extend(f"{rid or '<unknown>'}: {e}" for e in validate_entry(entry))
+        problems.extend(f"{rid or '<unknown>'}: {error}" for error in validate_entry(entry))
     if problems:
         print("\n".join(problems))
         return 1
@@ -88,7 +97,13 @@ def main() -> int:
             if snapshot_id != rid:
                 raise ValueError(f"snapshot repo.id {snapshot_id!r} does not match registry id {rid!r}")
             (CACHE / f"{rid}.json").write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
-            results.append({"id": rid, "status": "fetched", "snapshot_url": entry["snapshot_url"]})
+            results.append({
+                "id": rid,
+                "status": "fetched",
+                "snapshot_url": entry["snapshot_url"],
+                "source_commit": doc.get("source_commit", ""),
+                "generated_at": doc.get("generated_at", ""),
+            })
         except Exception as exc:  # collection failures are surfaced as status, not hidden
             results.append({"id": rid, "status": "error", "error": str(exc), "snapshot_url": entry["snapshot_url"]})
     report = {"generated_at": now_iso(), "results": results}

@@ -1,5 +1,15 @@
 {
   "schema_version": 1,
   "notice": "Register public remote repository snapshots here. This file stores connection metadata, not repository contents or credentials.",
-  "repositories": []
+  "repositories": [
+    {
+      "id": "cipher-solving-suite",
+      "snapshot_url": "https://kaibuzz0.github.io/cipher-solving-suite/data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "cipher-solving-suite",
+      "transport": "github-pages",
+      "notes": "First production spoke. Snapshot is regenerated from canonical repository data during the cipher-solving-suite Pages build."
+    }
+  ]
 }

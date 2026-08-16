@@ -17,7 +17,8 @@
         "url": {"type": "string", "pattern": "^https://"},
         "default_branch": {"type": "string", "minLength": 1},
         "description": {"type": "string"},
-        "visibility": {"type": "string"}
+        "visibility": {"type": "string"},
+        "pages_url": {"type": "string", "pattern": "^https://"}
       },
       "additionalProperties": true
     },
@@ -28,6 +29,8 @@
     "opportunities": {"type": "array", "items": {"type": "object"}},
     "intelligence": {"type": "array", "items": {"type": "object"}},
     "sources": {"type": "array", "items": {"type": "object"}},
+    "prompts": {"type": "array", "items": {"type": "object"}},
+    "evidence": {"type": "array", "items": {"type": "object"}},
     "agent_ops": {"type": "object"},
     "activity": {"type": "array", "items": {"type": "object"}},
     "links": {"type": "array", "items": {"type": "object"}}
