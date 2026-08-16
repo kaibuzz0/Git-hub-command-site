@@ -13,7 +13,17 @@ LOCAL_REPOS = ROOT / "data" / "repos"
 REMOTE_CACHE = ROOT / ".cache" / "repos"
 SYNC_STATUS = ROOT / ".cache" / "sync-status.json"
 OUT = ROOT / "site-data"
-COLLECTIONS = ("tools", "toolsets", "cases", "opportunities", "intelligence", "sources", "activity")
+COLLECTIONS = (
+    "tools",
+    "toolsets",
+    "cases",
+    "opportunities",
+    "intelligence",
+    "sources",
+    "prompts",
+    "evidence",
+    "activity",
+)
 
 
 def load(path: Path) -> dict:
@@ -36,9 +46,13 @@ def validate(snapshot: dict, path: Path) -> list[str]:
         errors.append(f"{path}: generated_at missing")
     if not snapshot.get("source_commit"):
         errors.append(f"{path}: source_commit missing")
-    for name in COLLECTIONS:
+    for name in COLLECTIONS + ("links",):
         if name in snapshot and not isinstance(snapshot[name], list):
             errors.append(f"{path}: {name} must be an array")
+    if "agent_ops" in snapshot and not isinstance(snapshot["agent_ops"], dict):
+        errors.append(f"{path}: agent_ops must be an object")
+    if "stats" in snapshot and not isinstance(snapshot["stats"], dict):
+        errors.append(f"{path}: stats must be an object")
     return errors
 
 
@@ -71,9 +85,36 @@ def snapshots() -> tuple[list[dict], list[str]]:
     return list(chosen.values()), errors
 
 
+def repo_health(doc: dict) -> dict:
+    stats = doc.get("stats", {}) if isinstance(doc.get("stats"), dict) else {}
+    agent_summary = doc.get("agent_ops", {}).get("summary", {}) if isinstance(doc.get("agent_ops"), dict) else {}
+    return {
+        "sources_due": int(stats.get("sources_due", 0) or 0),
+        "toolsets_needing_attention": int(stats.get("toolsets_needing_attention", 0) or 0),
+        "artifacts_review_before_move": int(stats.get("artifacts_review_before_move", 0) or 0),
+        "queue_p1": int(agent_summary.get("queue_p1", 0) or 0),
+        "integration_items": int(agent_summary.get("integration_items", 0) or 0),
+        "known_debt": int(agent_summary.get("known_debt", 0) or 0),
+    }
+
+
 def aggregate(docs: list[dict]) -> dict:
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
-    result = {"schema_version": 1, "generated_at": now, "repositories": [], "counts": {"repositories": len(docs)}, "sync": {}}
+    result = {
+        "schema_version": 1,
+        "generated_at": now,
+        "repositories": [],
+        "counts": {"repositories": len(docs)},
+        "sync": {},
+        "health": {
+            "sources_due": 0,
+            "toolsets_needing_attention": 0,
+            "artifacts_review_before_move": 0,
+            "queue_p1": 0,
+            "integration_items": 0,
+            "known_debt": 0,
+        },
+    }
     if SYNC_STATUS.exists():
         try:
             result["sync"] = load(SYNC_STATUS)
@@ -84,7 +125,21 @@ def aggregate(docs: list[dict]) -> dict:
         result["counts"][name] = 0
     for doc in sorted(docs, key=lambda d: d["repo"]["full_name"].lower()):
         repo = doc["repo"]
-        result["repositories"].append({**repo, "generated_at": doc["generated_at"], "source_commit": doc["source_commit"], "snapshot_origin": doc.get("_snapshot_origin", "local"), "stats": doc.get("stats", {}), "agent_ops": doc.get("agent_ops", {})})
+        health = repo_health(doc)
+        for key, value in health.items():
+            result["health"][key] += value
+        result["repositories"].append(
+            {
+                **repo,
+                "generated_at": doc["generated_at"],
+                "source_commit": doc["source_commit"],
+                "snapshot_origin": doc.get("_snapshot_origin", "local"),
+                "stats": doc.get("stats", {}),
+                "agent_ops": doc.get("agent_ops", {}),
+                "health": health,
+                "links": doc.get("links", []),
+            }
+        )
         for name in COLLECTIONS:
             for item in doc.get(name, []):
                 result[name].append({"repo_id": repo["id"], "repo_full_name": repo["full_name"], **item})
@@ -93,9 +148,9 @@ def aggregate(docs: list[dict]) -> dict:
 
 
 def main() -> int:
-    p = argparse.ArgumentParser()
-    p.add_argument("--validate", action="store_true")
-    args = p.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--validate", action="store_true")
+    args = parser.parse_args()
     docs, errors = snapshots()
     if errors:
         print("\n".join(errors))
@@ -109,7 +164,7 @@ def main() -> int:
     for doc in docs:
         clean = {k: v for k, v in doc.items() if not k.startswith("_")}
         (OUT / f"repo-{doc['repo']['id']}.json").write_text(json.dumps(clean, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps(hub["counts"], indent=2))
+    print(json.dumps({"counts": hub["counts"], "health": hub["health"]}, indent=2))
     return 0
 
 
