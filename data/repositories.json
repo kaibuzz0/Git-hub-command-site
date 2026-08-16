@@ -9,7 +9,8 @@
       "owner": "kaibuzz0",
       "repository": "cipher-solving-suite",
       "transport": "github-pages",
-      "notes": "First production spoke. Snapshot is regenerated from canonical repository data during the cipher-solving-suite Pages build."
+      "stale_after_hours": 168,
+      "notes": "First production spoke. Snapshot is regenerated from canonical repository data during the cipher-solving-suite Pages build. Flag as stale if no fresh snapshot has been published for seven days."
     }
   ]
 }
