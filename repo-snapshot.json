@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T00:01:00Z",
-  "source_commit": "30c82cbb776d1ae4635f2e2a2bcfe89276b7cd24",
+  "generated_at": "2026-08-17T00:03:28Z",
+  "source_commit": "74acc5cecee367d6c153c99b82b9a77acd2843b1",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -25,6 +25,34 @@
   "evidence": [],
   "agent_ops": {},
   "activity": [
+    {
+      "id": "74acc5cecee367d6c153c99b82b9a77acd2843b1",
+      "type": "commit",
+      "title": "Merge pull request #11 from kaibuzz0/feature/register-public-fleet",
+      "timestamp": "2026-08-16T19:03:20-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/74acc5cecee367d6c153c99b82b9a77acd2843b1"
+    },
+    {
+      "id": "af33e156408b5d184cbe8e22a000ca1bc97575d1",
+      "type": "commit",
+      "title": "Ops: hand off public fleet integration",
+      "timestamp": "2026-08-16T19:02:36-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/af33e156408b5d184cbe8e22a000ca1bc97575d1"
+    },
+    {
+      "id": "8fcfa23bb399f23e6f442ab45586233d217472ab",
+      "type": "commit",
+      "title": "Ops: record fleet connector rollout",
+      "timestamp": "2026-08-16T19:02:09-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8fcfa23bb399f23e6f442ab45586233d217472ab"
+    },
+    {
+      "id": "243053d447d154219724d421fc05e76261d606f6",
+      "type": "commit",
+      "title": "Fleet: register public repository snapshots",
+      "timestamp": "2026-08-16T19:01:39-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/243053d447d154219724d421fc05e76261d606f6"
+    },
     {
       "id": "30c82cbb776d1ae4635f2e2a2bcfe89276b7cd24",
       "type": "commit",
@@ -66,34 +94,6 @@
       "title": "Record green PR 9 validation",
       "timestamp": "2026-08-16T18:48:51-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/09a88a11344be13ef19a3dc2155c97fbc11b0978"
-    },
-    {
-      "id": "9d4db330260ef362a5788aabcacdb601be2cfadd",
-      "type": "commit",
-      "title": "Record green Command Workbench v3 validation",
-      "timestamp": "2026-08-16T18:48:39-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9d4db330260ef362a5788aabcacdb601be2cfadd"
-    },
-    {
-      "id": "0b0759f1e933fec133c78a16f15a24e747e16817",
-      "type": "commit",
-      "title": "Extend agent contract for workbench tools and runner boundary",
-      "timestamp": "2026-08-16T18:47:43-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/0b0759f1e933fec133c78a16f15a24e747e16817"
-    },
-    {
-      "id": "b0abe0e34a83a7ce4284a5fe4b89593b74695caf",
-      "type": "commit",
-      "title": "Record Command Workbench v3 handoff",
-      "timestamp": "2026-08-16T18:47:29-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/b0abe0e34a83a7ce4284a5fe4b89593b74695caf"
-    },
-    {
-      "id": "b5c31cdda145ef04ce10fa44d9f7d0bd919fade7",
-      "type": "commit",
-      "title": "Advance work queue for operator workbench",
-      "timestamp": "2026-08-16T18:47:16-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/b5c31cdda145ef04ce10fa44d9f7d0bd919fade7"
     }
   ],
   "links": [
