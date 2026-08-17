@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T01:31:46Z",
-  "source_commit": "f243c77186f225b9486276ee8ef44595a877a13e",
+  "generated_at": "2026-08-17T01:33:23Z",
+  "source_commit": "b91e8290dc4e7d597f6ecf0ff2db48cd169079b7",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -357,6 +357,27 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "b91e8290dc4e7d597f6ecf0ff2db48cd169079b7",
+      "type": "commit",
+      "title": "Merge pull request #28 from kaibuzz0/docs/workbench-v5-complete",
+      "timestamp": "2026-08-16T20:33:16-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/b91e8290dc4e7d597f6ecf0ff2db48cd169079b7"
+    },
+    {
+      "id": "4c75b4d4ab17bc7f6b36a0dcc3934193e9aa3bd1",
+      "type": "commit",
+      "title": "Docs: record deployed Workbench v5",
+      "timestamp": "2026-08-16T20:33:10-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/4c75b4d4ab17bc7f6b36a0dcc3934193e9aa3bd1"
+    },
+    {
+      "id": "6290c8b2b0c7b77b0ab4bd369e84514f8529fc34",
+      "type": "commit",
+      "title": "Docs: mark Workbench v5 complete",
+      "timestamp": "2026-08-16T20:32:53-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/6290c8b2b0c7b77b0ab4bd369e84514f8529fc34"
+    },
+    {
       "id": "f243c77186f225b9486276ee8ef44595a877a13e",
       "type": "commit",
       "title": "Merge pull request #27 from kaibuzz0/feature/workbench-v5-splits",
@@ -404,27 +425,6 @@
       "title": "Tests: cover split workspace and layout tools",
       "timestamp": "2026-08-16T20:28:27-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/39361003d886af92ffc494eef21afc39b9ff99d2"
-    },
-    {
-      "id": "2ac6d26becf2dd965d0df3eaf790fba25d29ca6a",
-      "type": "commit",
-      "title": "CI: validate Workbench v5 JavaScript",
-      "timestamp": "2026-08-16T20:28:14-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/2ac6d26becf2dd965d0df3eaf790fba25d29ca6a"
-    },
-    {
-      "id": "014236587602e7bb9ceda0c5b5593c8d899754cd",
-      "type": "commit",
-      "title": "Workbench: wire split workspace layer",
-      "timestamp": "2026-08-16T20:27:56-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/014236587602e7bb9ceda0c5b5593c8d899754cd"
-    },
-    {
-      "id": "a561f136ff382d558115d60e8bae92d2422510b0",
-      "type": "commit",
-      "title": "Workbench: add split editor and saved layout controller",
-      "timestamp": "2026-08-16T20:27:36-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a561f136ff382d558115d60e8bae92d2422510b0"
     }
   ],
   "links": [
