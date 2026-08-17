@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T01:03:59Z",
-  "source_commit": "e0db80146f4576464df4ba2f0ca5cd65616b9c87",
+  "generated_at": "2026-08-17T01:05:50Z",
+  "source_commit": "97664f2e532ab8c0270939c9c9d4b0bdecd9638e",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -327,6 +327,20 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "97664f2e532ab8c0270939c9c9d4b0bdecd9638e",
+      "type": "commit",
+      "title": "Merge pull request #21 from kaibuzz0/fix/generated-sites-private-invariant",
+      "timestamp": "2026-08-16T20:05:42-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/97664f2e532ab8c0270939c9c9d4b0bdecd9638e"
+    },
+    {
+      "id": "247b47a147314439f7995381fa4d373a93219d66",
+      "type": "commit",
+      "title": "Fix: preserve private Pages safety invariant",
+      "timestamp": "2026-08-16T20:04:59-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/247b47a147314439f7995381fa4d373a93219d66"
+    },
+    {
       "id": "e0db80146f4576464df4ba2f0ca5cd65616b9c87",
       "type": "commit",
       "title": "Merge pull request #20 from kaibuzz0/docs/fleet-mini-sites-state",
@@ -381,20 +395,6 @@
       "title": "CI: validate fleet repository mini-sites",
       "timestamp": "2026-08-16T19:57:40-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/2dac15133c1639083d42e65e5d5082ca0ecf50e1"
-    },
-    {
-      "id": "047ce64ad8bdb3324fc4ea1809336a44c6d8eee9",
-      "type": "commit",
-      "title": "Sites: generate all repository mini-sites in hub Pages",
-      "timestamp": "2026-08-16T19:57:23-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/047ce64ad8bdb3324fc4ea1809336a44c6d8eee9"
-    },
-    {
-      "id": "c1a2f14c3182c2b56e5471d6d53de573d13f96e0",
-      "type": "commit",
-      "title": "Merge pull request #18 from kaibuzz0/feature/fleet-mini-sites",
-      "timestamp": "2026-08-16T19:57:12-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c1a2f14c3182c2b56e5471d6d53de573d13f96e0"
     }
   ],
   "links": [
