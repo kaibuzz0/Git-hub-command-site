@@ -17,6 +17,25 @@ if str(ROOT) not in sys.path:
 from connectors.build_repo_site import load_snapshot, write_site
 
 ID_RE = re.compile(r"^[A-Za-z0-9._-]+$")
+EXTRA_CSS = ROOT / "site" / "repo_workspace_v2.css"
+EXTRA_JS = ROOT / "site" / "repo_workspace_v2.js"
+
+
+def install_workspace_tools(target: Path) -> None:
+    """Layer hub-owned interactive tooling onto one generated public mini-site."""
+    if not EXTRA_CSS.exists() or not EXTRA_JS.exists():
+        raise SystemExit("repository workspace enhancement assets are missing")
+    shutil.copy2(EXTRA_CSS, target / EXTRA_CSS.name)
+    shutil.copy2(EXTRA_JS, target / EXTRA_JS.name)
+    index = target / "index.html"
+    text = index.read_text(encoding="utf-8")
+    css_tag = f'<link rel="stylesheet" href="{EXTRA_CSS.name}">'
+    js_tag = f'<script src="{EXTRA_JS.name}"></script>'
+    if css_tag not in text:
+        text = text.replace("</head>", css_tag + "</head>")
+    if js_tag not in text:
+        text = text.replace("</body>", js_tag + "</body>")
+    index.write_text(text, encoding="utf-8")
 
 
 def main() -> int:
@@ -39,6 +58,7 @@ def main() -> int:
             raise SystemExit(f"unsafe repository id in {path.name}: {rid!r}")
         target = output / rid
         write_site(snapshot, target)
+        install_workspace_tools(target)
         rows.append((rid, str(repo.get("full_name") or rid), snapshot.get("generated_at") or ""))
 
     links = "\n".join(
