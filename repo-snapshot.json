@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T09:12:03Z",
-  "source_commit": "c7459f95ae820ec3be12aa6829ba90f40d5a9b30",
+  "generated_at": "2026-08-17T09:12:47Z",
+  "source_commit": "c5fdabd2d85ac24513af2c60c90bc0b305e83076",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -487,6 +487,13 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "c5fdabd2d85ac24513af2c60c90bc0b305e83076",
+      "type": "commit",
+      "title": "Fix active context access to global lexical state",
+      "timestamp": "2026-08-17T04:12:39-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c5fdabd2d85ac24513af2c60c90bc0b305e83076"
+    },
+    {
       "id": "c7459f95ae820ec3be12aa6829ba90f40d5a9b30",
       "type": "commit",
       "title": "Merge pull request #42 from kaibuzz0/feature/active-context-cyber-workbenchno",
@@ -548,13 +555,6 @@
       "title": "Repo sites: inject vibrant theme and triage tools",
       "timestamp": "2026-08-17T03:52:09-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/000896231a18e71a4ba5c3675037285b4206e085"
-    },
-    {
-      "id": "9ee53ec1b3473430404f5b9128324d513bfd815f",
-      "type": "commit",
-      "title": "Theme: load vibrant workbench skin",
-      "timestamp": "2026-08-17T03:51:42-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9ee53ec1b3473430404f5b9128324d513bfd815f"
     }
   ],
   "links": [
