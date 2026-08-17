@@ -1,9 +1,22 @@
 {
-  "name": "GitHub Command Site",
-  "short_name": "GitHub Command",
+  "id": "./",
+  "name": "GitHub Command Workbench",
+  "short_name": "Command OS",
+  "description": "Jet-black multi-repository GitHub command operating workspace",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#181818",
-  "theme_color": "#181818",
-  "description": "Static multi-repository GitHub command center"
+  "display_override": ["window-controls-overlay", "standalone"],
+  "orientation": "any",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "categories": ["developer", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "icons/command-os.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
