@@ -4,14 +4,22 @@ Append concise, truthful handoffs here when material state changes.
 
 Each entry should include: date/time, branch/PR, objective, files changed, validations, risks, and exact next action.
 
+### 2026-08-17 01:32 UTC — ChatGPT / Workbench v5 deployed
+- **Branch / PR:** PR #27 merged to `main` as `f243c77186f225b9486276ee8ef44595a877a13e`.
+- **Objective:** complete the composable single-page multi-repository workspace with split editor groups and reusable saved layouts.
+- **Verification:** PR #27 passed Python 3.11/3.12/3.13; each job passed JavaScript syntax checks including `site/workbench_v5.js`, pytest, remote-registry validation, snapshot validation, aggregate build, and generated mini-site build. The post-merge Pages run passed public snapshot fetch/validation, aggregate generation, mini-site generation, artifact upload, and final deployment.
+- **Capabilities now live:** split right/down/single editor modes; second resource group; exact-commit bounded README preview; browser-local unified-diff review; embedded central-hosted Repo Site; Coding/Research/Repo Review/Focus presets; custom browser-local layouts; tab drag/reorder; all v4 resizing, Inspector, whiteboard, Monaco/editor, Explorer and update checks remain available.
+- **Integrity:** private repositories remain outside the public registry/Pages output; no browser GitHub credentials, privileged writes, or arbitrary execution were introduced.
+- **Next action:** build richer document composition and review surfaces (Markdown/source side-by-side, recent resources, search-result tabs, and public commit/PR/check context) as shared panels instead of new fixed pages.
+
 ### 2026-08-17 01:23 UTC — ChatGPT / Workbench v5 split workspace
-- **Branch / PR:** `feature/workbench-v5-splits`; PR pending validation/creation at time of this handoff.
+- **Branch / PR:** `feature/workbench-v5-splits`; superseded by the completed deployment handoff above.
 - **Objective:** turn the Command Center into a composable single-page multi-repository workspace with true split editor groups and reusable layouts rather than fixed full-page views.
 - **Changed:** added `site/workbench_v5.js` and `site/workbench_v5.css`; wired v5 into `site/index.html`; extended CI JavaScript syntax validation; added `tests/test_workbench_v5.py`; updated work queue/current state.
 - **Capabilities:** split right/down editor groups; second resource group; exact-commit bounded README preview; browser-local unified-diff review; embedded central-hosted repo workspace; Coding/Research/Repo Review/Focus presets; custom browser-local saved layouts; drag/reorder tab behavior; existing v4 resizable sidebar/inspector/output, Monaco/editor, whiteboard, Explorer, and update checks remain intact.
 - **Integrity:** no browser GitHub token storage, privileged repository write path, arbitrary code execution, or private-repository publication was added. README preview uses public raw GitHub at the snapshot `source_commit` and enforces a 512 KiB limit; scratch diffs/layouts remain localStorage data.
-- **Verification:** pending CI on the feature branch. Required validation is `node --check site/workbench_v5.js`, pytest, registry/snapshot validation, aggregate build, and generated mini-site build on Python 3.11/3.12/3.13.
-- **Next action:** run/inspect CI, fix only real v5 failures, merge when green, verify production Pages deployment, then advance document composition (Markdown/source side-by-side, PR/commit/check review surfaces, and recently opened resources).
+- **Verification:** superseded by the successful PR #27 and production verification above.
+- **Next action:** superseded by the completed deployment handoff above.
 
 ### 2026-08-17 01:19 UTC — ChatGPT / Workbench v4 dockable shell
 - **Branch / PR:** PR #24 merged.
@@ -19,7 +27,7 @@ Each entry should include: date/time, branch/PR, objective, files changed, valid
 - **Changed:** added the v4 layout/controller layer with resizable sidebar, Inspector and bottom panel; workspace tabs; layout presets; no-credential snapshot update checks; repository-context external links; and browser-local whiteboard/drawing/notes.
 - **Verification:** Python 3.11/3.12/3.13 CI passed JavaScript syntax checks, pytest, registry validation, snapshot validation, aggregate generation and mini-site generation. The post-merge Pages workflow completed successfully.
 - **Integrity:** Pages remains static and credential-free. GitHub/commits/PRs/Actions/VS Code controls are external links that rely on the browser's normal session when opened.
-- **Next action:** superseded by Workbench v5 handoff above.
+- **Next action:** superseded by Workbench v5 handoffs above.
 
 ### 2026-08-17 01:02 UTC — ChatGPT / generated fleet websites
 - **Branch / PR:** hub PR #17 merged reusable site generator; hub PR #19 merged centrally hosted fleet mini-sites; `tradingviewsigdup` PR #2 removed the superseded dedicated-Pages pilot.
