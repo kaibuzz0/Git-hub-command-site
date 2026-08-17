@@ -1,0 +1,20 @@
+/* Final Command OS layout contract: active context is a real workbench row, search is a first-class project surface. */
+@media(min-width:761px){
+  main{grid-template-rows:35px auto var(--wb-tab-h) minmax(0,1fr) auto 22px!important}
+}
+.universal-search-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start}
+.search-count{float:right;color:var(--os-white);background:#111;border:1px solid currentColor;padding:1px 5px;font:9px/1.2 Consolas,ui-monospace,monospace}
+.search-memory-row{display:grid;grid-template-columns:minmax(72px,100px) minmax(0,1fr);gap:8px;padding:7px 4px;border-bottom:1px solid #111;align-items:start}
+.search-memory-row>span{color:var(--os-purple);font:9px/1.4 Consolas,ui-monospace,monospace;text-transform:uppercase;overflow-wrap:anywhere}
+.search-memory-row>b{font-size:12px;font-weight:500;color:#dce6f2;overflow-wrap:anywhere}
+.search-file .file-tag{color:var(--os-cyan)}
+.os-panel.pink .search-count{color:var(--os-pink)}
+.os-panel.yellow .search-count{color:var(--os-yellow)}
+.os-panel.orange .search-count{color:var(--os-orange)}
+.os-panel.green .search-count{color:var(--os-green)}
+.os-panel.blue .search-count{color:var(--os-blue)}
+@media(max-width:760px){
+  .universal-search-grid{grid-template-columns:1fr}
+  .search-memory-row{grid-template-columns:78px minmax(0,1fr)}
+  .active-repo-context{flex:0 0 auto}
+}
