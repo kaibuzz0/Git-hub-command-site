@@ -44,9 +44,25 @@
       html += `<details class="repo-folder" ${depth === 0 ? 'open' : ''}><summary><span class="folder-icon">▾</span> ${esc(name)}</summary><div class="repo-folder-children">${renderNode(child, repo, depth + 1, path)}</div></details>`;
     }
     for (const file of files) {
-      html += `<a class="repo-file" target="_blank" rel="noopener" href="${safeUrl(fileUrl(repo, file.path))}" title="${esc(file.path)}"><span class="file-icon">${esc(file.extension || '·')}</span><span>${esc(file.name)}</span></a>`;
+      const preview = window.CommandInternalEditor?.canPreview?.(file);
+      html += `<button class="repo-file" type="button" data-repo-file="${esc(file.path)}" title="${esc(file.path)}"><span class="file-icon">${esc(file.extension || '·')}</span><span>${esc(file.name)}</span><span class="repo-file-action">${preview ? 'open' : '↗'}</span></button>`;
     }
     return html;
+  }
+
+  function bindFileActions(repo, inventory) {
+    const files = new Map((inventory?.files || []).map(file => [file.path, file]));
+    document.querySelectorAll('[data-repo-file]').forEach(button => {
+      button.onclick = () => {
+        const file = files.get(button.dataset.repoFile);
+        if (!file) return;
+        if (window.CommandInternalEditor?.canPreview?.(file)) {
+          window.CommandInternalEditor.open(repo.id, file);
+        } else {
+          window.open(fileUrl(repo, file.path), '_blank', 'noopener');
+        }
+      };
+    });
   }
 
   async function loadSnapshot(id) {
@@ -63,7 +79,7 @@
     state.repoFilter = id;
     renderTree();
     $('#crumb').textContent = `WORKBENCH / REPOSITORIES / ${repo.full_name}`;
-    $('#content').innerHTML = `<div class="hero"><div><h1 class="title">${esc(repo.full_name)}</h1><p class="muted">${esc(repo.description || 'Connected repository')}</p></div><div class="button-row"><a class="action-btn" target="_blank" rel="noopener" href="${safeUrl(repo.url)}">GitHub</a><a class="secondary-btn" target="_blank" rel="noopener" href="${safeUrl('https://vscode.dev/github/'+repo.full_name)}">VS Code for Web</a></div></div>${healthCards({health:repo.health})}<div class="section-head"><h2>Repository Explorer</h2><span class="muted">loading snapshot…</span></div><div id="repoExplorer" class="repo-explorer"><div class="empty-state">Loading repository tree…</div></div><div class="section-head"><h2>Snapshot</h2></div><pre>${esc(JSON.stringify({generated_at:repo.generated_at,source_commit:repo.source_commit,origin:repo.snapshot_origin,health:repo.health},null,2))}</pre>`;
+    $('#content').innerHTML = `<div class="hero"><div><h1 class="title">${esc(repo.full_name)}</h1><p class="muted">${esc(repo.description || 'Connected repository')}</p></div><div class="button-row"><a class="action-btn" target="_blank" rel="noopener" href="${safeUrl(repo.url)}">GitHub</a><a class="secondary-btn" target="_blank" rel="noopener" href="${safeUrl('https://vscode.dev/github/'+repo.full_name)}">Full VS Code</a></div></div>${healthCards({health:repo.health})}<div class="section-head"><h2>Repository Explorer</h2><span class="muted">loading snapshot…</span></div><div id="repoExplorer" class="repo-explorer"><div class="empty-state">Loading repository tree…</div></div><div class="section-head"><h2>Snapshot</h2></div><pre>${esc(JSON.stringify({generated_at:repo.generated_at,source_commit:repo.source_commit,origin:repo.snapshot_origin,health:repo.health},null,2))}</pre>`;
 
     try {
       const snapshot = await loadSnapshot(id);
@@ -80,13 +96,12 @@
       const heading = host.previousElementSibling?.querySelector('.muted');
       if (heading) heading.textContent = summary;
       host.innerHTML = `${truncation ? '<div class="repo-tree-notice">Large repository: the complete folder summary is retained where possible, while individual file entries are bounded to keep snapshots safe and fast.</div>' : ''}${renderNode(tree, repo) || '<div class="empty-state">No tracked files in this snapshot.</div>'}`;
+      bindFileActions(repo, inventory);
     } catch (error) {
       const host = $('#repoExplorer');
       if (host) host.innerHTML = `<div class="empty-state bad">Could not load repository snapshot: ${esc(error.message)}</div>`;
     }
   }
 
-  // Replace the base repository detail view while leaving every other workbench
-  // surface untouched. Repo cards and palette commands already call repoView().
   repoView = enhancedRepoView;
 })();
