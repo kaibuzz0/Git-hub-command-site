@@ -38,4 +38,5 @@ def test_v5_diff_and_readme_are_bounded_or_local():
     assert "524288" in js
     assert "command-workbench-v5-diff" in js
     assert "Paste a unified diff" in js
-    assert "Nothing" not in js or True
+    assert "README exceeds preview limit" in js
+    assert "browser-local" in js

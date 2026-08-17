@@ -1,6 +1,6 @@
 # Current State
 
-Last reconciled: 2026-08-17 01:02 UTC
+Last reconciled: 2026-08-17 01:23 UTC
 Default branch: `main`
 
 ## Verified platform
@@ -13,6 +13,8 @@ Default branch: `main`
 - PR #16 completed the internal code-preview layer: Monaco on supported desktop browsers, mobile/touch fallback, exact-commit public file loading, and pinned Monaco packaging in Pages.
 - PR #17 added the reusable standalone repository-site generator.
 - PR #19 made generated repository websites a first-class output of the central Pages deployment.
+- PR #22 restored the Cipher Suite VS Code layout as the reusable visual baseline for generated repository workspaces.
+- PR #24 added the dockable Workbench v4 shell: resizable sidebar/inspector/output panes, workspace tabs, update checks, and a browser-local whiteboard. Its production Pages run completed successfully.
 - The central Command Center is live at `https://kaibuzz0.github.io/Git-hub-command-site/`.
 
 ## Fleet state
@@ -21,7 +23,7 @@ The owner account exposes 25 repositories to this integration: 19 public and 6 p
 
 - `cipher-solving-suite` retains its richer custom snapshot exporter and standalone project site while also participating in the central hub.
 - The other connected repositories publish bounded snapshots through `.github/workflows/command-site-snapshot.yml` to `command-site-data`.
-- Public snapshots are admitted through `data/repositories.json`; private repositories remain intentionally excluded from the public registry.
+- Public snapshots are admitted through `data/repositories.json`; private repositories remain intentionally excluded from the public registry and public Pages output.
 - Repository-tree metadata is content-free: tracked file paths, directory paths/counts, extensions, bounded totals, and source commit provenance. Empty directories cannot appear because Git does not track them.
 - Large repositories are bounded to 5,000 individual file entries and 2,500 directory entries while retaining total counts.
 
@@ -29,36 +31,34 @@ The owner account exposes 25 repositories to this integration: 19 public and 6 p
 
 The canonical fleet website model no longer requires GitHub Pages to be enabled in each source repository.
 
-The hub now generates one mini-site for every validated public repository and deploys it under:
+The hub generates one mini-site for every validated public repository and deploys it under:
 
 `https://kaibuzz0.github.io/Git-hub-command-site/repos/<repo-id>/`
 
 A repository detail view exposes a `Repo Website` action pointing to that mini-site. `/repos/` also contains an automatically generated index of the public repository workspaces.
 
-The mini-sites are derived from exactly the same `repo-snapshot.json` used by the central hub and therefore update after normal source commits -> snapshot refresh -> hub sync/deploy. They include a VS Code-inspired Explorer, repository overview, exact source-commit provenance, public text-file preview, and GitHub/Actions/Issues links.
+The mini-sites are derived from exactly the same `repo-snapshot.json` used by the central hub and update after normal source commits -> snapshot refresh -> hub sync/deploy. They use the Cipher Suite-style VS Code layout, repository Explorer, exact source-commit provenance, public text-file preview, and contextual structured-data sections when available.
 
-The production Pages run for PR #19 passed remote-registry validation, fetched snapshots, validated snapshots, built aggregate data, generated repository mini-sites, assembled the site, uploaded the Pages artifact, and deployed successfully.
+## Workbench composition
 
-## Pilot lesson
+Workbench v4 is the current verified production shell. It keeps the Command Center on the far-left Activity Bar, repository/data navigation in the left sidebar, the central editor/workspace, an optional right Inspector, and the bottom output panel. Sidebar, Inspector, and output-panel dimensions persist browser-locally. Workspace tabs, update checks, and the whiteboard also remain browser-local and do not mutate repositories.
 
-A dedicated per-repository Pages pilot was tested on `tradingviewsigdup`. The snapshot and mini-site build both succeeded, but `actions/configure-pages` failed because Pages had never been enabled for that repository. The pilot workflow was removed in `tradingviewsigdup` PR #2 after the central-hosted fleet design eliminated that requirement.
-
-`connectors/command-site-pages.yml` remains available only as an optional dedicated-site template for repositories where an individual Pages URL is explicitly desired and does not conflict with an existing custom site.
+Workbench v5 is the active bounded implementation branch. It adds split editor groups (right/down), a second dockable resource surface, README preview at the exact snapshot commit, browser-local unified-diff review, repository-site embedding, built-in Coding/Research/Repo Review/Focus layouts, custom saved layouts, and tab drag/reorder behavior. v5 remains additive to v4 and does not alter the remote snapshot or privilege boundary.
 
 ## Execution and privacy boundary
 
 GitHub Pages remains static/non-privileged. It does not store GitHub credentials, execute arbitrary local Python, expose private repository snapshots publicly, or perform repository writes.
 
-Public file previews are fetched from the public source repository at the snapshot's exact `source_commit`. Unsupported/binary/oversized files fall back to GitHub. Private repository browser support requires an authenticated private transport and non-public presentation surface before those repositories can be admitted.
+Public file/README previews are fetched from the public source repository at the snapshot's exact `source_commit` with bounded size limits. Unsupported/binary/oversized resources fall back to GitHub. Private repository browser support requires an authenticated private transport and non-public presentation surface before those repositories can be admitted.
 
 ## Current priorities
 
-1. Improve generated mini-site UI richness so tools, cases, opportunities, agent state, README/project summaries, and repo health can be shown contextually when present.
-2. Add repository classification/language/health summaries and surface them in both the Command Center and individual mini-sites.
-3. Build authenticated private-repository transport without leaking private paths/content into the public Pages artifact.
-4. Continue developing the trusted-runner boundary for explicit execution/debug/write operations while keeping Pages non-privileged.
-5. Keep connector/exporter upgrades pinned, bounded, and independently validated before fleet rotation.
+1. Validate and merge Workbench v5 split editor groups, saved layouts, README/reference preview, and scratch diff review.
+2. Add richer document composition: Markdown/source side-by-side, search-result tabs, commit/PR/check review surfaces, and recently opened resources.
+3. Add repository classification/language/health summaries and surface them in both the Command Center and individual mini-sites.
+4. Build authenticated private-repository transport without leaking private paths/content into the public Pages artifact.
+5. Continue developing the trusted-runner boundary for explicit execution/debug/write operations while keeping Pages non-privileged.
 
 ## Next handoff
 
-Treat centrally hosted `/repos/<repo-id>/` workspaces as the default public-repository website path. Do not install generic per-repository Pages workflows across the fleet unless an owner explicitly requests a dedicated URL and existing Pages usage has been checked first. The next UI pass should deepen each generated site using structured snapshot data rather than creating per-repo HTML forks.
+Treat the Command Center as a single-page multi-repository operating workspace, not a collection of fixed dashboards. Extend shared editor groups/panels/layouts rather than creating one-off full-page UIs. Keep public repo content exact-commit and bounded, keep private repositories outside the public build, and route execution/writes through the trusted runner or authorized-agent boundary.
