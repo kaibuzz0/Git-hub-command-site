@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T05:09:36Z",
-  "source_commit": "a093db42c3a8ffe705d30d8ba97f94d0fe978d56",
+  "generated_at": "2026-08-17T05:17:30Z",
+  "source_commit": "f3ec45ff6502b7cdfa9e0d9951e73d1d6af6677b",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 60,
-    "python_files": 18,
-    "javascript_typescript_files": 10,
+    "tracked_files": 63,
+    "python_files": 19,
+    "javascript_typescript_files": 11,
     "workflow_files": 3,
-    "test_files": 11
+    "test_files": 12
   },
   "repository_tree": {
-    "total_files": 60,
+    "total_files": 63,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,13 +99,13 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 22
+        "file_count": 24
       },
       {
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 11
+        "file_count": 12
       }
     ],
     "files": [
@@ -320,6 +320,16 @@
         "extension": ".js"
       },
       {
+        "path": "site/repo_workspace_v4.css",
+        "name": "repo_workspace_v4.css",
+        "extension": ".css"
+      },
+      {
+        "path": "site/repo_workspace_v4.js",
+        "name": "repo_workspace_v4.js",
+        "extension": ".js"
+      },
+      {
         "path": "site/repository_explorer.css",
         "name": "repository_explorer.css",
         "extension": ".css"
@@ -385,6 +395,11 @@
         "extension": ".py"
       },
       {
+        "path": "tests/test_repo_intelligence_v4.py",
+        "name": "test_repo_intelligence_v4.py",
+        "extension": ".py"
+      },
+      {
         "path": "tests/test_repo_workspace_v2.py",
         "name": "test_repo_workspace_v2.py",
         "extension": ".py"
@@ -422,6 +437,48 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "f3ec45ff6502b7cdfa9e0d9951e73d1d6af6677b",
+      "type": "commit",
+      "title": "Merge pull request #38 from kaibuzz0/feature/repo-intelligence-v4",
+      "timestamp": "2026-08-17T00:17:23-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/f3ec45ff6502b7cdfa9e0d9951e73d1d6af6677b"
+    },
+    {
+      "id": "6829d47db312dfe0dc9d539cf4b251811735a3ca",
+      "type": "commit",
+      "title": "Tests: lock repository intelligence workspace layer",
+      "timestamp": "2026-08-17T00:16:28-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/6829d47db312dfe0dc9d539cf4b251811735a3ca"
+    },
+    {
+      "id": "f8bfb241188da0b9075c179d310bf650954a27a2",
+      "type": "commit",
+      "title": "CI: validate repository intelligence JavaScript",
+      "timestamp": "2026-08-17T00:16:16-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/f8bfb241188da0b9075c179d310bf650954a27a2"
+    },
+    {
+      "id": "9efc0158ef5a4f7027b0ad3b92f17dbcae22b107",
+      "type": "commit",
+      "title": "Repo intelligence: inject v4 workspace assets",
+      "timestamp": "2026-08-17T00:15:57-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9efc0158ef5a4f7027b0ad3b92f17dbcae22b107"
+    },
+    {
+      "id": "01b3e7511062d93636f780c5c6ea13200452a4d7",
+      "type": "commit",
+      "title": "Repo intelligence: style Start Here structure and hotspots",
+      "timestamp": "2026-08-17T00:15:35-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/01b3e7511062d93636f780c5c6ea13200452a4d7"
+    },
+    {
+      "id": "16e3eeebffd849addf873dabd6dba363d75dacde",
+      "type": "commit",
+      "title": "Repo intelligence: add Start Here structure and hotspot analysis",
+      "timestamp": "2026-08-17T00:15:21-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/16e3eeebffd849addf873dabd6dba363d75dacde"
+    },
+    {
       "id": "a093db42c3a8ffe705d30d8ba97f94d0fe978d56",
       "type": "commit",
       "title": "Merge pull request #37 from kaibuzz0/feature/repo-workspace-v3",
@@ -448,48 +505,6 @@
       "title": "Repo workspace v3: inject project console assets into mini-sites",
       "timestamp": "2026-08-17T00:08:49-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c763e300a2e669025ddd5ef65f81bf1410d61a9c"
-    },
-    {
-      "id": "9afe09b8551d23507a0bc4b7f618376315d1fee0",
-      "type": "commit",
-      "title": "Repo workspace v3: style project console surfaces",
-      "timestamp": "2026-08-17T00:08:34-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9afe09b8551d23507a0bc4b7f618376315d1fee0"
-    },
-    {
-      "id": "9e654f3d532a2d1e7878976c7cec1cde964fe078",
-      "type": "commit",
-      "title": "Repo workspace v3: expose shared project-console hooks",
-      "timestamp": "2026-08-17T00:08:24-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9e654f3d532a2d1e7878976c7cec1cde964fe078"
-    },
-    {
-      "id": "f64f7e5981a3212542e66634a02066de8ec770de",
-      "type": "commit",
-      "title": "Repo workspace v3: add docs tasks presets and project console",
-      "timestamp": "2026-08-17T00:07:14-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/f64f7e5981a3212542e66634a02066de8ec770de"
-    },
-    {
-      "id": "71f7b13aa49932eb2e00e3117991386af1257acf",
-      "type": "commit",
-      "title": "Merge pull request #36 from kaibuzz0/feature/repo-workspace-v2",
-      "timestamp": "2026-08-17T00:00:39-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/71f7b13aa49932eb2e00e3117991386af1257acf"
-    },
-    {
-      "id": "21cbdafb9fc27304d2599f8ddea5933086487dd0",
-      "type": "commit",
-      "title": "Tests: cover repo scripts console and local notes",
-      "timestamp": "2026-08-16T23:59:48-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/21cbdafb9fc27304d2599f8ddea5933086487dd0"
-    },
-    {
-      "id": "9ce60507d5e56b403320894d7a2194e6f306507a",
-      "type": "commit",
-      "title": "CI: validate repository workspace interaction layer",
-      "timestamp": "2026-08-16T23:59:37-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9ce60507d5e56b403320894d7a2194e6f306507a"
     }
   ],
   "links": [
