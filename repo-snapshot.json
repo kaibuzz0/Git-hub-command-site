@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T01:11:25Z",
-  "source_commit": "ee2f2f45c0271b8aa256fea390f5f5ac64272e69",
+  "generated_at": "2026-08-17T01:17:36Z",
+  "source_commit": "74aa0a508fb4d4778a6eb1525d3dc82680ce5758",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 41,
+    "tracked_files": 43,
     "python_files": 12,
-    "javascript_typescript_files": 4,
+    "javascript_typescript_files": 5,
     "workflow_files": 3,
     "test_files": 5
   },
   "repository_tree": {
-    "total_files": 41,
+    "total_files": 43,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,7 +99,7 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 9
+        "file_count": 11
       },
       {
         "path": "tests",
@@ -290,6 +290,16 @@
         "extension": ".js"
       },
       {
+        "path": "site/workbench_v4.css",
+        "name": "workbench_v4.css",
+        "extension": ".css"
+      },
+      {
+        "path": "site/workbench_v4.js",
+        "name": "workbench_v4.js",
+        "extension": ".js"
+      },
+      {
         "path": "tests/test_fleet_mini_sites.py",
         "name": "test_fleet_mini_sites.py",
         "extension": ".py"
@@ -326,6 +336,34 @@
   "evidence": [],
   "agent_ops": {},
   "activity": [
+    {
+      "id": "74aa0a508fb4d4778a6eb1525d3dc82680ce5758",
+      "type": "commit",
+      "title": "Merge pull request #23 from kaibuzz0/feature/workbench-v4-dockable",
+      "timestamp": "2026-08-16T20:17:25-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/74aa0a508fb4d4778a6eb1525d3dc82680ce5758"
+    },
+    {
+      "id": "e43a619c9efa5afc720d064e09b100895e072c3b",
+      "type": "commit",
+      "title": "Workbench: wire dockable single-page workspace shell",
+      "timestamp": "2026-08-16T20:17:09-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e43a619c9efa5afc720d064e09b100895e072c3b"
+    },
+    {
+      "id": "9d4c7bb4d3b3d8cecb81a01ec8cf3b3c257c9dcd",
+      "type": "commit",
+      "title": "Workbench: add tabs inspector updates and whiteboard",
+      "timestamp": "2026-08-16T20:16:49-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9d4c7bb4d3b3d8cecb81a01ec8cf3b3c257c9dcd"
+    },
+    {
+      "id": "c027dbfd4216f17e38a7f9ae39e06396fb50856a",
+      "type": "commit",
+      "title": "Workbench: add dockable resizable workspace shell",
+      "timestamp": "2026-08-16T20:16:17-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c027dbfd4216f17e38a7f9ae39e06396fb50856a"
+    },
     {
       "id": "ee2f2f45c0271b8aa256fea390f5f5ac64272e69",
       "type": "commit",
@@ -367,34 +405,6 @@
       "title": "Merge pull request #20 from kaibuzz0/docs/fleet-mini-sites-state",
       "timestamp": "2026-08-16T20:03:51-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e0db80146f4576464df4ba2f0ca5cd65616b9c87"
-    },
-    {
-      "id": "c86f5f17ec502f74a0bacd2559c6ab1a7051ccea",
-      "type": "commit",
-      "title": "Handoff: record fleet mini-site deployment",
-      "timestamp": "2026-08-16T20:02:55-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c86f5f17ec502f74a0bacd2559c6ab1a7051ccea"
-    },
-    {
-      "id": "582bb30a59cc07f5ae4aa7a764c95e56df79dbc2",
-      "type": "commit",
-      "title": "Ops: record generated fleet websites",
-      "timestamp": "2026-08-16T20:02:30-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/582bb30a59cc07f5ae4aa7a764c95e56df79dbc2"
-    },
-    {
-      "id": "64404449d9a69fd08cc87745f8010e36352e2fc5",
-      "type": "commit",
-      "title": "Docs: make central fleet mini-sites canonical",
-      "timestamp": "2026-08-16T20:02:08-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/64404449d9a69fd08cc87745f8010e36352e2fc5"
-    },
-    {
-      "id": "10bc8aeeb582045fa61194adf881c8e7d6f6c336",
-      "type": "commit",
-      "title": "Merge pull request #19 from kaibuzz0/feature/fleet-mini-sites",
-      "timestamp": "2026-08-16T19:58:58-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/10bc8aeeb582045fa61194adf881c8e7d6f6c336"
     }
   ],
   "links": [
