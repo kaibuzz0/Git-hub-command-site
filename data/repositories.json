@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "notice": "Register public remote repository snapshots here. This file stores connection metadata, not repository contents or credentials.",
+  "notice": "Register public remote repository snapshots here. Private repositories must use an authenticated transport and are intentionally excluded from this public registry.",
   "repositories": [
     {
       "id": "cipher-solving-suite",
@@ -10,7 +10,170 @@
       "repository": "cipher-solving-suite",
       "transport": "github-pages",
       "stale_after_hours": 168,
-      "notes": "First production spoke. Snapshot is regenerated from canonical repository data during the cipher-solving-suite Pages build. Flag as stale if no fresh snapshot has been published for seven days."
+      "notes": "First production spoke using its repository-specific Pages exporter."
+    },
+    {
+      "id": "vscode",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/vscode/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "vscode",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "tradingviewsigdup",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/tradingviewsigdup/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "tradingviewsigdup",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "gsmg.io-solution",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/Gsmg.io-solution/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "Gsmg.io-solution",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "windows-fix",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/windows-fix/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "windows-fix",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "solidity",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/solidity/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "solidity",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "termux-mobile-bareiron-server",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/Termux-Mobile-BAREIRON-server/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "Termux-Mobile-BAREIRON-server",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "hive-hacker-edition",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/Hive-hacker-edition/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "Hive-hacker-edition",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "e8-mathematical-engine",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/e8-mathematical-engine/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "e8-mathematical-engine",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "advanced-geometry",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/advanced-geometry/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "advanced-geometry",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "e8-cipher",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/e8-cipher/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "e8-cipher",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "chain-breaker",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/chain-breaker/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "chain-breaker",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "termux-red-team-operating-system-",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/TERMUX-RED-TEAM-OPERATING-SYSTEM-/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "TERMUX-RED-TEAM-OPERATING-SYSTEM-",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "thebigpromptlibrary",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/TheBigPromptLibrary/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "TheBigPromptLibrary",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "chain-breaker-public-repo",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/Chain-breaker-public-repo/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "Chain-breaker-public-repo",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "pirate-bug-report",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/pirate-bug-report/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "pirate-bug-report",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "termux-bareiron-server-to--andriod-app",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/Termux-BAREIRON-server-to--andriod-app/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "Termux-BAREIRON-server-to--andriod-app",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "legal_help_4_vets",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/LEGAL_HELP_4_VETS/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "LEGAL_HELP_4_VETS",
+      "transport": "command-site-data",
+      "stale_after_hours": 168
+    },
+    {
+      "id": "git-hub-command-site",
+      "snapshot_url": "https://raw.githubusercontent.com/kaibuzz0/Git-hub-command-site/command-site-data/repo-snapshot.json",
+      "enabled": true,
+      "owner": "kaibuzz0",
+      "repository": "Git-hub-command-site",
+      "transport": "command-site-data",
+      "stale_after_hours": 168,
+      "notes": "Hub self-observation snapshot."
     }
   ]
 }
