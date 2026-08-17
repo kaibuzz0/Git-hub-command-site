@@ -7,6 +7,9 @@
   const recentKey = `command-site:recent-files:${repoId}`;
   const outputKey = `command-site:last-runner-spec:${repoId}`;
   const e = s => esc(s);
+  window.repoSnapshot = S;
+  window.repoWorkspaceScripts = scripts;
+  window.repoWorkspaceRender = (name, icon, path, body) => { setHead(name, icon, path); main.innerHTML = body; };
 
   function storeGet(key, fallback) { try { const v = localStorage.getItem(key); return v == null ? fallback : JSON.parse(v); } catch { return fallback; } }
   function storeSet(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} }
@@ -78,28 +81,23 @@
 
   function recentFiles() { return storeGet(recentKey,[]).filter(x=>typeof x==='string').slice(0,12); }
   function remember(path) { const next=[path,...recentFiles().filter(x=>x!==path)].slice(0,12);storeSet(recentKey,next); }
+  window.repoWorkspaceRemember = remember;
   function renderRecent() {
     setHead('recent.json','◷','recent files'); const rows=recentFiles();
     main.innerHTML=`<div class="repo-tool-head"><div><div class="kicker">LOCAL WORKSPACE HISTORY</div><h1>Recent Files</h1><p class="muted">Recently opened files on this device.</p></div></div><div class="recent-list">${rows.length?rows.map(p=>`<button data-recent="${e(p)}"><span>▤</span><strong>${e(p)}</strong></button>`).join(''):'<div class="empty">Open repository files and they will appear here.</div>'}</div>`;
     main.querySelectorAll('[data-recent]').forEach(b=>b.onclick=()=>openFile(b.dataset.recent));
   }
 
-  // Wrap the existing exact-commit file opener so local recent history stays accurate.
   if (typeof openFile === 'function') {
     const original=openFile;
     window.openFile = async path => { remember(path); return original(path); };
-    // Existing tree callbacks resolved the lexical declaration, so capture clicks too.
     document.addEventListener('click',ev=>{const b=ev.target.closest('.repo-tree .tree-item,#tree .tree-item'); if(b?.dataset?.path) remember(b.dataset.path)},true);
   }
 
   function addNavigation() {
     const activity=document.getElementById('activity'), nav=document.getElementById('workspaceNav');
     if (!activity || !nav) return;
-    const entries=[
-      ['scripts','▷','Scripts',renderScripts,scripts.length],
-      ['notes','✎','Notes',renderNotes,1],
-      ['recent','◷','Recent',renderRecent,recentFiles().length]
-    ];
+    const entries=[['scripts','▷','Scripts',renderScripts,scripts.length],['notes','✎','Notes',renderNotes,1],['recent','◷','Recent',renderRecent,recentFiles().length]];
     entries.forEach(([id,icon,label,fn,count])=>{
       const a=document.createElement('button');a.className='activity';a.title=label;a.textContent=icon;a.dataset.repoTool=id;a.onclick=()=>{document.querySelectorAll('.activity').forEach(x=>x.classList.remove('active'));a.classList.add('active');fn();if(innerWidth<=850) side?.classList.remove('open')};activity.insertBefore(a,activity.querySelector('.activity-spacer'));
       const b=document.createElement('button');b.className='tree-item repo-tool-nav';b.innerHTML=`<span>${icon}</span><span>${label}</span><small>${count||''}</small>`;b.onclick=()=>a.click();nav.appendChild(b);
