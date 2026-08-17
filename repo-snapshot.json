@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T01:28:42Z",
-  "source_commit": "4c5c8d68706a5bb7cd8010088a90a7047d3e5614",
+  "generated_at": "2026-08-17T01:31:46Z",
+  "source_commit": "f243c77186f225b9486276ee8ef44595a877a13e",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -357,6 +357,41 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "f243c77186f225b9486276ee8ef44595a877a13e",
+      "type": "commit",
+      "title": "Merge pull request #27 from kaibuzz0/feature/workbench-v5-splits",
+      "timestamp": "2026-08-16T20:31:37-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/f243c77186f225b9486276ee8ef44595a877a13e"
+    },
+    {
+      "id": "2784fd50da127f2ef9974748bc21737810efc6cd",
+      "type": "commit",
+      "title": "Docs: hand off Workbench v5 split workspace",
+      "timestamp": "2026-08-16T20:29:59-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/2784fd50da127f2ef9974748bc21737810efc6cd"
+    },
+    {
+      "id": "51f56bcf159a8713264f07710eef4eae6bddfda7",
+      "type": "commit",
+      "title": "Docs: record Workbench v4 and v5 state",
+      "timestamp": "2026-08-16T20:29:32-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/51f56bcf159a8713264f07710eef4eae6bddfda7"
+    },
+    {
+      "id": "49c88571c31656777ae765650380be9d13f45be8",
+      "type": "commit",
+      "title": "Docs: advance workbench queue through v5",
+      "timestamp": "2026-08-16T20:29:03-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/49c88571c31656777ae765650380be9d13f45be8"
+    },
+    {
+      "id": "0892fe1d302517f8786390f5bccdc707917fe2dc",
+      "type": "commit",
+      "title": "Tests: tighten Workbench v5 assertions",
+      "timestamp": "2026-08-16T20:28:43-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/0892fe1d302517f8786390f5bccdc707917fe2dc"
+    },
+    {
       "id": "4c5c8d68706a5bb7cd8010088a90a7047d3e5614",
       "type": "commit",
       "title": "Merge pull request #26 from kaibuzz0/feature/workbench-v5-splits",
@@ -390,41 +425,6 @@
       "title": "Workbench: add split editor and saved layout controller",
       "timestamp": "2026-08-16T20:27:36-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a561f136ff382d558115d60e8bae92d2422510b0"
-    },
-    {
-      "id": "5bf87e02a7adcd9f32f8151f4190ee0789ca99f6",
-      "type": "commit",
-      "title": "Merge pull request #25 from kaibuzz0/feature/workbench-v5-splits",
-      "timestamp": "2026-08-16T20:27:19-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5bf87e02a7adcd9f32f8151f4190ee0789ca99f6"
-    },
-    {
-      "id": "a60c72310dc0e82604287b70d5e8c564342cd55e",
-      "type": "commit",
-      "title": "Workbench: add split workspace styles",
-      "timestamp": "2026-08-16T20:26:53-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a60c72310dc0e82604287b70d5e8c564342cd55e"
-    },
-    {
-      "id": "a90ea9729b018e4b8896e66067a34af08b464366",
-      "type": "commit",
-      "title": "Merge pull request #24 from kaibuzz0/feature/workbench-v4-dockable",
-      "timestamp": "2026-08-16T20:18:58-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a90ea9729b018e4b8896e66067a34af08b464366"
-    },
-    {
-      "id": "8e5f873e7629a1ea16e2b10c94808aaf7a35121f",
-      "type": "commit",
-      "title": "Tests: lock dockable workbench surfaces",
-      "timestamp": "2026-08-16T20:17:44-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8e5f873e7629a1ea16e2b10c94808aaf7a35121f"
-    },
-    {
-      "id": "3980c649e09d645cf52b34758f221a70bb3a9e31",
-      "type": "commit",
-      "title": "CI: validate dockable workbench JavaScript",
-      "timestamp": "2026-08-16T20:17:35-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/3980c649e09d645cf52b34758f221a70bb3a9e31"
     }
   ],
   "links": [
