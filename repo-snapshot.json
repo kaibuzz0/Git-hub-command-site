@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T02:08:27Z",
-  "source_commit": "a794830455016343896dcfb634b4a6319d6c1736",
+  "generated_at": "2026-08-17T02:13:40Z",
+  "source_commit": "3b4041a392761a6eb2655dff6e5440c817b8d0d8",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 49,
-    "python_files": 14,
+    "tracked_files": 51,
+    "python_files": 15,
     "javascript_typescript_files": 7,
     "workflow_files": 3,
-    "test_files": 7
+    "test_files": 8
   },
   "repository_tree": {
-    "total_files": 49,
+    "total_files": 51,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,13 +99,13 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 15
+        "file_count": 16
       },
       {
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 7
+        "file_count": 8
       }
     ],
     "files": [
@@ -280,6 +280,11 @@
         "extension": ".css"
       },
       {
+        "path": "site/mobile_v7.css",
+        "name": "mobile_v7.css",
+        "extension": ".css"
+      },
+      {
         "path": "site/mobile_v7.js",
         "name": "mobile_v7.js",
         "extension": ".js"
@@ -340,6 +345,11 @@
         "extension": ".py"
       },
       {
+        "path": "tests/test_mobile_workbench_v7.py",
+        "name": "test_mobile_workbench_v7.py",
+        "extension": ".py"
+      },
+      {
         "path": "tests/test_repository_explorer.py",
         "name": "test_repository_explorer.py",
         "extension": ".py"
@@ -367,6 +377,55 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "3b4041a392761a6eb2655dff6e5440c817b8d0d8",
+      "type": "commit",
+      "title": "Merge pull request #32 from kaibuzz0/feature/mobile-workbench-v7",
+      "timestamp": "2026-08-16T21:13:29-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/3b4041a392761a6eb2655dff6e5440c817b8d0d8"
+    },
+    {
+      "id": "7a21236ccfc44a65378f1e6606b117ee994f9200",
+      "type": "commit",
+      "title": "Merge pull request #31 from kaibuzz0/feature/mobile-navigation-v7",
+      "timestamp": "2026-08-16T21:13:25-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/7a21236ccfc44a65378f1e6606b117ee994f9200"
+    },
+    {
+      "id": "79e79875ab8cb5437ea1f1f03550e5f21756b4b3",
+      "type": "commit",
+      "title": "Tests: lock mobile drawer and gesture wiring",
+      "timestamp": "2026-08-16T21:12:11-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/79e79875ab8cb5437ea1f1f03550e5f21756b4b3"
+    },
+    {
+      "id": "a76fa67601768edf5ba74321e6179a6c987a5085",
+      "type": "commit",
+      "title": "CI: validate mobile interaction controller",
+      "timestamp": "2026-08-16T21:11:59-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a76fa67601768edf5ba74321e6179a6c987a5085"
+    },
+    {
+      "id": "0968a1ddd6f81fff7b7a9d47618c91b94a44cd99",
+      "type": "commit",
+      "title": "Workbench v7: load mobile navigation styles",
+      "timestamp": "2026-08-16T21:11:54-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/0968a1ddd6f81fff7b7a9d47618c91b94a44cd99"
+    },
+    {
+      "id": "5f286082422ec762fb843eb32984ce06d2123e44",
+      "type": "commit",
+      "title": "Workbench v7: expand mobile navigation interactions",
+      "timestamp": "2026-08-16T21:11:36-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5f286082422ec762fb843eb32984ce06d2123e44"
+    },
+    {
+      "id": "a031ff3340696944c18a3a9a3137c8fd0496beeb",
+      "type": "commit",
+      "title": "Workbench v7: add mobile navigation surfaces",
+      "timestamp": "2026-08-16T21:10:52-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a031ff3340696944c18a3a9a3137c8fd0496beeb"
+    },
+    {
       "id": "a794830455016343896dcfb634b4a6319d6c1736",
       "type": "commit",
       "title": "Workbench v7: enable mobile interaction controller",
@@ -386,55 +445,6 @@
       "title": "Workbench v7: add mobile interaction controller",
       "timestamp": "2026-08-16T21:07:17-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/4c9ba14e882d3ba8c0189dba2d9e14dd251eb0a0"
-    },
-    {
-      "id": "99df315c950a3846551d9348ddd5b9123e5764da",
-      "type": "commit",
-      "title": "Merge pull request #30 from kaibuzz0/feature/mobile-workbench-v6",
-      "timestamp": "2026-08-16T20:42:32-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/99df315c950a3846551d9348ddd5b9123e5764da"
-    },
-    {
-      "id": "641b2503bf3cc1d4d0cc0573256600730431d038",
-      "type": "commit",
-      "title": "Workbench v6: load mobile-first responsive layer",
-      "timestamp": "2026-08-16T20:41:38-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/641b2503bf3cc1d4d0cc0573256600730431d038"
-    },
-    {
-      "id": "8485aec7fc703627b64b1b9f92d3b16bffc223e3",
-      "type": "commit",
-      "title": "Workbench v6: add mobile-first responsive shell",
-      "timestamp": "2026-08-16T20:41:25-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8485aec7fc703627b64b1b9f92d3b16bffc223e3"
-    },
-    {
-      "id": "9bd75608b969120c55ba3b33440d8c9478bc1c5a",
-      "type": "commit",
-      "title": "Merge pull request #29 from kaibuzz0/docs/workbench-v5-complete",
-      "timestamp": "2026-08-16T20:34:26-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9bd75608b969120c55ba3b33440d8c9478bc1c5a"
-    },
-    {
-      "id": "010e4d2bf3a0b3ede4c47f79f1c12673318cd263",
-      "type": "commit",
-      "title": "Docs: close Workbench v5 handoff",
-      "timestamp": "2026-08-16T20:33:41-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/010e4d2bf3a0b3ede4c47f79f1c12673318cd263"
-    },
-    {
-      "id": "b91e8290dc4e7d597f6ecf0ff2db48cd169079b7",
-      "type": "commit",
-      "title": "Merge pull request #28 from kaibuzz0/docs/workbench-v5-complete",
-      "timestamp": "2026-08-16T20:33:16-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/b91e8290dc4e7d597f6ecf0ff2db48cd169079b7"
-    },
-    {
-      "id": "4c75b4d4ab17bc7f6b36a0dcc3934193e9aa3bd1",
-      "type": "commit",
-      "title": "Docs: record deployed Workbench v5",
-      "timestamp": "2026-08-16T20:33:10-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/4c75b4d4ab17bc7f6b36a0dcc3934193e9aa3bd1"
     }
   ],
   "links": [
