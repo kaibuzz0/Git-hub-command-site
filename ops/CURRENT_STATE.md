@@ -1,6 +1,6 @@
 # Current State
 
-Last reconciled: 2026-08-17 01:23 UTC
+Last reconciled: 2026-08-17 01:32 UTC
 Default branch: `main`
 
 ## Verified platform
@@ -15,6 +15,7 @@ Default branch: `main`
 - PR #19 made generated repository websites a first-class output of the central Pages deployment.
 - PR #22 restored the Cipher Suite VS Code layout as the reusable visual baseline for generated repository workspaces.
 - PR #24 added the dockable Workbench v4 shell: resizable sidebar/inspector/output panes, workspace tabs, update checks, and a browser-local whiteboard. Its production Pages run completed successfully.
+- PR #27 completed Workbench v5: split editor groups, second resource surface, README preview, scratch diff, repository-site pane, saved layout presets/custom layouts, and tab drag/reorder. Its production Pages run completed successfully.
 - The central Command Center is live at `https://kaibuzz0.github.io/Git-hub-command-site/`.
 
 ## Fleet state
@@ -41,9 +42,9 @@ The mini-sites are derived from exactly the same `repo-snapshot.json` used by th
 
 ## Workbench composition
 
-Workbench v4 is the current verified production shell. It keeps the Command Center on the far-left Activity Bar, repository/data navigation in the left sidebar, the central editor/workspace, an optional right Inspector, and the bottom output panel. Sidebar, Inspector, and output-panel dimensions persist browser-locally. Workspace tabs, update checks, and the whiteboard also remain browser-local and do not mutate repositories.
+Workbench v5 is the current verified production shell. The far-left Activity Bar is the fleet/Command Center layer; the left sidebar is repository/data navigation; the center is the primary editor/workspace; the optional secondary editor group can dock right or down; the right Inspector carries repository context and external links; and the bottom panel remains available for output/runner adapters.
 
-Workbench v5 is the active bounded implementation branch. It adds split editor groups (right/down), a second dockable resource surface, README preview at the exact snapshot commit, browser-local unified-diff review, repository-site embedding, built-in Coding/Research/Repo Review/Focus layouts, custom saved layouts, and tab drag/reorder behavior. v5 remains additive to v4 and does not alter the remote snapshot or privilege boundary.
+The v4 resizable sidebar/Inspector/output behavior, workspace tabs, update checks and whiteboard remain active. V5 adds README/reference preview at the exact snapshot commit, browser-local unified-diff review, central-hosted Repo Site embedding, Coding/Research/Repo Review/Focus presets, custom browser-local saved layouts, and tab drag/reorder behavior. These workspace preferences do not mutate repositories.
 
 ## Execution and privacy boundary
 
@@ -53,8 +54,8 @@ Public file/README previews are fetched from the public source repository at the
 
 ## Current priorities
 
-1. Validate and merge Workbench v5 split editor groups, saved layouts, README/reference preview, and scratch diff review.
-2. Add richer document composition: Markdown/source side-by-side, search-result tabs, commit/PR/check review surfaces, and recently opened resources.
+1. Add richer document composition: Markdown/source side-by-side, search-result tabs, commit/PR/check review surfaces, and recently opened resources.
+2. Add movable/dockable panel registry so hub-owned tools can participate in the same workspace composition model.
 3. Add repository classification/language/health summaries and surface them in both the Command Center and individual mini-sites.
 4. Build authenticated private-repository transport without leaking private paths/content into the public Pages artifact.
 5. Continue developing the trusted-runner boundary for explicit execution/debug/write operations while keeping Pages non-privileged.
