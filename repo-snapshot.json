@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T00:03:28Z",
-  "source_commit": "74acc5cecee367d6c153c99b82b9a77acd2843b1",
+  "generated_at": "2026-08-17T00:14:56Z",
+  "source_commit": "c60120a77fbcddea86638b925318ec146d5a36fa",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -25,6 +25,27 @@
   "evidence": [],
   "agent_ops": {},
   "activity": [
+    {
+      "id": "c60120a77fbcddea86638b925318ec146d5a36fa",
+      "type": "commit",
+      "title": "Merge pull request #12 from kaibuzz0/feature/repository-explorer-v2",
+      "timestamp": "2026-08-16T19:14:47-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c60120a77fbcddea86638b925318ec146d5a36fa"
+    },
+    {
+      "id": "ccf84f234fa301f7022c7c1df05e56cd404ae929",
+      "type": "commit",
+      "title": "Explorer: describe repository tree snapshot data",
+      "timestamp": "2026-08-16T19:14:38-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/ccf84f234fa301f7022c7c1df05e56cd404ae929"
+    },
+    {
+      "id": "bb558e38c86901e72386671f182970a85a54f812",
+      "type": "commit",
+      "title": "Explorer: export bounded repository file inventory",
+      "timestamp": "2026-08-16T19:14:23-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/bb558e38c86901e72386671f182970a85a54f812"
+    },
     {
       "id": "74acc5cecee367d6c153c99b82b9a77acd2843b1",
       "type": "commit",
@@ -73,27 +94,6 @@
       "title": "Connector: harden portable snapshot exporter for fleet rollout",
       "timestamp": "2026-08-16T18:55:38-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/2b7b6b706db9fd69a728b7d6e777226084fa27ff"
-    },
-    {
-      "id": "85c4fd4bddc245bc6dbb946590b639dabe9c4648",
-      "type": "commit",
-      "title": "Connector: add generated snapshot branch workflow template",
-      "timestamp": "2026-08-16T18:55:17-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/85c4fd4bddc245bc6dbb946590b639dabe9c4648"
-    },
-    {
-      "id": "e1bd9547601e8ce31f85281788f64519b9037a52",
-      "type": "commit",
-      "title": "Merge pull request #9 from kaibuzz0/feature/command-workbench-v3",
-      "timestamp": "2026-08-16T18:49:28-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e1bd9547601e8ce31f85281788f64519b9037a52"
-    },
-    {
-      "id": "09a88a11344be13ef19a3dc2155c97fbc11b0978",
-      "type": "commit",
-      "title": "Record green PR 9 validation",
-      "timestamp": "2026-08-16T18:48:51-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/09a88a11344be13ef19a3dc2155c97fbc11b0978"
     }
   ],
   "links": [
