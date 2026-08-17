@@ -26,6 +26,7 @@ jobs:
           node --check site/app.js
           node --check site/repository_explorer.js
           node --check site/internal_editor.js
+          node --check site/workbench_v4.js
       - name: Run tests
         run: python -m pytest tests/ -vv --tb=short --junitxml=test-results.xml
       - name: Validate remote registry
