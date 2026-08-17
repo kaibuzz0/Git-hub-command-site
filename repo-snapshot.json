@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T00:59:05Z",
-  "source_commit": "10bc8aeeb582045fa61194adf881c8e7d6f6c336",
+  "generated_at": "2026-08-17T01:03:59Z",
+  "source_commit": "e0db80146f4576464df4ba2f0ca5cd65616b9c87",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -327,6 +327,34 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "e0db80146f4576464df4ba2f0ca5cd65616b9c87",
+      "type": "commit",
+      "title": "Merge pull request #20 from kaibuzz0/docs/fleet-mini-sites-state",
+      "timestamp": "2026-08-16T20:03:51-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e0db80146f4576464df4ba2f0ca5cd65616b9c87"
+    },
+    {
+      "id": "c86f5f17ec502f74a0bacd2559c6ab1a7051ccea",
+      "type": "commit",
+      "title": "Handoff: record fleet mini-site deployment",
+      "timestamp": "2026-08-16T20:02:55-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c86f5f17ec502f74a0bacd2559c6ab1a7051ccea"
+    },
+    {
+      "id": "582bb30a59cc07f5ae4aa7a764c95e56df79dbc2",
+      "type": "commit",
+      "title": "Ops: record generated fleet websites",
+      "timestamp": "2026-08-16T20:02:30-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/582bb30a59cc07f5ae4aa7a764c95e56df79dbc2"
+    },
+    {
+      "id": "64404449d9a69fd08cc87745f8010e36352e2fc5",
+      "type": "commit",
+      "title": "Docs: make central fleet mini-sites canonical",
+      "timestamp": "2026-08-16T20:02:08-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/64404449d9a69fd08cc87745f8010e36352e2fc5"
+    },
+    {
       "id": "10bc8aeeb582045fa61194adf881c8e7d6f6c336",
       "type": "commit",
       "title": "Merge pull request #19 from kaibuzz0/feature/fleet-mini-sites",
@@ -367,34 +395,6 @@
       "title": "Merge pull request #18 from kaibuzz0/feature/fleet-mini-sites",
       "timestamp": "2026-08-16T19:57:12-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c1a2f14c3182c2b56e5471d6d53de573d13f96e0"
-    },
-    {
-      "id": "82b3fdbed7875b8250e0c998fd69fed9092727bc",
-      "type": "commit",
-      "title": "Sites: make fleet generator import portable",
-      "timestamp": "2026-08-16T19:57:12-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/82b3fdbed7875b8250e0c998fd69fed9092727bc"
-    },
-    {
-      "id": "4e34030afa8829edbae7630f45e9e0054e4714ce",
-      "type": "commit",
-      "title": "Sites: generate fleet mini-sites from synced snapshots",
-      "timestamp": "2026-08-16T19:56:51-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/4e34030afa8829edbae7630f45e9e0054e4714ce"
-    },
-    {
-      "id": "e64e94c1ee8fc3ee612ee057f494fc7268827c37",
-      "type": "commit",
-      "title": "Merge pull request #17 from kaibuzz0/feature/generated-repo-sites",
-      "timestamp": "2026-08-16T19:47:20-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e64e94c1ee8fc3ee612ee057f494fc7268827c37"
-    },
-    {
-      "id": "5dc6ed9669c35852eb7554ae9f2d60d7b851080c",
-      "type": "commit",
-      "title": "Tests: cover generated repository workspace kit",
-      "timestamp": "2026-08-16T19:46:54-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5dc6ed9669c35852eb7554ae9f2d60d7b851080c"
     }
   ],
   "links": [
