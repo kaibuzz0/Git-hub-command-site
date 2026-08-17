@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T09:27:28Z",
-  "source_commit": "1556a734bad3db964a1ce709f0e50b4389b7212c",
+  "generated_at": "2026-08-17T09:29:58Z",
+  "source_commit": "8060b1c9cf07fa8d45084252ab8ad3254a07e308",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -502,6 +502,34 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "8060b1c9cf07fa8d45084252ab8ad3254a07e308",
+      "type": "commit",
+      "title": "Merge pull request #46 from kaibuzz0/docs/command-os-blueprint-complete",
+      "timestamp": "2026-08-17T04:29:51-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8060b1c9cf07fa8d45084252ab8ad3254a07e308"
+    },
+    {
+      "id": "29fbf26c65c64e985e857d2c563eea9c82ee60b4",
+      "type": "commit",
+      "title": "Docs: close Command OS blueprint queue",
+      "timestamp": "2026-08-17T04:29:40-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/29fbf26c65c64e985e857d2c563eea9c82ee60b4"
+    },
+    {
+      "id": "b3032f2e31f4b06299f86390a84195df0eb3ceb9",
+      "type": "commit",
+      "title": "Docs: mark Command OS blueprint implemented",
+      "timestamp": "2026-08-17T04:29:23-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/b3032f2e31f4b06299f86390a84195df0eb3ceb9"
+    },
+    {
+      "id": "868510f0195862c28a69b5292d5c9fadb6fde275",
+      "type": "commit",
+      "title": "Docs: finalize Command OS architecture blueprint",
+      "timestamp": "2026-08-17T04:29:00-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/868510f0195862c28a69b5292d5c9fadb6fde275"
+    },
+    {
       "id": "1556a734bad3db964a1ce709f0e50b4389b7212c",
       "type": "commit",
       "title": "Merge pull request #45 from kaibuzz0/fix/command-os-postmerge-validation",
@@ -542,34 +570,6 @@
       "title": "CI: validate Command OS blueprint runtime",
       "timestamp": "2026-08-17T04:22:56-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c5d165380176adf68fd310a5069fcb7807d00dce"
-    },
-    {
-      "id": "2972ec41ef12a4adfbf3c4367431af2ce85a11eb",
-      "type": "commit",
-      "title": "Command OS: wire full blueprint runtime",
-      "timestamp": "2026-08-17T04:22:33-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/2972ec41ef12a4adfbf3c4367431af2ce85a11eb"
-    },
-    {
-      "id": "e0bd8b7629f3cd35bcab5d4c5c44d5d0399098aa",
-      "type": "commit",
-      "title": "Command OS: add jet-black semantic neon workspace theme",
-      "timestamp": "2026-08-17T04:22:09-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e0bd8b7629f3cd35bcab5d4c5c44d5d0399098aa"
-    },
-    {
-      "id": "263df44db37c8cc1e2059bdf560cf6cc5746a21f",
-      "type": "commit",
-      "title": "Merge pull request #43 from kaibuzz0/feature/command-os-blueprint",
-      "timestamp": "2026-08-17T04:21:44-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/263df44db37c8cc1e2059bdf560cf6cc5746a21f"
-    },
-    {
-      "id": "3025ce289eb35b307a252f2733db38fb772feae3",
-      "type": "commit",
-      "title": "Command OS: implement full active-project blueprint",
-      "timestamp": "2026-08-17T04:21:18-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/3025ce289eb35b307a252f2733db38fb772feae3"
     }
   ],
   "links": [
