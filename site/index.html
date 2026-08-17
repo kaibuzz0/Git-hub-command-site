@@ -7,23 +7,14 @@
   <meta name="description" content="VS Code-inspired multi-repository GitHub command workbench">
   <title>GitHub Command Workbench</title>
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="app.css">
-  <link rel="stylesheet" href="repository_explorer.css">
-  <link rel="stylesheet" href="internal_editor.css">
-  <link rel="stylesheet" href="workbench_v4.css">
-  <link rel="stylesheet" href="workbench_v5.css">
-  <link rel="stylesheet" href="mobile_v6.css">
+  <link rel="stylesheet" href="app.css"><link rel="stylesheet" href="repository_explorer.css"><link rel="stylesheet" href="internal_editor.css"><link rel="stylesheet" href="workbench_v4.css"><link rel="stylesheet" href="workbench_v5.css"><link rel="stylesheet" href="mobile_v6.css"><link rel="stylesheet" href="mobile_v7.css">
 </head>
 <body>
 <div id="app">
-  <aside class="activity" aria-label="Activity Bar">
-    <button data-view="home" class="active" title="Command Center">⌂</button><button data-view="repositories" title="Explorer">▱</button><button data-view="search" title="Search">⌕</button><button data-view="source-control" title="Source Control">⑂</button><button data-view="run-debug" title="Run and Debug">▷</button><button data-view="editor" title="Editor">▤</button><button data-view="workspace-tools" title="Workspace Tools">⬡</button><button id="whiteboardBtn" data-view="whiteboard" title="Whiteboard">✎</button><span class="activity-spacer"></span><button data-view="settings" title="Settings">⚙</button><button id="paletteBtn" title="Command Palette">›_</button>
-  </aside>
-  <aside class="sidebar"><div class="brand">COMMAND WORKBENCH</div><div id="sidebarTitle" class="sidebar-title">EXPLORER</div><input id="search" placeholder="Search workspace…" autocomplete="off"><div id="tree"></div></aside>
-  <div class="wb-splitter vertical sidebar-splitter" aria-label="Resize repository sidebar"></div>
+  <aside class="activity" aria-label="Activity Bar"><button data-view="home" class="active" title="Command Center">⌂</button><button data-view="repositories" title="Explorer">▱</button><button data-view="search" title="Search">⌕</button><button data-view="source-control" title="Source Control">⑂</button><button data-view="run-debug" title="Run and Debug">▷</button><button data-view="editor" title="Editor">▤</button><button data-view="workspace-tools" title="Workspace Tools">⬡</button><button id="whiteboardBtn" data-view="whiteboard" title="Whiteboard">✎</button><span class="activity-spacer"></span><button data-view="settings" title="Settings">⚙</button><button id="paletteBtn" title="Command Palette">›_</button></aside>
+  <aside class="sidebar"><div class="brand">COMMAND WORKBENCH</div><div id="sidebarTitle" class="sidebar-title">EXPLORER</div><input id="search" placeholder="Search workspace…" autocomplete="off"><div id="tree"></div></aside><div class="wb-splitter vertical sidebar-splitter" aria-label="Resize repository sidebar"></div>
   <main><header><span id="crumb">WORKBENCH / HOME</span><span id="status">loading…</span></header><nav id="workspaceTabs" class="wb-tabs" aria-label="Open workspace tabs"></nav><section id="content"></section><section id="bottomPanel" class="bottom-panel hidden"><div class="panel-tabs"><button class="active">OUTPUT</button><button id="closePanel">×</button></div><pre id="panelOutput">Command Workbench ready.</pre></section><footer><span>◉ main</span><span id="syncState">snapshot registry</span><span id="runnerState">runner: adapter</span><span class="footer-spacer"></span><span>Ctrl+K palette</span></footer></main>
   <div class="wb-splitter vertical inspector-splitter" aria-label="Resize inspector"></div><aside id="wbInspector" class="wb-inspector"><div class="wb-inspector-head">INSPECTOR <button id="wbInspectorClose" title="Hide inspector">×</button></div><div id="wbInspectorBody" class="wb-inspector-body"><p class="muted">Loading workspace context…</p></div></aside>
-</div>
-<div id="palette" class="overlay hidden"><div class="palette-box"><input id="paletteInput" placeholder="> Type a command…" autocomplete="off"><div id="paletteResults"></div></div></div>
+</div><div id="palette" class="overlay hidden"><div class="palette-box"><input id="paletteInput" placeholder="> Type a command…" autocomplete="off"><div id="paletteResults"></div></div></div>
 <script src="app.js"></script><script src="vendor/monaco/vs/loader.js"></script><script src="internal_editor.js"></script><script src="repository_explorer.js"></script><script src="workbench_v4.js"></script><script src="workbench_v5.js"></script><script src="mobile_v7.js"></script>
 </body></html>
