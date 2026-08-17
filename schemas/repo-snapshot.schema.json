@@ -23,6 +23,44 @@
       "additionalProperties": true
     },
     "stats": {"type": "object"},
+    "repository_tree": {
+      "type": "object",
+      "properties": {
+        "total_files": {"type": "integer", "minimum": 0},
+        "total_directories": {"type": "integer", "minimum": 0},
+        "files_truncated": {"type": "boolean"},
+        "directories_truncated": {"type": "boolean"},
+        "top_level": {"type": "array", "items": {"type": "string"}},
+        "directories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path", "name", "depth", "file_count"],
+            "properties": {
+              "path": {"type": "string"},
+              "name": {"type": "string"},
+              "depth": {"type": "integer", "minimum": 1},
+              "file_count": {"type": "integer", "minimum": 0}
+            },
+            "additionalProperties": true
+          }
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path", "name", "extension"],
+            "properties": {
+              "path": {"type": "string"},
+              "name": {"type": "string"},
+              "extension": {"type": "string"}
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
     "tools": {"type": "array", "items": {"type": "object"}},
     "toolsets": {"type": "array", "items": {"type": "object"}},
     "cases": {"type": "array", "items": {"type": "object"}},
