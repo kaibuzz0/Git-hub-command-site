@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="repository_explorer.css">
   <link rel="stylesheet" href="internal_editor.css">
+  <link rel="stylesheet" href="workbench_v4.css">
 </head>
 <body>
 <div id="app">
@@ -21,6 +22,7 @@
     <button data-view="run-debug" title="Run and Debug">▷</button>
     <button data-view="editor" title="Editor">▤</button>
     <button data-view="workspace-tools" title="Workspace Tools">⬡</button>
+    <button id="whiteboardBtn" data-view="whiteboard" title="Whiteboard">✎</button>
     <span class="activity-spacer"></span>
     <button data-view="settings" title="Settings">⚙</button>
     <button id="paletteBtn" title="Command Palette">›_</button>
@@ -31,11 +33,13 @@
     <input id="search" placeholder="Search workspace…" autocomplete="off">
     <div id="tree"></div>
   </aside>
+  <div class="wb-splitter vertical sidebar-splitter" aria-label="Resize repository sidebar"></div>
   <main>
     <header>
       <span id="crumb">WORKBENCH / HOME</span>
       <span id="status">loading…</span>
     </header>
+    <nav id="workspaceTabs" class="wb-tabs" aria-label="Open workspace tabs"></nav>
     <section id="content"></section>
     <section id="bottomPanel" class="bottom-panel hidden">
       <div class="panel-tabs"><button class="active">OUTPUT</button><button id="closePanel">×</button></div>
@@ -49,6 +53,11 @@
       <span>Ctrl+K palette</span>
     </footer>
   </main>
+  <div class="wb-splitter vertical inspector-splitter" aria-label="Resize inspector"></div>
+  <aside id="wbInspector" class="wb-inspector">
+    <div class="wb-inspector-head">INSPECTOR <button id="wbInspectorClose" title="Hide inspector">×</button></div>
+    <div id="wbInspectorBody" class="wb-inspector-body"><p class="muted">Loading workspace context…</p></div>
+  </aside>
 </div>
 <div id="palette" class="overlay hidden">
   <div class="palette-box">
@@ -60,5 +69,6 @@
 <script src="vendor/monaco/vs/loader.js"></script>
 <script src="internal_editor.js"></script>
 <script src="repository_explorer.js"></script>
+<script src="workbench_v4.js"></script>
 </body>
 </html>
