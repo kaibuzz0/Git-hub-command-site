@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T08:53:39Z",
-  "source_commit": "b0416b60259235efdcf7b380fe6ac33236e422bc",
+  "generated_at": "2026-08-17T09:12:03Z",
+  "source_commit": "c7459f95ae820ec3be12aa6829ba90f40d5a9b30",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 70,
-    "python_files": 21,
-    "javascript_typescript_files": 13,
+    "tracked_files": 73,
+    "python_files": 22,
+    "javascript_typescript_files": 14,
     "workflow_files": 3,
-    "test_files": 14
+    "test_files": 15
   },
   "repository_tree": {
-    "total_files": 70,
+    "total_files": 73,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,13 +99,13 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 29
+        "file_count": 31
       },
       {
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 14
+        "file_count": 15
       }
     ],
     "files": [
@@ -245,6 +245,11 @@
         "extension": ".py"
       },
       {
+        "path": "site/active_context.js",
+        "name": "active_context.js",
+        "extension": ".js"
+      },
+      {
         "path": "site/app.css",
         "name": "app.css",
         "extension": ".css"
@@ -253,6 +258,11 @@
         "path": "site/app.js",
         "name": "app.js",
         "extension": ".js"
+      },
+      {
+        "path": "site/cyber_theme.css",
+        "name": "cyber_theme.css",
+        "extension": ".css"
       },
       {
         "path": "site/index.html",
@@ -390,6 +400,11 @@
         "extension": ".js"
       },
       {
+        "path": "tests/test_active_context_workbench.py",
+        "name": "test_active_context_workbench.py",
+        "extension": ".py"
+      },
+      {
         "path": "tests/test_fleet_mini_sites.py",
         "name": "test_fleet_mini_sites.py",
         "extension": ".py"
@@ -472,6 +487,41 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "c7459f95ae820ec3be12aa6829ba90f40d5a9b30",
+      "type": "commit",
+      "title": "Merge pull request #42 from kaibuzz0/feature/active-context-cyber-workbenchno",
+      "timestamp": "2026-08-17T04:11:55-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c7459f95ae820ec3be12aa6829ba90f40d5a9b30"
+    },
+    {
+      "id": "42baca3939bc9f183c74be2c599b2dad02d39a38",
+      "type": "commit",
+      "title": "Tests: lock active repository context and cyber theme",
+      "timestamp": "2026-08-17T04:11:41-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/42baca3939bc9f183c74be2c599b2dad02d39a38"
+    },
+    {
+      "id": "8bc5c8d82dc9a97581d168d9aff27f403f815424",
+      "type": "commit",
+      "title": "Workbench: wire active context and cyber theme",
+      "timestamp": "2026-08-17T04:11:21-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8bc5c8d82dc9a97581d168d9aff27f403f815424"
+    },
+    {
+      "id": "56680fc2a1ca7ffb69af23995a1819ae3670d259",
+      "type": "commit",
+      "title": "Theme: add jet-black semantic neon workbench",
+      "timestamp": "2026-08-17T04:11:06-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/56680fc2a1ca7ffb69af23995a1819ae3670d259"
+    },
+    {
+      "id": "e8e8da54b86c8b97997bd8374ede451f93a15e86",
+      "type": "commit",
+      "title": "Workbench: add active repository context foundation",
+      "timestamp": "2026-08-17T04:10:41-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e8e8da54b86c8b97997bd8374ede451f93a15e86"
+    },
+    {
       "id": "b0416b60259235efdcf7b380fe6ac33236e422bc",
       "type": "commit",
       "title": "Merge pull request #41 from kaibuzz0/feature/vibrant-theme-triage-v6",
@@ -505,41 +555,6 @@
       "title": "Theme: load vibrant workbench skin",
       "timestamp": "2026-08-17T03:51:42-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9ee53ec1b3473430404f5b9128324d513bfd815f"
-    },
-    {
-      "id": "1a03aca664bf19b2173269ffd163471fa8eb5458",
-      "type": "commit",
-      "title": "Merge pull request #40 from kaibuzz0/feature/vibrant-theme-triage-v6",
-      "timestamp": "2026-08-17T03:51:34-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/1a03aca664bf19b2173269ffd163471fa8eb5458"
-    },
-    {
-      "id": "2603d8ff3b9c3859ff56eeab6c3f7dbc973f4017",
-      "type": "commit",
-      "title": "Repo triage: style ranked next-actions queue",
-      "timestamp": "2026-08-17T03:51:26-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/2603d8ff3b9c3859ff56eeab6c3f7dbc973f4017"
-    },
-    {
-      "id": "1e6bcc7943a56633875f5a4d2fdf82a936b78454",
-      "type": "commit",
-      "title": "Repo triage: add ranked next-actions queue",
-      "timestamp": "2026-08-17T03:51:08-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/1e6bcc7943a56633875f5a4d2fdf82a936b78454"
-    },
-    {
-      "id": "b04cc0ad8c0e4a3d179459aeaf61fd23cd7d7fc9",
-      "type": "commit",
-      "title": "Theme: add vibrant VS Code-inspired color system",
-      "timestamp": "2026-08-17T03:50:43-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/b04cc0ad8c0e4a3d179459aeaf61fd23cd7d7fc9"
-    },
-    {
-      "id": "260583a21f85914527178969f347a5122da05f0e",
-      "type": "commit",
-      "title": "Merge pull request #39 from kaibuzz0/feature/repo-diagnostics-v5",
-      "timestamp": "2026-08-17T03:32:36-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/260583a21f85914527178969f347a5122da05f0e"
     }
   ],
   "links": [
