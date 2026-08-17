@@ -20,6 +20,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+      - name: Install pinned Monaco editor
+        run: npm install --ignore-scripts --no-save --no-audit --no-fund monaco-editor@0.55.1
       - name: Validate remote repository registry
         run: python scripts/sync_repositories.py --validate
       - name: Fetch connected repository snapshots
@@ -30,9 +32,10 @@ jobs:
         run: python scripts/build_hub.py
       - name: Assemble static site
         run: |
-          mkdir -p _site/site-data
+          mkdir -p _site/site-data _site/vendor/monaco
           cp -R site/. _site/
           cp -R site-data/. _site/site-data/
+          cp -R node_modules/monaco-editor/min/vs _site/vendor/monaco/
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
         with:
