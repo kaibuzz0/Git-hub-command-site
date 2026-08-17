@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T01:05:50Z",
-  "source_commit": "97664f2e532ab8c0270939c9c9d4b0bdecd9638e",
+  "generated_at": "2026-08-17T01:11:25Z",
+  "source_commit": "ee2f2f45c0271b8aa256fea390f5f5ac64272e69",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -327,6 +327,27 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "ee2f2f45c0271b8aa256fea390f5f5ac64272e69",
+      "type": "commit",
+      "title": "Merge pull request #22 from kaibuzz0/feature/cipher-layout-repo-sites",
+      "timestamp": "2026-08-16T20:11:18-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/ee2f2f45c0271b8aa256fea390f5f5ac64272e69"
+    },
+    {
+      "id": "9280ae56d1de7246425b9cde0d573639561e524c",
+      "type": "commit",
+      "title": "Tests: lock Cipher-style generated workspace layout",
+      "timestamp": "2026-08-16T20:10:41-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9280ae56d1de7246425b9cde0d573639561e524c"
+    },
+    {
+      "id": "c2970af97c1e4efb4b8f89bd47431661ef29836c",
+      "type": "commit",
+      "title": "Sites: adopt Cipher Suite VS Code workspace layout",
+      "timestamp": "2026-08-16T20:10:20-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c2970af97c1e4efb4b8f89bd47431661ef29836c"
+    },
+    {
       "id": "97664f2e532ab8c0270939c9c9d4b0bdecd9638e",
       "type": "commit",
       "title": "Merge pull request #21 from kaibuzz0/fix/generated-sites-private-invariant",
@@ -374,27 +395,6 @@
       "title": "Merge pull request #19 from kaibuzz0/feature/fleet-mini-sites",
       "timestamp": "2026-08-16T19:58:58-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/10bc8aeeb582045fa61194adf881c8e7d6f6c336"
-    },
-    {
-      "id": "7773a21df48218a8906f83e5c9d43afb08db1730",
-      "type": "commit",
-      "title": "Tests: cover central fleet mini-site generation",
-      "timestamp": "2026-08-16T19:58:15-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/7773a21df48218a8906f83e5c9d43afb08db1730"
-    },
-    {
-      "id": "80ce5a18d70dcc66b6ac3e7f507e625c586e76cf",
-      "type": "commit",
-      "title": "Workbench: link each repository to generated mini-site",
-      "timestamp": "2026-08-16T19:58:03-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/80ce5a18d70dcc66b6ac3e7f507e625c586e76cf"
-    },
-    {
-      "id": "2dac15133c1639083d42e65e5d5082ca0ecf50e1",
-      "type": "commit",
-      "title": "CI: validate fleet repository mini-sites",
-      "timestamp": "2026-08-16T19:57:40-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/2dac15133c1639083d42e65e5d5082ca0ecf50e1"
     }
   ],
   "links": [
