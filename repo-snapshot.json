@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T09:24:11Z",
-  "source_commit": "bc2d783b0f2b37c4112471400acfad839a76e706",
+  "generated_at": "2026-08-17T09:27:28Z",
+  "source_commit": "1556a734bad3db964a1ce709f0e50b4389b7212c",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -502,6 +502,27 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "1556a734bad3db964a1ce709f0e50b4389b7212c",
+      "type": "commit",
+      "title": "Merge pull request #45 from kaibuzz0/fix/command-os-postmerge-validation",
+      "timestamp": "2026-08-17T04:27:17-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/1556a734bad3db964a1ce709f0e50b4389b7212c"
+    },
+    {
+      "id": "c96876a871d15ad0e9e73d6b50fa1c34efa05c7d",
+      "type": "commit",
+      "title": "Tests: match semantic Command OS labels",
+      "timestamp": "2026-08-17T04:27:04-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c96876a871d15ad0e9e73d6b50fa1c34efa05c7d"
+    },
+    {
+      "id": "5313a51483c75e591e5aba70ec0c528403740e0c",
+      "type": "commit",
+      "title": "Tests: reconcile active context with Command OS runtime",
+      "timestamp": "2026-08-17T04:26:14-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5313a51483c75e591e5aba70ec0c528403740e0c"
+    },
+    {
       "id": "bc2d783b0f2b37c4112471400acfad839a76e706",
       "type": "commit",
       "title": "Merge pull request #44 from kaibuzz0/feature/command-os-blueprint",
@@ -549,27 +570,6 @@
       "title": "Command OS: implement full active-project blueprint",
       "timestamp": "2026-08-17T04:21:18-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/3025ce289eb35b307a252f2733db38fb772feae3"
-    },
-    {
-      "id": "ba761245b94dff37034c705c580e532f461aea87",
-      "type": "commit",
-      "title": "Fix repository cards and Home routing into active context",
-      "timestamp": "2026-08-17T04:13:03-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/ba761245b94dff37034c705c580e532f461aea87"
-    },
-    {
-      "id": "c5fdabd2d85ac24513af2c60c90bc0b305e83076",
-      "type": "commit",
-      "title": "Fix active context access to global lexical state",
-      "timestamp": "2026-08-17T04:12:39-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c5fdabd2d85ac24513af2c60c90bc0b305e83076"
-    },
-    {
-      "id": "c7459f95ae820ec3be12aa6829ba90f40d5a9b30",
-      "type": "commit",
-      "title": "Merge pull request #42 from kaibuzz0/feature/active-context-cyber-workbenchno",
-      "timestamp": "2026-08-17T04:11:55-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c7459f95ae820ec3be12aa6829ba90f40d5a9b30"
     }
   ],
   "links": [
