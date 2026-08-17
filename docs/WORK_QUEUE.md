@@ -1,24 +1,27 @@
 # Work Queue
 
-## P1
+## P1 — completed foundations
 
 - [x] Build and merge the multi-repo command-center foundation.
 - [x] Add remote snapshot synchronization, sync health, command palette and PWA groundwork.
 - [x] Connect and verify `kaibuzz0/cipher-solving-suite` as the first production spoke.
 - [x] Deploy the live central GitHub Pages command center.
 - [x] Add reusable onboarding kit generation and stale-snapshot health.
-- [x] Merge Command Workbench v3: VS Code-style operator shell, workspace tools, repository manager, editor, settings, and runner/debug adapter boundary.
-- [x] Verify post-merge live Pages deployment with the production public fleet and workspace tool registry.
-- [x] Add Workbench v4 resizable sidebar/inspector/output panels, workspace tabs, update checks, and browser-local whiteboard.
-- [x] Merge and deploy Workbench v5 split editor groups, README/reference preview, scratch diff, and saved layout library.
+- [x] Merge VS Code-style operator shell, workspace tools, repository manager, editor, settings, and runner/debug adapter boundary.
+- [x] Add resizable/dockable workspace panels, tabs, update checks, whiteboard, split editor groups and saved layouts.
+- [x] Roll out public-fleet snapshot connectors and centrally generated per-repository websites.
+- [x] Add repository file trees, exact-commit internal editor preview, repo intelligence, diagnostics, triage, scripts, notes, tasks, commands, research and health tooling.
+- [x] Establish Active Repository Context so Explorer/card selection switches the entire workbench project context.
+- [x] Implement the complete Command OS blueprint: global fleet Home + Overview/Mission Control, Intelligence, Files, Code, GitHub, Tests/CI, Tasks, Agents, Research, Notes, Commands and History.
+- [x] Establish the jet-black semantic neon visual system and regression/security validation.
 
-## P2
+## P2 — deepen the existing Command OS
 
 - [ ] Add repository-dispatch or GitHub App refresh for near-immediate connected-repo rebuilds.
-- [ ] Add an authenticated trusted-runner transport for approved test/build/debug requests.
-- [ ] Add richer repository file metadata browsing and editor-to-authorized-write handoff.
+- [ ] Add an authenticated trusted-runner transport for approved test/build/debug requests and bounded result ingestion.
 - [ ] Add optional GitHub PR/check/issue activity collectors without browser-side API credentials.
-- [ ] Add richer document composition: Markdown/source side-by-side, search-result tabs, commit/diff review surfaces, and recently opened resources.
-- [ ] Add movable/dockable panel registry so hub-owned tools can participate in the same workspace composition model.
+- [ ] Add richer language/static-analysis intelligence, dependency/module graphs and dead-code/test-gap hints.
+- [ ] Add authenticated private-repository transport and a non-public presentation surface.
+- [ ] Add explicit authorized promotion/export of browser-local mission/tasks/research/notes into repository-backed canonical records.
 - [ ] Add last-known-good snapshot promotion after successful validation without hiding later remote failures.
 - [ ] Add extension/tool contribution points that remain hub-owned and signed/allowlisted rather than executable snapshot content.
