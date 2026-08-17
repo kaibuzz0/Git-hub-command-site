@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T01:19:05Z",
-  "source_commit": "a90ea9729b018e4b8896e66067a34af08b464366",
+  "generated_at": "2026-08-17T01:27:28Z",
+  "source_commit": "5bf87e02a7adcd9f32f8151f4190ee0789ca99f6",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 44,
+    "tracked_files": 45,
     "python_files": 13,
     "javascript_typescript_files": 5,
     "workflow_files": 3,
     "test_files": 6
   },
   "repository_tree": {
-    "total_files": 44,
+    "total_files": 45,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,7 +99,7 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 11
+        "file_count": 12
       },
       {
         "path": "tests",
@@ -300,6 +300,11 @@
         "extension": ".js"
       },
       {
+        "path": "site/workbench_v5.css",
+        "name": "workbench_v5.css",
+        "extension": ".css"
+      },
+      {
         "path": "tests/test_fleet_mini_sites.py",
         "name": "test_fleet_mini_sites.py",
         "extension": ".py"
@@ -341,6 +346,20 @@
   "evidence": [],
   "agent_ops": {},
   "activity": [
+    {
+      "id": "5bf87e02a7adcd9f32f8151f4190ee0789ca99f6",
+      "type": "commit",
+      "title": "Merge pull request #25 from kaibuzz0/feature/workbench-v5-splits",
+      "timestamp": "2026-08-16T20:27:19-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5bf87e02a7adcd9f32f8151f4190ee0789ca99f6"
+    },
+    {
+      "id": "a60c72310dc0e82604287b70d5e8c564342cd55e",
+      "type": "commit",
+      "title": "Workbench: add split workspace styles",
+      "timestamp": "2026-08-16T20:26:53-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a60c72310dc0e82604287b70d5e8c564342cd55e"
+    },
     {
       "id": "a90ea9729b018e4b8896e66067a34af08b464366",
       "type": "commit",
@@ -396,20 +415,6 @@
       "title": "Merge pull request #22 from kaibuzz0/feature/cipher-layout-repo-sites",
       "timestamp": "2026-08-16T20:11:18-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/ee2f2f45c0271b8aa256fea390f5f5ac64272e69"
-    },
-    {
-      "id": "9280ae56d1de7246425b9cde0d573639561e524c",
-      "type": "commit",
-      "title": "Tests: lock Cipher-style generated workspace layout",
-      "timestamp": "2026-08-16T20:10:41-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9280ae56d1de7246425b9cde0d573639561e524c"
-    },
-    {
-      "id": "c2970af97c1e4efb4b8f89bd47431661ef29836c",
-      "type": "commit",
-      "title": "Sites: adopt Cipher Suite VS Code workspace layout",
-      "timestamp": "2026-08-16T20:10:20-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c2970af97c1e4efb4b8f89bd47431661ef29836c"
     }
   ],
   "links": [
