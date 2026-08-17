@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T02:07:25Z",
-  "source_commit": "4c9ba14e882d3ba8c0189dba2d9e14dd251eb0a0",
+  "generated_at": "2026-08-17T02:07:54Z",
+  "source_commit": "5e06fcdc82fe706aa5fc7899f3c5c3d0927ae54f",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -367,6 +367,13 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "5e06fcdc82fe706aa5fc7899f3c5c3d0927ae54f",
+      "type": "commit",
+      "title": "Workbench v7: add mobile drawer, top bar, FAB and swipe polish",
+      "timestamp": "2026-08-16T21:07:46-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5e06fcdc82fe706aa5fc7899f3c5c3d0927ae54f"
+    },
+    {
       "id": "4c9ba14e882d3ba8c0189dba2d9e14dd251eb0a0",
       "type": "commit",
       "title": "Workbench v7: add mobile interaction controller",
@@ -428,13 +435,6 @@
       "title": "Docs: mark Workbench v5 complete",
       "timestamp": "2026-08-16T20:32:53-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/6290c8b2b0c7b77b0ab4bd369e84514f8529fc34"
-    },
-    {
-      "id": "f243c77186f225b9486276ee8ef44595a877a13e",
-      "type": "commit",
-      "title": "Merge pull request #27 from kaibuzz0/feature/workbench-v5-splits",
-      "timestamp": "2026-08-16T20:31:37-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/f243c77186f225b9486276ee8ef44595a877a13e"
     }
   ],
   "links": [
