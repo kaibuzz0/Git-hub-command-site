@@ -30,11 +30,14 @@ jobs:
         run: python scripts/build_hub.py --validate
       - name: Generate aggregate site data
         run: python scripts/build_hub.py
+      - name: Generate repository mini-sites
+        run: python scripts/build_repository_sites.py --input site-data --output repo-sites
       - name: Assemble static site
         run: |
-          mkdir -p _site/site-data _site/vendor/monaco
+          mkdir -p _site/site-data _site/vendor/monaco _site/repos
           cp -R site/. _site/
           cp -R site-data/. _site/site-data/
+          cp -R repo-sites/. _site/repos/
           cp -R node_modules/monaco-editor/min/vs _site/vendor/monaco/
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
