@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T05:07:25Z",
-  "source_commit": "f64f7e5981a3212542e66634a02066de8ec770de",
+  "generated_at": "2026-08-17T05:09:36Z",
+  "source_commit": "a093db42c3a8ffe705d30d8ba97f94d0fe978d56",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 58,
-    "python_files": 17,
+    "tracked_files": 60,
+    "python_files": 18,
     "javascript_typescript_files": 10,
     "workflow_files": 3,
-    "test_files": 10
+    "test_files": 11
   },
   "repository_tree": {
-    "total_files": 58,
+    "total_files": 60,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,13 +99,13 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 21
+        "file_count": 22
       },
       {
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 10
+        "file_count": 11
       }
     ],
     "files": [
@@ -310,6 +310,11 @@
         "extension": ".js"
       },
       {
+        "path": "site/repo_workspace_v3.css",
+        "name": "repo_workspace_v3.css",
+        "extension": ".css"
+      },
+      {
         "path": "site/repo_workspace_v3.js",
         "name": "repo_workspace_v3.js",
         "extension": ".js"
@@ -385,6 +390,11 @@
         "extension": ".py"
       },
       {
+        "path": "tests/test_repo_workspace_v3.py",
+        "name": "test_repo_workspace_v3.py",
+        "extension": ".py"
+      },
+      {
         "path": "tests/test_repository_explorer.py",
         "name": "test_repository_explorer.py",
         "extension": ".py"
@@ -412,6 +422,48 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "a093db42c3a8ffe705d30d8ba97f94d0fe978d56",
+      "type": "commit",
+      "title": "Merge pull request #37 from kaibuzz0/feature/repo-workspace-v3",
+      "timestamp": "2026-08-17T00:09:27-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a093db42c3a8ffe705d30d8ba97f94d0fe978d56"
+    },
+    {
+      "id": "b65aba8cdd063da8a7385376324665bda460215c",
+      "type": "commit",
+      "title": "CI: validate project console v3 JavaScript",
+      "timestamp": "2026-08-17T00:09:19-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/b65aba8cdd063da8a7385376324665bda460215c"
+    },
+    {
+      "id": "27692952dabcd1ddbd2905c5f10a7b286b217333",
+      "type": "commit",
+      "title": "Tests: cover project console v3",
+      "timestamp": "2026-08-17T00:09:00-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/27692952dabcd1ddbd2905c5f10a7b286b217333"
+    },
+    {
+      "id": "c763e300a2e669025ddd5ef65f81bf1410d61a9c",
+      "type": "commit",
+      "title": "Repo workspace v3: inject project console assets into mini-sites",
+      "timestamp": "2026-08-17T00:08:49-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c763e300a2e669025ddd5ef65f81bf1410d61a9c"
+    },
+    {
+      "id": "9afe09b8551d23507a0bc4b7f618376315d1fee0",
+      "type": "commit",
+      "title": "Repo workspace v3: style project console surfaces",
+      "timestamp": "2026-08-17T00:08:34-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9afe09b8551d23507a0bc4b7f618376315d1fee0"
+    },
+    {
+      "id": "9e654f3d532a2d1e7878976c7cec1cde964fe078",
+      "type": "commit",
+      "title": "Repo workspace v3: expose shared project-console hooks",
+      "timestamp": "2026-08-17T00:08:24-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9e654f3d532a2d1e7878976c7cec1cde964fe078"
+    },
+    {
       "id": "f64f7e5981a3212542e66634a02066de8ec770de",
       "type": "commit",
       "title": "Repo workspace v3: add docs tasks presets and project console",
@@ -438,48 +490,6 @@
       "title": "CI: validate repository workspace interaction layer",
       "timestamp": "2026-08-16T23:59:37-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9ce60507d5e56b403320894d7a2194e6f306507a"
-    },
-    {
-      "id": "36dba377159f079dd8bca7d58fe89273497462c8",
-      "type": "commit",
-      "title": "Repo workspace: package interactive repo tools into mini-sites",
-      "timestamp": "2026-08-16T23:59:15-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/36dba377159f079dd8bca7d58fe89273497462c8"
-    },
-    {
-      "id": "797350773d0bf0d3af4799d95808c3cebf358d4e",
-      "type": "commit",
-      "title": "Repo workspace: style scripts console and local notebook",
-      "timestamp": "2026-08-16T23:58:58-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/797350773d0bf0d3af4799d95808c3cebf358d4e"
-    },
-    {
-      "id": "c4f0c97469e5a3777ad1ab765a36eda5d20b0018",
-      "type": "commit",
-      "title": "Repo workspace: add scripts console and local notebook",
-      "timestamp": "2026-08-16T23:58:42-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c4f0c97469e5a3777ad1ab765a36eda5d20b0018"
-    },
-    {
-      "id": "56f2d537c2b51790dde0af5969b210e92867d383",
-      "type": "commit",
-      "title": "Merge pull request #35 from kaibuzz0/fix/mobile-v8-retired-test",
-      "timestamp": "2026-08-16T21:26:10-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/56f2d537c2b51790dde0af5969b210e92867d383"
-    },
-    {
-      "id": "f3f0fb825db92dad660bc1456f6731c9efb3ec9e",
-      "type": "commit",
-      "title": "Tests: retire obsolete mobile v7 wiring assertions",
-      "timestamp": "2026-08-16T21:25:21-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/f3f0fb825db92dad660bc1456f6731c9efb3ec9e"
-    },
-    {
-      "id": "485e7f5af2e60ecf1697c3171a7445f0762ce75e",
-      "type": "commit",
-      "title": "Merge pull request #34 from kaibuzz0/feature/mobile-v8-coherent-shell",
-      "timestamp": "2026-08-16T21:24:14-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/485e7f5af2e60ecf1697c3171a7445f0762ce75e"
     }
   ],
   "links": [
