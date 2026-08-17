@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T00:34:02Z",
-  "source_commit": "d24903e2fffc108d8f3ac43996ff08d932f0f6d7",
+  "generated_at": "2026-08-17T00:47:28Z",
+  "source_commit": "e64e94c1ee8fc3ee612ee057f494fc7268827c37",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 35,
-    "python_files": 8,
+    "tracked_files": 39,
+    "python_files": 10,
     "javascript_typescript_files": 4,
     "workflow_files": 3,
-    "test_files": 3
+    "test_files": 4
   },
   "repository_tree": {
-    "total_files": 35,
+    "total_files": 39,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -51,7 +51,7 @@
         "path": "connectors",
         "name": "connectors",
         "depth": 1,
-        "file_count": 2
+        "file_count": 4
       },
       {
         "path": "data",
@@ -69,7 +69,7 @@
         "path": "docs",
         "name": "docs",
         "depth": 1,
-        "file_count": 5
+        "file_count": 6
       },
       {
         "path": "examples",
@@ -105,7 +105,7 @@
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 3
+        "file_count": 4
       }
     ],
     "files": [
@@ -133,6 +133,16 @@
         "path": "README.md",
         "name": "README.md",
         "extension": ".md"
+      },
+      {
+        "path": "connectors/build_repo_site.py",
+        "name": "build_repo_site.py",
+        "extension": ".py"
+      },
+      {
+        "path": "connectors/command-site-pages.yml",
+        "name": "command-site-pages.yml",
+        "extension": ".yml"
       },
       {
         "path": "connectors/command-site-snapshot.yml",
@@ -177,6 +187,11 @@
       {
         "path": "docs/CONNECTED_REPOSITORY_PROTOCOL.md",
         "name": "CONNECTED_REPOSITORY_PROTOCOL.md",
+        "extension": ".md"
+      },
+      {
+        "path": "docs/GENERATED_REPOSITORY_SITES.md",
+        "name": "GENERATED_REPOSITORY_SITES.md",
         "extension": ".md"
       },
       {
@@ -270,6 +285,11 @@
         "extension": ".js"
       },
       {
+        "path": "tests/test_generated_repo_site.py",
+        "name": "test_generated_repo_site.py",
+        "extension": ".py"
+      },
+      {
         "path": "tests/test_hub.py",
         "name": "test_hub.py",
         "extension": ".py"
@@ -296,6 +316,41 @@
   "evidence": [],
   "agent_ops": {},
   "activity": [
+    {
+      "id": "e64e94c1ee8fc3ee612ee057f494fc7268827c37",
+      "type": "commit",
+      "title": "Merge pull request #17 from kaibuzz0/feature/generated-repo-sites",
+      "timestamp": "2026-08-16T19:47:20-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e64e94c1ee8fc3ee612ee057f494fc7268827c37"
+    },
+    {
+      "id": "5dc6ed9669c35852eb7554ae9f2d60d7b851080c",
+      "type": "commit",
+      "title": "Tests: cover generated repository workspace kit",
+      "timestamp": "2026-08-16T19:46:54-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5dc6ed9669c35852eb7554ae9f2d60d7b851080c"
+    },
+    {
+      "id": "5a294929b5f29354f18608b6ea7afbd40affd2b0",
+      "type": "commit",
+      "title": "Docs: define generated repository workspace contract",
+      "timestamp": "2026-08-16T19:46:44-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5a294929b5f29354f18608b6ea7afbd40affd2b0"
+    },
+    {
+      "id": "8f76ff714826db29f09200e9b71326de5724856d",
+      "type": "commit",
+      "title": "Sites: add reusable repository Pages workflow",
+      "timestamp": "2026-08-16T19:46:32-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8f76ff714826db29f09200e9b71326de5724856d"
+    },
+    {
+      "id": "4b003ee3ca0e74fd0b598c838bde53b816363b5e",
+      "type": "commit",
+      "title": "Sites: add reusable repository mini-site generator",
+      "timestamp": "2026-08-16T19:46:24-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/4b003ee3ca0e74fd0b598c838bde53b816363b5e"
+    },
     {
       "id": "d24903e2fffc108d8f3ac43996ff08d932f0f6d7",
       "type": "commit",
@@ -330,41 +385,6 @@
       "title": "Pages: vendor pinned Monaco editor",
       "timestamp": "2026-08-16T19:32:34-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a1a741f3f571740fb49a1ebb298bdddf8ba19abb"
-    },
-    {
-      "id": "025df91ecd830f8661324da9fa929fe5dc2bdbac",
-      "type": "commit",
-      "title": "Explorer: style internal file actions",
-      "timestamp": "2026-08-16T19:32:21-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/025df91ecd830f8661324da9fa929fe5dc2bdbac"
-    },
-    {
-      "id": "24743ede7f8b309db345cfd21d3ef265cba03069",
-      "type": "commit",
-      "title": "Explorer: open text files inside workbench",
-      "timestamp": "2026-08-16T19:32:02-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/24743ede7f8b309db345cfd21d3ef265cba03069"
-    },
-    {
-      "id": "1ec573bf11c8a6fe803797796ce606ae8f18bb1e",
-      "type": "commit",
-      "title": "Workbench: wire internal Monaco editor",
-      "timestamp": "2026-08-16T19:31:44-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/1ec573bf11c8a6fe803797796ce606ae8f18bb1e"
-    },
-    {
-      "id": "6e1d95f87d751cf558634c8f5e797dcf36964f28",
-      "type": "commit",
-      "title": "Workbench: style internal file editor",
-      "timestamp": "2026-08-16T19:31:31-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/6e1d95f87d751cf558634c8f5e797dcf36964f28"
-    },
-    {
-      "id": "e5a3e00fdd98fc8da985c05648774d8c323f6cc3",
-      "type": "commit",
-      "title": "Workbench: add internal VS Code-style file editor",
-      "timestamp": "2026-08-16T19:31:21-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e5a3e00fdd98fc8da985c05648774d8c323f6cc3"
     }
   ],
   "links": [
