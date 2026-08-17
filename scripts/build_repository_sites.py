@@ -17,8 +17,8 @@ if str(ROOT) not in sys.path:
 from connectors.build_repo_site import load_snapshot, write_site
 
 ID_RE = re.compile(r"^[A-Za-z0-9._-]+$")
-EXTRA_CSS = [ROOT / "site" / "repo_workspace_v2.css", ROOT / "site" / "repo_workspace_v3.css"]
-EXTRA_JS = [ROOT / "site" / "repo_workspace_v2.js", ROOT / "site" / "repo_workspace_v3.js"]
+EXTRA_CSS = [ROOT / "site" / name for name in ("repo_workspace_v2.css", "repo_workspace_v3.css", "repo_workspace_v4.css")]
+EXTRA_JS = [ROOT / "site" / name for name in ("repo_workspace_v2.js", "repo_workspace_v3.js", "repo_workspace_v4.js")]
 
 
 def install_workspace_tools(target: Path) -> None:
