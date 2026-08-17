@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T02:26:17Z",
-  "source_commit": "56f2d537c2b51790dde0af5969b210e92867d383",
+  "generated_at": "2026-08-17T05:00:46Z",
+  "source_commit": "71f7b13aa49932eb2e00e3117991386af1257acf",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 54,
-    "python_files": 16,
-    "javascript_typescript_files": 8,
+    "tracked_files": 57,
+    "python_files": 17,
+    "javascript_typescript_files": 9,
     "workflow_files": 3,
-    "test_files": 9
+    "test_files": 10
   },
   "repository_tree": {
-    "total_files": 54,
+    "total_files": 57,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,13 +99,13 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 18
+        "file_count": 20
       },
       {
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 9
+        "file_count": 10
       }
     ],
     "files": [
@@ -300,6 +300,16 @@
         "extension": ".js"
       },
       {
+        "path": "site/repo_workspace_v2.css",
+        "name": "repo_workspace_v2.css",
+        "extension": ".css"
+      },
+      {
+        "path": "site/repo_workspace_v2.js",
+        "name": "repo_workspace_v2.js",
+        "extension": ".js"
+      },
+      {
         "path": "site/repository_explorer.css",
         "name": "repository_explorer.css",
         "extension": ".css"
@@ -365,6 +375,11 @@
         "extension": ".py"
       },
       {
+        "path": "tests/test_repo_workspace_v2.py",
+        "name": "test_repo_workspace_v2.py",
+        "extension": ".py"
+      },
+      {
         "path": "tests/test_repository_explorer.py",
         "name": "test_repository_explorer.py",
         "extension": ".py"
@@ -392,6 +407,48 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "71f7b13aa49932eb2e00e3117991386af1257acf",
+      "type": "commit",
+      "title": "Merge pull request #36 from kaibuzz0/feature/repo-workspace-v2",
+      "timestamp": "2026-08-17T00:00:39-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/71f7b13aa49932eb2e00e3117991386af1257acf"
+    },
+    {
+      "id": "21cbdafb9fc27304d2599f8ddea5933086487dd0",
+      "type": "commit",
+      "title": "Tests: cover repo scripts console and local notes",
+      "timestamp": "2026-08-16T23:59:48-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/21cbdafb9fc27304d2599f8ddea5933086487dd0"
+    },
+    {
+      "id": "9ce60507d5e56b403320894d7a2194e6f306507a",
+      "type": "commit",
+      "title": "CI: validate repository workspace interaction layer",
+      "timestamp": "2026-08-16T23:59:37-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9ce60507d5e56b403320894d7a2194e6f306507a"
+    },
+    {
+      "id": "36dba377159f079dd8bca7d58fe89273497462c8",
+      "type": "commit",
+      "title": "Repo workspace: package interactive repo tools into mini-sites",
+      "timestamp": "2026-08-16T23:59:15-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/36dba377159f079dd8bca7d58fe89273497462c8"
+    },
+    {
+      "id": "797350773d0bf0d3af4799d95808c3cebf358d4e",
+      "type": "commit",
+      "title": "Repo workspace: style scripts console and local notebook",
+      "timestamp": "2026-08-16T23:58:58-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/797350773d0bf0d3af4799d95808c3cebf358d4e"
+    },
+    {
+      "id": "c4f0c97469e5a3777ad1ab765a36eda5d20b0018",
+      "type": "commit",
+      "title": "Repo workspace: add scripts console and local notebook",
+      "timestamp": "2026-08-16T23:58:42-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c4f0c97469e5a3777ad1ab765a36eda5d20b0018"
+    },
+    {
       "id": "56f2d537c2b51790dde0af5969b210e92867d383",
       "type": "commit",
       "title": "Merge pull request #35 from kaibuzz0/fix/mobile-v8-retired-test",
@@ -418,48 +475,6 @@
       "title": "Tests: lock coherent mobile navigation model",
       "timestamp": "2026-08-16T21:23:15-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/d5461eda68f7cf8e138a5ba1db708d5cb79e519a"
-    },
-    {
-      "id": "26473ee963587115bfc6381d11abaa4c2f30415e",
-      "type": "commit",
-      "title": "CI: validate coherent mobile shell",
-      "timestamp": "2026-08-16T21:23:01-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/26473ee963587115bfc6381d11abaa4c2f30415e"
-    },
-    {
-      "id": "3a5bbbe62de512abfc007dd171842c18f59fcdd6",
-      "type": "commit",
-      "title": "Workbench v8: switch to coherent mobile shell",
-      "timestamp": "2026-08-16T21:22:44-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/3a5bbbe62de512abfc007dd171842c18f59fcdd6"
-    },
-    {
-      "id": "a213fd25a5d8ed393cbfe5a8c10ab1abd1b10a0b",
-      "type": "commit",
-      "title": "Merge pull request #33 from kaibuzz0/feature/mobile-v8-coherent-shell",
-      "timestamp": "2026-08-16T21:22:43-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a213fd25a5d8ed393cbfe5a8c10ab1abd1b10a0b"
-    },
-    {
-      "id": "17e271cb9354004a19cf4eccf821009be63be014",
-      "type": "commit",
-      "title": "Workbench v8: add simple mobile navigation controller",
-      "timestamp": "2026-08-16T21:22:22-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/17e271cb9354004a19cf4eccf821009be63be014"
-    },
-    {
-      "id": "38f4b4a34cd84d5a22fc652fd67db47e25015a1a",
-      "type": "commit",
-      "title": "Workbench v8: add coherent mobile-first shell",
-      "timestamp": "2026-08-16T21:21:57-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/38f4b4a34cd84d5a22fc652fd67db47e25015a1a"
-    },
-    {
-      "id": "3b4041a392761a6eb2655dff6e5440c817b8d0d8",
-      "type": "commit",
-      "title": "Merge pull request #32 from kaibuzz0/feature/mobile-workbench-v7",
-      "timestamp": "2026-08-16T21:13:29-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/3b4041a392761a6eb2655dff6e5440c817b8d0d8"
     }
   ],
   "links": [
