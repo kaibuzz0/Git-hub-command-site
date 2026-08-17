@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T09:21:53Z",
-  "source_commit": "263df44db37c8cc1e2059bdf560cf6cc5746a21f",
+  "generated_at": "2026-08-17T09:24:11Z",
+  "source_commit": "bc2d783b0f2b37c4112471400acfad839a76e706",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 74,
-    "python_files": 22,
+    "tracked_files": 76,
+    "python_files": 23,
     "javascript_typescript_files": 15,
     "workflow_files": 3,
-    "test_files": 15
+    "test_files": 16
   },
   "repository_tree": {
-    "total_files": 74,
+    "total_files": 76,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,13 +99,13 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 32
+        "file_count": 33
       },
       {
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 15
+        "file_count": 16
       }
     ],
     "files": [
@@ -260,6 +260,11 @@
         "extension": ".js"
       },
       {
+        "path": "site/command_os.css",
+        "name": "command_os.css",
+        "extension": ".css"
+      },
+      {
         "path": "site/command_os.js",
         "name": "command_os.js",
         "extension": ".js"
@@ -410,6 +415,11 @@
         "extension": ".py"
       },
       {
+        "path": "tests/test_command_os_blueprint.py",
+        "name": "test_command_os_blueprint.py",
+        "extension": ".py"
+      },
+      {
         "path": "tests/test_fleet_mini_sites.py",
         "name": "test_fleet_mini_sites.py",
         "extension": ".py"
@@ -492,6 +502,41 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "bc2d783b0f2b37c4112471400acfad839a76e706",
+      "type": "commit",
+      "title": "Merge pull request #44 from kaibuzz0/feature/command-os-blueprint",
+      "timestamp": "2026-08-17T04:24:01-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/bc2d783b0f2b37c4112471400acfad839a76e706"
+    },
+    {
+      "id": "d74ce2fabd8e26f7b93ec8fba9b4395ab5c876a1",
+      "type": "commit",
+      "title": "Tests: lock Command OS blueprint surfaces and security boundary",
+      "timestamp": "2026-08-17T04:23:11-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/d74ce2fabd8e26f7b93ec8fba9b4395ab5c876a1"
+    },
+    {
+      "id": "c5d165380176adf68fd310a5069fcb7807d00dce",
+      "type": "commit",
+      "title": "CI: validate Command OS blueprint runtime",
+      "timestamp": "2026-08-17T04:22:56-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c5d165380176adf68fd310a5069fcb7807d00dce"
+    },
+    {
+      "id": "2972ec41ef12a4adfbf3c4367431af2ce85a11eb",
+      "type": "commit",
+      "title": "Command OS: wire full blueprint runtime",
+      "timestamp": "2026-08-17T04:22:33-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/2972ec41ef12a4adfbf3c4367431af2ce85a11eb"
+    },
+    {
+      "id": "e0bd8b7629f3cd35bcab5d4c5c44d5d0399098aa",
+      "type": "commit",
+      "title": "Command OS: add jet-black semantic neon workspace theme",
+      "timestamp": "2026-08-17T04:22:09-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e0bd8b7629f3cd35bcab5d4c5c44d5d0399098aa"
+    },
+    {
       "id": "263df44db37c8cc1e2059bdf560cf6cc5746a21f",
       "type": "commit",
       "title": "Merge pull request #43 from kaibuzz0/feature/command-os-blueprint",
@@ -525,41 +570,6 @@
       "title": "Merge pull request #42 from kaibuzz0/feature/active-context-cyber-workbenchno",
       "timestamp": "2026-08-17T04:11:55-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c7459f95ae820ec3be12aa6829ba90f40d5a9b30"
-    },
-    {
-      "id": "42baca3939bc9f183c74be2c599b2dad02d39a38",
-      "type": "commit",
-      "title": "Tests: lock active repository context and cyber theme",
-      "timestamp": "2026-08-17T04:11:41-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/42baca3939bc9f183c74be2c599b2dad02d39a38"
-    },
-    {
-      "id": "8bc5c8d82dc9a97581d168d9aff27f403f815424",
-      "type": "commit",
-      "title": "Workbench: wire active context and cyber theme",
-      "timestamp": "2026-08-17T04:11:21-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8bc5c8d82dc9a97581d168d9aff27f403f815424"
-    },
-    {
-      "id": "56680fc2a1ca7ffb69af23995a1819ae3670d259",
-      "type": "commit",
-      "title": "Theme: add jet-black semantic neon workbench",
-      "timestamp": "2026-08-17T04:11:06-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/56680fc2a1ca7ffb69af23995a1819ae3670d259"
-    },
-    {
-      "id": "e8e8da54b86c8b97997bd8374ede451f93a15e86",
-      "type": "commit",
-      "title": "Workbench: add active repository context foundation",
-      "timestamp": "2026-08-17T04:10:41-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e8e8da54b86c8b97997bd8374ede451f93a15e86"
-    },
-    {
-      "id": "b0416b60259235efdcf7b380fe6ac33236e422bc",
-      "type": "commit",
-      "title": "Merge pull request #41 from kaibuzz0/feature/vibrant-theme-triage-v6",
-      "timestamp": "2026-08-17T03:53:30-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/b0416b60259235efdcf7b380fe6ac33236e422bc"
     }
   ],
   "links": [
