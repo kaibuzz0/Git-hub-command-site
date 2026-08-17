@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T01:33:23Z",
-  "source_commit": "b91e8290dc4e7d597f6ecf0ff2db48cd169079b7",
+  "generated_at": "2026-08-17T01:34:34Z",
+  "source_commit": "9bd75608b969120c55ba3b33440d8c9478bc1c5a",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -357,6 +357,20 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "9bd75608b969120c55ba3b33440d8c9478bc1c5a",
+      "type": "commit",
+      "title": "Merge pull request #29 from kaibuzz0/docs/workbench-v5-complete",
+      "timestamp": "2026-08-16T20:34:26-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9bd75608b969120c55ba3b33440d8c9478bc1c5a"
+    },
+    {
+      "id": "010e4d2bf3a0b3ede4c47f79f1c12673318cd263",
+      "type": "commit",
+      "title": "Docs: close Workbench v5 handoff",
+      "timestamp": "2026-08-16T20:33:41-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/010e4d2bf3a0b3ede4c47f79f1c12673318cd263"
+    },
+    {
       "id": "b91e8290dc4e7d597f6ecf0ff2db48cd169079b7",
       "type": "commit",
       "title": "Merge pull request #28 from kaibuzz0/docs/workbench-v5-complete",
@@ -411,20 +425,6 @@
       "title": "Tests: tighten Workbench v5 assertions",
       "timestamp": "2026-08-16T20:28:43-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/0892fe1d302517f8786390f5bccdc707917fe2dc"
-    },
-    {
-      "id": "4c5c8d68706a5bb7cd8010088a90a7047d3e5614",
-      "type": "commit",
-      "title": "Merge pull request #26 from kaibuzz0/feature/workbench-v5-splits",
-      "timestamp": "2026-08-16T20:28:34-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/4c5c8d68706a5bb7cd8010088a90a7047d3e5614"
-    },
-    {
-      "id": "39361003d886af92ffc494eef21afc39b9ff99d2",
-      "type": "commit",
-      "title": "Tests: cover split workspace and layout tools",
-      "timestamp": "2026-08-16T20:28:27-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/39361003d886af92ffc494eef21afc39b9ff99d2"
     }
   ],
   "links": [
