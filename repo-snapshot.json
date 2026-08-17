@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T00:14:56Z",
-  "source_commit": "c60120a77fbcddea86638b925318ec146d5a36fa",
+  "generated_at": "2026-08-17T00:16:30Z",
+  "source_commit": "f01dbda76e0badfb162b0ecd14c30416ba6a8582",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,11 +9,11 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 29,
-    "python_files": 6,
-    "javascript_typescript_files": 2,
+    "tracked_files": 32,
+    "python_files": 7,
+    "javascript_typescript_files": 3,
     "workflow_files": 3,
-    "test_files": 1
+    "test_files": 2
   },
   "tools": [],
   "toolsets": [],
@@ -25,6 +25,41 @@
   "evidence": [],
   "agent_ops": {},
   "activity": [
+    {
+      "id": "f01dbda76e0badfb162b0ecd14c30416ba6a8582",
+      "type": "commit",
+      "title": "Merge pull request #13 from kaibuzz0/feature/repository-explorer-v2",
+      "timestamp": "2026-08-16T19:16:21-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/f01dbda76e0badfb162b0ecd14c30416ba6a8582"
+    },
+    {
+      "id": "2c8a3db75ee1322a380bdbd7e6e220377d5fa806",
+      "type": "commit",
+      "title": "Test: cover file inventory and Explorer wiring",
+      "timestamp": "2026-08-16T19:15:31-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/2c8a3db75ee1322a380bdbd7e6e220377d5fa806"
+    },
+    {
+      "id": "f11c81921b1bd2593bba9f0145d95086645da644",
+      "type": "commit",
+      "title": "UI: load repository Explorer layer",
+      "timestamp": "2026-08-16T19:15:19-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/f11c81921b1bd2593bba9f0145d95086645da644"
+    },
+    {
+      "id": "25141876417fa195eea64b92e1b3eee8fe2c92ce",
+      "type": "commit",
+      "title": "UI: restore scrolling and style repository Explorer",
+      "timestamp": "2026-08-16T19:15:08-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/25141876417fa195eea64b92e1b3eee8fe2c92ce"
+    },
+    {
+      "id": "cdc6d6b51ce9c5b8133ab20f4f48756d8175d6ae",
+      "type": "commit",
+      "title": "Explorer: add lazy repository file browser",
+      "timestamp": "2026-08-16T19:14:57-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/cdc6d6b51ce9c5b8133ab20f4f48756d8175d6ae"
+    },
     {
       "id": "c60120a77fbcddea86638b925318ec146d5a36fa",
       "type": "commit",
@@ -59,41 +94,6 @@
       "title": "Ops: hand off public fleet integration",
       "timestamp": "2026-08-16T19:02:36-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/af33e156408b5d184cbe8e22a000ca1bc97575d1"
-    },
-    {
-      "id": "8fcfa23bb399f23e6f442ab45586233d217472ab",
-      "type": "commit",
-      "title": "Ops: record fleet connector rollout",
-      "timestamp": "2026-08-16T19:02:09-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8fcfa23bb399f23e6f442ab45586233d217472ab"
-    },
-    {
-      "id": "243053d447d154219724d421fc05e76261d606f6",
-      "type": "commit",
-      "title": "Fleet: register public repository snapshots",
-      "timestamp": "2026-08-16T19:01:39-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/243053d447d154219724d421fc05e76261d606f6"
-    },
-    {
-      "id": "30c82cbb776d1ae4635f2e2a2bcfe89276b7cd24",
-      "type": "commit",
-      "title": "Connect hub repository to its own fleet inventory",
-      "timestamp": "2026-08-16T19:00:37-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/30c82cbb776d1ae4635f2e2a2bcfe89276b7cd24"
-    },
-    {
-      "id": "131fb04af009bddaaf173711b6e31c3f651210b4",
-      "type": "commit",
-      "title": "Merge pull request #10 from kaibuzz0/feature/fleet-connector-v1",
-      "timestamp": "2026-08-16T18:56:29-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/131fb04af009bddaaf173711b6e31c3f651210b4"
-    },
-    {
-      "id": "2b7b6b706db9fd69a728b7d6e777226084fa27ff",
-      "type": "commit",
-      "title": "Connector: harden portable snapshot exporter for fleet rollout",
-      "timestamp": "2026-08-16T18:55:38-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/2b7b6b706db9fd69a728b7d6e777226084fa27ff"
     }
   ],
   "links": [
