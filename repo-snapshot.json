@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T02:24:22Z",
-  "source_commit": "485e7f5af2e60ecf1697c3171a7445f0762ce75e",
+  "generated_at": "2026-08-17T02:26:17Z",
+  "source_commit": "56f2d537c2b51790dde0af5969b210e92867d383",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -392,6 +392,20 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "56f2d537c2b51790dde0af5969b210e92867d383",
+      "type": "commit",
+      "title": "Merge pull request #35 from kaibuzz0/fix/mobile-v8-retired-test",
+      "timestamp": "2026-08-16T21:26:10-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/56f2d537c2b51790dde0af5969b210e92867d383"
+    },
+    {
+      "id": "f3f0fb825db92dad660bc1456f6731c9efb3ec9e",
+      "type": "commit",
+      "title": "Tests: retire obsolete mobile v7 wiring assertions",
+      "timestamp": "2026-08-16T21:25:21-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/f3f0fb825db92dad660bc1456f6731c9efb3ec9e"
+    },
+    {
       "id": "485e7f5af2e60ecf1697c3171a7445f0762ce75e",
       "type": "commit",
       "title": "Merge pull request #34 from kaibuzz0/feature/mobile-v8-coherent-shell",
@@ -446,20 +460,6 @@
       "title": "Merge pull request #32 from kaibuzz0/feature/mobile-workbench-v7",
       "timestamp": "2026-08-16T21:13:29-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/3b4041a392761a6eb2655dff6e5440c817b8d0d8"
-    },
-    {
-      "id": "7a21236ccfc44a65378f1e6606b117ee994f9200",
-      "type": "commit",
-      "title": "Merge pull request #31 from kaibuzz0/feature/mobile-navigation-v7",
-      "timestamp": "2026-08-16T21:13:25-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/7a21236ccfc44a65378f1e6606b117ee994f9200"
-    },
-    {
-      "id": "79e79875ab8cb5437ea1f1f03550e5f21756b4b3",
-      "type": "commit",
-      "title": "Tests: lock mobile drawer and gesture wiring",
-      "timestamp": "2026-08-16T21:12:11-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/79e79875ab8cb5437ea1f1f03550e5f21756b4b3"
     }
   ],
   "links": [
