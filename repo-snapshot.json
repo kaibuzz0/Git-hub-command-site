@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T00:57:21Z",
-  "source_commit": "c1a2f14c3182c2b56e5471d6d53de573d13f96e0",
+  "generated_at": "2026-08-17T00:59:05Z",
+  "source_commit": "10bc8aeeb582045fa61194adf881c8e7d6f6c336",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 40,
-    "python_files": 11,
+    "tracked_files": 41,
+    "python_files": 12,
     "javascript_typescript_files": 4,
     "workflow_files": 3,
-    "test_files": 4
+    "test_files": 5
   },
   "repository_tree": {
-    "total_files": 40,
+    "total_files": 41,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -105,7 +105,7 @@
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 4
+        "file_count": 5
       }
     ],
     "files": [
@@ -290,6 +290,11 @@
         "extension": ".js"
       },
       {
+        "path": "tests/test_fleet_mini_sites.py",
+        "name": "test_fleet_mini_sites.py",
+        "extension": ".py"
+      },
+      {
         "path": "tests/test_generated_repo_site.py",
         "name": "test_generated_repo_site.py",
         "extension": ".py"
@@ -322,11 +327,53 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "10bc8aeeb582045fa61194adf881c8e7d6f6c336",
+      "type": "commit",
+      "title": "Merge pull request #19 from kaibuzz0/feature/fleet-mini-sites",
+      "timestamp": "2026-08-16T19:58:58-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/10bc8aeeb582045fa61194adf881c8e7d6f6c336"
+    },
+    {
+      "id": "7773a21df48218a8906f83e5c9d43afb08db1730",
+      "type": "commit",
+      "title": "Tests: cover central fleet mini-site generation",
+      "timestamp": "2026-08-16T19:58:15-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/7773a21df48218a8906f83e5c9d43afb08db1730"
+    },
+    {
+      "id": "80ce5a18d70dcc66b6ac3e7f507e625c586e76cf",
+      "type": "commit",
+      "title": "Workbench: link each repository to generated mini-site",
+      "timestamp": "2026-08-16T19:58:03-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/80ce5a18d70dcc66b6ac3e7f507e625c586e76cf"
+    },
+    {
+      "id": "2dac15133c1639083d42e65e5d5082ca0ecf50e1",
+      "type": "commit",
+      "title": "CI: validate fleet repository mini-sites",
+      "timestamp": "2026-08-16T19:57:40-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/2dac15133c1639083d42e65e5d5082ca0ecf50e1"
+    },
+    {
+      "id": "047ce64ad8bdb3324fc4ea1809336a44c6d8eee9",
+      "type": "commit",
+      "title": "Sites: generate all repository mini-sites in hub Pages",
+      "timestamp": "2026-08-16T19:57:23-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/047ce64ad8bdb3324fc4ea1809336a44c6d8eee9"
+    },
+    {
       "id": "c1a2f14c3182c2b56e5471d6d53de573d13f96e0",
       "type": "commit",
       "title": "Merge pull request #18 from kaibuzz0/feature/fleet-mini-sites",
       "timestamp": "2026-08-16T19:57:12-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c1a2f14c3182c2b56e5471d6d53de573d13f96e0"
+    },
+    {
+      "id": "82b3fdbed7875b8250e0c998fd69fed9092727bc",
+      "type": "commit",
+      "title": "Sites: make fleet generator import portable",
+      "timestamp": "2026-08-16T19:57:12-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/82b3fdbed7875b8250e0c998fd69fed9092727bc"
     },
     {
       "id": "4e34030afa8829edbae7630f45e9e0054e4714ce",
@@ -348,48 +395,6 @@
       "title": "Tests: cover generated repository workspace kit",
       "timestamp": "2026-08-16T19:46:54-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5dc6ed9669c35852eb7554ae9f2d60d7b851080c"
-    },
-    {
-      "id": "5a294929b5f29354f18608b6ea7afbd40affd2b0",
-      "type": "commit",
-      "title": "Docs: define generated repository workspace contract",
-      "timestamp": "2026-08-16T19:46:44-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5a294929b5f29354f18608b6ea7afbd40affd2b0"
-    },
-    {
-      "id": "8f76ff714826db29f09200e9b71326de5724856d",
-      "type": "commit",
-      "title": "Sites: add reusable repository Pages workflow",
-      "timestamp": "2026-08-16T19:46:32-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8f76ff714826db29f09200e9b71326de5724856d"
-    },
-    {
-      "id": "4b003ee3ca0e74fd0b598c838bde53b816363b5e",
-      "type": "commit",
-      "title": "Sites: add reusable repository mini-site generator",
-      "timestamp": "2026-08-16T19:46:24-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/4b003ee3ca0e74fd0b598c838bde53b816363b5e"
-    },
-    {
-      "id": "d24903e2fffc108d8f3ac43996ff08d932f0f6d7",
-      "type": "commit",
-      "title": "Merge pull request #16 from kaibuzz0/feature/internal-vscode-editor",
-      "timestamp": "2026-08-16T19:33:56-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/d24903e2fffc108d8f3ac43996ff08d932f0f6d7"
-    },
-    {
-      "id": "d60f9dc884e1ca04fbc27f66546afbf47f79d645",
-      "type": "commit",
-      "title": "Tests: cover internal VS Code editor wiring",
-      "timestamp": "2026-08-16T19:32:55-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/d60f9dc884e1ca04fbc27f66546afbf47f79d645"
-    },
-    {
-      "id": "a76a9a93784cfa187394a30615456ba3b4c4564d",
-      "type": "commit",
-      "title": "CI: validate internal editor JavaScript",
-      "timestamp": "2026-08-16T19:32:45-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a76a9a93784cfa187394a30615456ba3b4c4564d"
     }
   ],
   "links": [
