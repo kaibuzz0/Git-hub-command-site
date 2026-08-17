@@ -22,7 +22,10 @@ jobs:
       - name: Compile workbench scripts
         run: python -m py_compile scripts/build_hub.py scripts/sync_repositories.py scripts/onboard_repository.py scripts/connect_repository.py connectors/export_repo_snapshot.py
       - name: Validate workbench JavaScript
-        run: node --check site/app.js
+        run: |
+          node --check site/app.js
+          node --check site/repository_explorer.js
+          node --check site/internal_editor.js
       - name: Run tests
         run: python -m pytest tests/ -vv --tb=short --junitxml=test-results.xml
       - name: Validate remote registry
