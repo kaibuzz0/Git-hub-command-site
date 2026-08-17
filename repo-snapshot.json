@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T08:51:42Z",
-  "source_commit": "1a03aca664bf19b2173269ffd163471fa8eb5458",
+  "generated_at": "2026-08-17T08:53:39Z",
+  "source_commit": "b0416b60259235efdcf7b380fe6ac33236e422bc",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 69,
-    "python_files": 20,
+    "tracked_files": 70,
+    "python_files": 21,
     "javascript_typescript_files": 13,
     "workflow_files": 3,
-    "test_files": 13
+    "test_files": 14
   },
   "repository_tree": {
-    "total_files": 69,
+    "total_files": 70,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -105,7 +105,7 @@
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 13
+        "file_count": 14
       }
     ],
     "files": [
@@ -445,6 +445,11 @@
         "extension": ".py"
       },
       {
+        "path": "tests/test_vibrant_triage.py",
+        "name": "test_vibrant_triage.py",
+        "extension": ".py"
+      },
+      {
         "path": "tests/test_workbench_v4.py",
         "name": "test_workbench_v4.py",
         "extension": ".py"
@@ -466,6 +471,41 @@
   "evidence": [],
   "agent_ops": {},
   "activity": [
+    {
+      "id": "b0416b60259235efdcf7b380fe6ac33236e422bc",
+      "type": "commit",
+      "title": "Merge pull request #41 from kaibuzz0/feature/vibrant-theme-triage-v6",
+      "timestamp": "2026-08-17T03:53:30-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/b0416b60259235efdcf7b380fe6ac33236e422bc"
+    },
+    {
+      "id": "3e1df38bfb1c5300a115741188449d2a8fd9e121",
+      "type": "commit",
+      "title": "Tests: lock vibrant theme and next-actions queue",
+      "timestamp": "2026-08-17T03:52:50-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/3e1df38bfb1c5300a115741188449d2a8fd9e121"
+    },
+    {
+      "id": "52631d4c0367235f23dffaa1db0038f8cc08f217",
+      "type": "commit",
+      "title": "CI: validate vibrant theme triage runtime",
+      "timestamp": "2026-08-17T03:52:35-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/52631d4c0367235f23dffaa1db0038f8cc08f217"
+    },
+    {
+      "id": "000896231a18e71a4ba5c3675037285b4206e085",
+      "type": "commit",
+      "title": "Repo sites: inject vibrant theme and triage tools",
+      "timestamp": "2026-08-17T03:52:09-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/000896231a18e71a4ba5c3675037285b4206e085"
+    },
+    {
+      "id": "9ee53ec1b3473430404f5b9128324d513bfd815f",
+      "type": "commit",
+      "title": "Theme: load vibrant workbench skin",
+      "timestamp": "2026-08-17T03:51:42-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9ee53ec1b3473430404f5b9128324d513bfd815f"
+    },
     {
       "id": "1a03aca664bf19b2173269ffd163471fa8eb5458",
       "type": "commit",
@@ -500,41 +540,6 @@
       "title": "Merge pull request #39 from kaibuzz0/feature/repo-diagnostics-v5",
       "timestamp": "2026-08-17T03:32:36-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/260583a21f85914527178969f347a5122da05f0e"
-    },
-    {
-      "id": "7effe52c7cd594f65b30d2e137f6153027e93f79",
-      "type": "commit",
-      "title": "Tests: cover repository health diagnostics layer",
-      "timestamp": "2026-08-17T03:31:37-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/7effe52c7cd594f65b30d2e137f6153027e93f79"
-    },
-    {
-      "id": "b14db9f2be1bf1dc208f631e507079296c8be8a9",
-      "type": "commit",
-      "title": "Repo diagnostics: validate v5 workspace script",
-      "timestamp": "2026-08-17T03:31:25-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/b14db9f2be1bf1dc208f631e507079296c8be8a9"
-    },
-    {
-      "id": "62ae3531011a35682849d9004f0f4379648cf8c4",
-      "type": "commit",
-      "title": "Repo diagnostics: inject v5 health assets",
-      "timestamp": "2026-08-17T03:31:04-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/62ae3531011a35682849d9004f0f4379648cf8c4"
-    },
-    {
-      "id": "fbc201cce4b03833086bda841f9b70d18ae8377d",
-      "type": "commit",
-      "title": "Repo diagnostics: style health and attention view",
-      "timestamp": "2026-08-17T03:30:39-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/fbc201cce4b03833086bda841f9b70d18ae8377d"
-    },
-    {
-      "id": "d1207ee0549b20eb58671abcb4f82c9f16732ad1",
-      "type": "commit",
-      "title": "Repo diagnostics: add health and attention view",
-      "timestamp": "2026-08-17T03:30:25-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/d1207ee0549b20eb58671abcb4f82c9f16732ad1"
     }
   ],
   "links": [
