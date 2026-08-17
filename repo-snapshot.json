@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T00:32:42Z",
-  "source_commit": "e6ef60985c2d3c3e20db8e1693d5928484581ac0",
+  "generated_at": "2026-08-17T00:34:02Z",
+  "source_commit": "d24903e2fffc108d8f3ac43996ff08d932f0f6d7",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 34,
-    "python_files": 7,
+    "tracked_files": 35,
+    "python_files": 8,
     "javascript_typescript_files": 4,
     "workflow_files": 3,
-    "test_files": 2
+    "test_files": 3
   },
   "repository_tree": {
-    "total_files": 34,
+    "total_files": 35,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -105,7 +105,7 @@
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 2
+        "file_count": 3
       }
     ],
     "files": [
@@ -275,6 +275,11 @@
         "extension": ".py"
       },
       {
+        "path": "tests/test_internal_editor.py",
+        "name": "test_internal_editor.py",
+        "extension": ".py"
+      },
+      {
         "path": "tests/test_repository_explorer.py",
         "name": "test_repository_explorer.py",
         "extension": ".py"
@@ -292,11 +297,39 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "d24903e2fffc108d8f3ac43996ff08d932f0f6d7",
+      "type": "commit",
+      "title": "Merge pull request #16 from kaibuzz0/feature/internal-vscode-editor",
+      "timestamp": "2026-08-16T19:33:56-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/d24903e2fffc108d8f3ac43996ff08d932f0f6d7"
+    },
+    {
+      "id": "d60f9dc884e1ca04fbc27f66546afbf47f79d645",
+      "type": "commit",
+      "title": "Tests: cover internal VS Code editor wiring",
+      "timestamp": "2026-08-16T19:32:55-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/d60f9dc884e1ca04fbc27f66546afbf47f79d645"
+    },
+    {
+      "id": "a76a9a93784cfa187394a30615456ba3b4c4564d",
+      "type": "commit",
+      "title": "CI: validate internal editor JavaScript",
+      "timestamp": "2026-08-16T19:32:45-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a76a9a93784cfa187394a30615456ba3b4c4564d"
+    },
+    {
       "id": "e6ef60985c2d3c3e20db8e1693d5928484581ac0",
       "type": "commit",
       "title": "Merge pull request #15 from kaibuzz0/feature/internal-vscode-editor",
       "timestamp": "2026-08-16T19:32:34-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e6ef60985c2d3c3e20db8e1693d5928484581ac0"
+    },
+    {
+      "id": "a1a741f3f571740fb49a1ebb298bdddf8ba19abb",
+      "type": "commit",
+      "title": "Pages: vendor pinned Monaco editor",
+      "timestamp": "2026-08-16T19:32:34-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a1a741f3f571740fb49a1ebb298bdddf8ba19abb"
     },
     {
       "id": "025df91ecd830f8661324da9fa929fe5dc2bdbac",
@@ -332,34 +365,6 @@
       "title": "Workbench: add internal VS Code-style file editor",
       "timestamp": "2026-08-16T19:31:21-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e5a3e00fdd98fc8da985c05648774d8c323f6cc3"
-    },
-    {
-      "id": "1d07687f9f1bcc9d364253984f3b9a59cf2ee8e6",
-      "type": "commit",
-      "title": "Revert accidental placeholder file",
-      "timestamp": "2026-08-16T19:30:53-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/1d07687f9f1bcc9d364253984f3b9a59cf2ee8e6"
-    },
-    {
-      "id": "8e7b771a8973c8fba8699042882fd5e7ec1e37e0",
-      "type": "commit",
-      "title": "x",
-      "timestamp": "2026-08-16T19:30:33-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8e7b771a8973c8fba8699042882fd5e7ec1e37e0"
-    },
-    {
-      "id": "bd03ebfe2ea45ac9b015dfaf6ec8b0d624db1902",
-      "type": "commit",
-      "title": "Merge pull request #14 from kaibuzz0/ops/reconcile-explorer-rollout",
-      "timestamp": "2026-08-16T19:25:27-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/bd03ebfe2ea45ac9b015dfaf6ec8b0d624db1902"
-    },
-    {
-      "id": "b4b5f0fd5d9cfe21c88991adea8f89b3097ba265",
-      "type": "commit",
-      "title": "Ops: reconcile repository Explorer rollout state",
-      "timestamp": "2026-08-16T19:24:38-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/b4b5f0fd5d9cfe21c88991adea8f89b3097ba265"
     }
   ],
   "links": [
