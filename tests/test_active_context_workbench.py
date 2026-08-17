@@ -6,13 +6,14 @@ SITE = ROOT / "site"
 
 def test_active_repository_context_is_wired():
     index = (SITE / "index.html").read_text(encoding="utf-8")
-    js = (SITE / "active_context.js").read_text(encoding="utf-8")
-    assert 'active_context.js' in index
-    assert 'command-workbench-active-repo' in js
+    js = (SITE / "command_os.js").read_text(encoding="utf-8")
+    assert 'command_os.js' in index
+    assert 'active_context.js' not in index
+    assert 'command-os-active-repo' in js
     assert 'data-repo-filter' in js
-    assert 'ACTIVE REPOSITORY' in js
-    assert 'renderContextHome' in js
-    assert 'repoView=wrapped' in js
+    assert 'ACTIVE PROJECT' in js
+    assert 'activeContextBar' in js
+    assert 'repoView=function(id){activate(id)}' in js
 
 
 def test_cyber_theme_is_jet_black_and_semantic():
@@ -28,7 +29,8 @@ def test_cyber_theme_is_jet_black_and_semantic():
 
 
 def test_context_layer_keeps_browser_credential_boundary():
-    js = (SITE / "active_context.js").read_text(encoding="utf-8").lower()
+    js = (SITE / "command_os.js").read_text(encoding="utf-8").lower()
     assert 'github_token' not in js
     assert 'authorization:' not in js
     assert 'bearer ' not in js
+    assert 'api.github.com' not in js
