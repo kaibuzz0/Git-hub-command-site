@@ -3,22 +3,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_mobile_v7_is_wired_into_site():
+def test_mobile_v7_legacy_runtime_is_not_wired_after_v8():
     html = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
-    css = (ROOT / "site" / "mobile_v6.css").read_text(encoding="utf-8")
-    js = (ROOT / "site" / "mobile_v7.js").read_text(encoding="utf-8")
-    assert "mobile_v6.css" in html
-    assert "mobile_v7.js" in html
-    assert "wb-mobile-top" in css
-    assert "wb-mobile-drawer-open" in css
-    assert "wb-mobile-fab" in css
-    assert "wbMobileExplorer" in js
-    assert "wbMobileCommand" in js
-    assert "touchstart" in js
-    assert "touchend" in js
+    assert "mobile_v6.css" not in html
+    assert "mobile_v7.js" not in html
+    assert "mobile.css" in html
+    assert "mobile.js" in html
 
 
-def test_mobile_v7_keeps_static_security_boundary():
+def test_legacy_mobile_files_remain_non_privileged_if_retained():
     js = (ROOT / "site" / "mobile_v7.js").read_text(encoding="utf-8")
     assert "Authorization" not in js
     assert "Bearer " not in js
@@ -27,10 +20,11 @@ def test_mobile_v7_keeps_static_security_boundary():
     assert "fetch(" not in js
 
 
-def test_mobile_v7_has_thumb_navigation_and_drawer_behavior():
-    css = (ROOT / "site" / "mobile_v6.css").read_text(encoding="utf-8")
-    js = (ROOT / "site" / "mobile_v7.js").read_text(encoding="utf-8")
+def test_v8_owns_thumb_navigation_and_drawer_behavior():
+    css = (ROOT / "site" / "mobile.css").read_text(encoding="utf-8")
+    js = (ROOT / "site" / "mobile.js").read_text(encoding="utf-8")
     assert "bottom:0" in css
-    assert "translateX(-102%)" in css
-    assert "transform:translateX(0)" in css
-    assert "Command palette" in js or "command palette" in js
+    assert "translateX(-104%)" in css
+    assert "mobile-drawer-open" in css
+    assert "Open repositories" in js
+    assert "Workspace tools" in js
