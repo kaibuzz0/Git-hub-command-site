@@ -39,7 +39,7 @@ The central Command Center links each repository detail view to its generated mi
 
 ## Privacy boundary
 
-Only snapshots already admitted to the public hub registry receive central public mini-sites. Do not generate or expose public browser workspaces for private repositories. Private repositories remain connector-capable but require authenticated private transport and a non-public presentation surface before they can be browsed safely.
+Do not deploy public Pages workspaces for private repositories. Only snapshots already admitted to the public hub registry receive central public mini-sites. Private repositories remain connector-capable but require authenticated private transport and a non-public presentation surface before they can be browsed safely.
 
 ## Optional dedicated repository Pages
 
