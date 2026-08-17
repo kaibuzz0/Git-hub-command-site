@@ -35,6 +35,10 @@
     return `https://github.com/${repo.full_name}/blob/${encodeURIComponent(ref)}/${encodePath(path)}`;
   }
 
+  function repoSiteUrl(repo) {
+    return `repos/${encodeURIComponent(repo.id)}/`;
+  }
+
   function renderNode(node, repo, depth = 0, prefix = '') {
     const dirs = [...node.dirs.entries()].sort((a,b) => a[0].localeCompare(b[0]));
     const files = [...node.files].sort((a,b) => String(a.name).localeCompare(String(b.name)));
@@ -79,7 +83,7 @@
     state.repoFilter = id;
     renderTree();
     $('#crumb').textContent = `WORKBENCH / REPOSITORIES / ${repo.full_name}`;
-    $('#content').innerHTML = `<div class="hero"><div><h1 class="title">${esc(repo.full_name)}</h1><p class="muted">${esc(repo.description || 'Connected repository')}</p></div><div class="button-row"><a class="action-btn" target="_blank" rel="noopener" href="${safeUrl(repo.url)}">GitHub</a><a class="secondary-btn" target="_blank" rel="noopener" href="${safeUrl('https://vscode.dev/github/'+repo.full_name)}">Full VS Code</a></div></div>${healthCards({health:repo.health})}<div class="section-head"><h2>Repository Explorer</h2><span class="muted">loading snapshot…</span></div><div id="repoExplorer" class="repo-explorer"><div class="empty-state">Loading repository tree…</div></div><div class="section-head"><h2>Snapshot</h2></div><pre>${esc(JSON.stringify({generated_at:repo.generated_at,source_commit:repo.source_commit,origin:repo.snapshot_origin,health:repo.health},null,2))}</pre>`;
+    $('#content').innerHTML = `<div class="hero"><div><h1 class="title">${esc(repo.full_name)}</h1><p class="muted">${esc(repo.description || 'Connected repository')}</p></div><div class="button-row"><a class="action-btn" href="${repoSiteUrl(repo)}">Repo Website</a><a class="secondary-btn" target="_blank" rel="noopener" href="${safeUrl(repo.url)}">GitHub</a><a class="secondary-btn" target="_blank" rel="noopener" href="${safeUrl('https://vscode.dev/github/'+repo.full_name)}">Full VS Code</a></div></div>${healthCards({health:repo.health})}<div class="section-head"><h2>Repository Explorer</h2><span class="muted">loading snapshot…</span></div><div id="repoExplorer" class="repo-explorer"><div class="empty-state">Loading repository tree…</div></div><div class="section-head"><h2>Snapshot</h2></div><pre>${esc(JSON.stringify({generated_at:repo.generated_at,source_commit:repo.source_commit,origin:repo.snapshot_origin,health:repo.health,repo_website:repoSiteUrl(repo)},null,2))}</pre>`;
 
     try {
       const snapshot = await loadSnapshot(id);
