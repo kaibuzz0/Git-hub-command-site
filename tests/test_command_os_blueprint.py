@@ -18,7 +18,7 @@ def test_command_os_contains_full_project_blueprint_surfaces():
     ):
         assert label in js
     for phrase in (
-        'Mission Control', 'ACTIVE PROJECT', 'agent-task', 'runner-request',
+        'MISSION CONTROL', 'ACTIVE PROJECT', 'agent-task', 'runner-request',
         'SOURCE → FINDING → HYPOTHESIS → EXPERIMENT → CODE → TEST → RESULT',
     ):
         assert phrase in js
