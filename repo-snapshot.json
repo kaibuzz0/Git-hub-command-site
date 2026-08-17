@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T09:12:47Z",
-  "source_commit": "c5fdabd2d85ac24513af2c60c90bc0b305e83076",
+  "generated_at": "2026-08-17T09:13:10Z",
+  "source_commit": "ba761245b94dff37034c705c580e532f461aea87",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -487,6 +487,13 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "ba761245b94dff37034c705c580e532f461aea87",
+      "type": "commit",
+      "title": "Fix repository cards and Home routing into active context",
+      "timestamp": "2026-08-17T04:13:03-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/ba761245b94dff37034c705c580e532f461aea87"
+    },
+    {
       "id": "c5fdabd2d85ac24513af2c60c90bc0b305e83076",
       "type": "commit",
       "title": "Fix active context access to global lexical state",
@@ -548,13 +555,6 @@
       "title": "CI: validate vibrant theme triage runtime",
       "timestamp": "2026-08-17T03:52:35-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/52631d4c0367235f23dffaa1db0038f8cc08f217"
-    },
-    {
-      "id": "000896231a18e71a4ba5c3675037285b4206e085",
-      "type": "commit",
-      "title": "Repo sites: inject vibrant theme and triage tools",
-      "timestamp": "2026-08-17T03:52:09-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/000896231a18e71a4ba5c3675037285b4206e085"
     }
   ],
   "links": [
