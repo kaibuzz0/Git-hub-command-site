@@ -17,8 +17,14 @@ if str(ROOT) not in sys.path:
 from connectors.build_repo_site import load_snapshot, write_site
 
 ID_RE = re.compile(r"^[A-Za-z0-9._-]+$")
-EXTRA_CSS = [ROOT / "site" / name for name in ("repo_workspace_v2.css", "repo_workspace_v3.css", "repo_workspace_v4.css", "repo_workspace_v5.css")]
-EXTRA_JS = [ROOT / "site" / name for name in ("repo_workspace_v2.js", "repo_workspace_v3.js", "repo_workspace_v4.js", "repo_workspace_v5.js")]
+EXTRA_CSS = [ROOT / "site" / name for name in (
+    "repo_workspace_v2.css", "repo_workspace_v3.css", "repo_workspace_v4.css",
+    "repo_workspace_v5.css", "repo_workspace_v6.css", "vibrant_theme.css"
+)]
+EXTRA_JS = [ROOT / "site" / name for name in (
+    "repo_workspace_v2.js", "repo_workspace_v3.js", "repo_workspace_v4.js",
+    "repo_workspace_v5.js", "repo_workspace_v6.js"
+)]
 
 
 def install_workspace_tools(target: Path) -> None:
@@ -70,10 +76,10 @@ def main() -> int:
     )
     (output / "index.html").write_text(
         "<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"
-        "<title>Repository Workspaces</title><style>body{margin:0;background:#181818;color:#ccc;font:14px Segoe UI,sans-serif}"
-        "main{max-width:900px;margin:auto;padding:24px}h1{color:#fff}a{color:#9cdcfe;text-decoration:none}ul{list-style:none;padding:0}"
-        "li{display:flex;justify-content:space-between;gap:16px;padding:10px 12px;border-bottom:1px solid #2b2b2b;background:#1f1f1f}"
-        "span{color:#858585;font-size:12px}</style><main><h1>Repository Workspaces</h1>"
+        "<title>Repository Workspaces</title><style>body{margin:0;background:#17191f;color:#e6edf3;font:14px Segoe UI,sans-serif}"
+        "main{max-width:900px;margin:auto;padding:24px}h1{color:#ffd866}a{color:#6ee7f9;text-decoration:none}ul{list-style:none;padding:0}"
+        "li{display:flex;justify-content:space-between;gap:16px;padding:10px 12px;border-bottom:1px solid #39414d;background:#20232a}"
+        "span{color:#9aa4b2;font-size:12px}</style><main><h1>Repository Workspaces</h1>"
         f"<p>{len(rows)} generated public repository workspaces.</p><ul>{links}</ul></main>",
         encoding="utf-8",
     )
