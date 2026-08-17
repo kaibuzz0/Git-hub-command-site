@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T01:34:34Z",
-  "source_commit": "9bd75608b969120c55ba3b33440d8c9478bc1c5a",
+  "generated_at": "2026-08-17T01:42:39Z",
+  "source_commit": "99df315c950a3846551d9348ddd5b9123e5764da",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 47,
+    "tracked_files": 48,
     "python_files": 14,
     "javascript_typescript_files": 6,
     "workflow_files": 3,
     "test_files": 7
   },
   "repository_tree": {
-    "total_files": 47,
+    "total_files": 48,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,7 +99,7 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 13
+        "file_count": 14
       },
       {
         "path": "tests",
@@ -275,6 +275,11 @@
         "extension": ".webmanifest"
       },
       {
+        "path": "site/mobile_v6.css",
+        "name": "mobile_v6.css",
+        "extension": ".css"
+      },
+      {
         "path": "site/repository_explorer.css",
         "name": "repository_explorer.css",
         "extension": ".css"
@@ -357,6 +362,27 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "99df315c950a3846551d9348ddd5b9123e5764da",
+      "type": "commit",
+      "title": "Merge pull request #30 from kaibuzz0/feature/mobile-workbench-v6",
+      "timestamp": "2026-08-16T20:42:32-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/99df315c950a3846551d9348ddd5b9123e5764da"
+    },
+    {
+      "id": "641b2503bf3cc1d4d0cc0573256600730431d038",
+      "type": "commit",
+      "title": "Workbench v6: load mobile-first responsive layer",
+      "timestamp": "2026-08-16T20:41:38-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/641b2503bf3cc1d4d0cc0573256600730431d038"
+    },
+    {
+      "id": "8485aec7fc703627b64b1b9f92d3b16bffc223e3",
+      "type": "commit",
+      "title": "Workbench v6: add mobile-first responsive shell",
+      "timestamp": "2026-08-16T20:41:25-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8485aec7fc703627b64b1b9f92d3b16bffc223e3"
+    },
+    {
       "id": "9bd75608b969120c55ba3b33440d8c9478bc1c5a",
       "type": "commit",
       "title": "Merge pull request #29 from kaibuzz0/docs/workbench-v5-complete",
@@ -404,27 +430,6 @@
       "title": "Docs: hand off Workbench v5 split workspace",
       "timestamp": "2026-08-16T20:29:59-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/2784fd50da127f2ef9974748bc21737810efc6cd"
-    },
-    {
-      "id": "51f56bcf159a8713264f07710eef4eae6bddfda7",
-      "type": "commit",
-      "title": "Docs: record Workbench v4 and v5 state",
-      "timestamp": "2026-08-16T20:29:32-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/51f56bcf159a8713264f07710eef4eae6bddfda7"
-    },
-    {
-      "id": "49c88571c31656777ae765650380be9d13f45be8",
-      "type": "commit",
-      "title": "Docs: advance workbench queue through v5",
-      "timestamp": "2026-08-16T20:29:03-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/49c88571c31656777ae765650380be9d13f45be8"
-    },
-    {
-      "id": "0892fe1d302517f8786390f5bccdc707917fe2dc",
-      "type": "commit",
-      "title": "Tests: tighten Workbench v5 assertions",
-      "timestamp": "2026-08-16T20:28:43-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/0892fe1d302517f8786390f5bccdc707917fe2dc"
     }
   ],
   "links": [
