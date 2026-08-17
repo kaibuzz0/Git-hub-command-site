@@ -7,8 +7,10 @@
 - [x] Connect and verify `kaibuzz0/cipher-solving-suite` as the first production spoke.
 - [x] Deploy the live central GitHub Pages command center.
 - [x] Add reusable onboarding kit generation and stale-snapshot health.
-- [ ] Validate and merge Command Workbench v3: VS Code-style operator shell, workspace tools, repository manager, editor, settings, and runner/debug adapter boundary.
-- [ ] Verify post-merge live Pages deployment with the production cipher snapshot and workspace tool registry.
+- [x] Merge Command Workbench v3: VS Code-style operator shell, workspace tools, repository manager, editor, settings, and runner/debug adapter boundary.
+- [x] Verify post-merge live Pages deployment with the production public fleet and workspace tool registry.
+- [x] Add Workbench v4 resizable sidebar/inspector/output panels, workspace tabs, update checks, and browser-local whiteboard.
+- [ ] Validate and merge Workbench v5 split editor groups, README/reference preview, scratch diff, and saved layout library.
 
 ## P2
 
@@ -16,6 +18,7 @@
 - [ ] Add an authenticated trusted-runner transport for approved test/build/debug requests.
 - [ ] Add richer repository file metadata browsing and editor-to-authorized-write handoff.
 - [ ] Add optional GitHub PR/check/issue activity collectors without browser-side API credentials.
-- [ ] Add saved workspace layouts, tabs, and recently opened resources.
+- [ ] Add richer document composition: Markdown/source side-by-side, search-result tabs, commit/diff review surfaces, and recently opened resources.
+- [ ] Add movable/dockable panel registry so hub-owned tools can participate in the same workspace composition model.
 - [ ] Add last-known-good snapshot promotion after successful validation without hiding later remote failures.
 - [ ] Add extension/tool contribution points that remain hub-owned and signed/allowlisted rather than executable snapshot content.
