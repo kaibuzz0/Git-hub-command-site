@@ -10,7 +10,7 @@
 - [x] Merge Command Workbench v3: VS Code-style operator shell, workspace tools, repository manager, editor, settings, and runner/debug adapter boundary.
 - [x] Verify post-merge live Pages deployment with the production public fleet and workspace tool registry.
 - [x] Add Workbench v4 resizable sidebar/inspector/output panels, workspace tabs, update checks, and browser-local whiteboard.
-- [ ] Validate and merge Workbench v5 split editor groups, README/reference preview, scratch diff, and saved layout library.
+- [x] Merge and deploy Workbench v5 split editor groups, README/reference preview, scratch diff, and saved layout library.
 
 ## P2
 
