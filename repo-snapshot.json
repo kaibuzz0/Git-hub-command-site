@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T01:27:28Z",
-  "source_commit": "5bf87e02a7adcd9f32f8151f4190ee0789ca99f6",
+  "generated_at": "2026-08-17T01:28:42Z",
+  "source_commit": "4c5c8d68706a5bb7cd8010088a90a7047d3e5614",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 45,
-    "python_files": 13,
-    "javascript_typescript_files": 5,
+    "tracked_files": 47,
+    "python_files": 14,
+    "javascript_typescript_files": 6,
     "workflow_files": 3,
-    "test_files": 6
+    "test_files": 7
   },
   "repository_tree": {
-    "total_files": 45,
+    "total_files": 47,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,13 +99,13 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 12
+        "file_count": 13
       },
       {
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 6
+        "file_count": 7
       }
     ],
     "files": [
@@ -305,6 +305,11 @@
         "extension": ".css"
       },
       {
+        "path": "site/workbench_v5.js",
+        "name": "workbench_v5.js",
+        "extension": ".js"
+      },
+      {
         "path": "tests/test_fleet_mini_sites.py",
         "name": "test_fleet_mini_sites.py",
         "extension": ".py"
@@ -333,6 +338,11 @@
         "path": "tests/test_workbench_v4.py",
         "name": "test_workbench_v4.py",
         "extension": ".py"
+      },
+      {
+        "path": "tests/test_workbench_v5.py",
+        "name": "test_workbench_v5.py",
+        "extension": ".py"
       }
     ]
   },
@@ -346,6 +356,41 @@
   "evidence": [],
   "agent_ops": {},
   "activity": [
+    {
+      "id": "4c5c8d68706a5bb7cd8010088a90a7047d3e5614",
+      "type": "commit",
+      "title": "Merge pull request #26 from kaibuzz0/feature/workbench-v5-splits",
+      "timestamp": "2026-08-16T20:28:34-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/4c5c8d68706a5bb7cd8010088a90a7047d3e5614"
+    },
+    {
+      "id": "39361003d886af92ffc494eef21afc39b9ff99d2",
+      "type": "commit",
+      "title": "Tests: cover split workspace and layout tools",
+      "timestamp": "2026-08-16T20:28:27-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/39361003d886af92ffc494eef21afc39b9ff99d2"
+    },
+    {
+      "id": "2ac6d26becf2dd965d0df3eaf790fba25d29ca6a",
+      "type": "commit",
+      "title": "CI: validate Workbench v5 JavaScript",
+      "timestamp": "2026-08-16T20:28:14-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/2ac6d26becf2dd965d0df3eaf790fba25d29ca6a"
+    },
+    {
+      "id": "014236587602e7bb9ceda0c5b5593c8d899754cd",
+      "type": "commit",
+      "title": "Workbench: wire split workspace layer",
+      "timestamp": "2026-08-16T20:27:56-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/014236587602e7bb9ceda0c5b5593c8d899754cd"
+    },
+    {
+      "id": "a561f136ff382d558115d60e8bae92d2422510b0",
+      "type": "commit",
+      "title": "Workbench: add split editor and saved layout controller",
+      "timestamp": "2026-08-16T20:27:36-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a561f136ff382d558115d60e8bae92d2422510b0"
+    },
     {
       "id": "5bf87e02a7adcd9f32f8151f4190ee0789ca99f6",
       "type": "commit",
@@ -380,41 +425,6 @@
       "title": "CI: validate dockable workbench JavaScript",
       "timestamp": "2026-08-16T20:17:35-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/3980c649e09d645cf52b34758f221a70bb3a9e31"
-    },
-    {
-      "id": "74aa0a508fb4d4778a6eb1525d3dc82680ce5758",
-      "type": "commit",
-      "title": "Merge pull request #23 from kaibuzz0/feature/workbench-v4-dockable",
-      "timestamp": "2026-08-16T20:17:25-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/74aa0a508fb4d4778a6eb1525d3dc82680ce5758"
-    },
-    {
-      "id": "e43a619c9efa5afc720d064e09b100895e072c3b",
-      "type": "commit",
-      "title": "Workbench: wire dockable single-page workspace shell",
-      "timestamp": "2026-08-16T20:17:09-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e43a619c9efa5afc720d064e09b100895e072c3b"
-    },
-    {
-      "id": "9d4c7bb4d3b3d8cecb81a01ec8cf3b3c257c9dcd",
-      "type": "commit",
-      "title": "Workbench: add tabs inspector updates and whiteboard",
-      "timestamp": "2026-08-16T20:16:49-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9d4c7bb4d3b3d8cecb81a01ec8cf3b3c257c9dcd"
-    },
-    {
-      "id": "c027dbfd4216f17e38a7f9ae39e06396fb50856a",
-      "type": "commit",
-      "title": "Workbench: add dockable resizable workspace shell",
-      "timestamp": "2026-08-16T20:16:17-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c027dbfd4216f17e38a7f9ae39e06396fb50856a"
-    },
-    {
-      "id": "ee2f2f45c0271b8aa256fea390f5f5ac64272e69",
-      "type": "commit",
-      "title": "Merge pull request #22 from kaibuzz0/feature/cipher-layout-repo-sites",
-      "timestamp": "2026-08-16T20:11:18-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/ee2f2f45c0271b8aa256fea390f5f5ac64272e69"
     }
   ],
   "links": [
