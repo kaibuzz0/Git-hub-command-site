@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T00:47:28Z",
-  "source_commit": "e64e94c1ee8fc3ee612ee057f494fc7268827c37",
+  "generated_at": "2026-08-17T00:57:21Z",
+  "source_commit": "c1a2f14c3182c2b56e5471d6d53de573d13f96e0",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 39,
-    "python_files": 10,
+    "tracked_files": 40,
+    "python_files": 11,
     "javascript_typescript_files": 4,
     "workflow_files": 3,
     "test_files": 4
   },
   "repository_tree": {
-    "total_files": 39,
+    "total_files": 40,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -93,7 +93,7 @@
         "path": "scripts",
         "name": "scripts",
         "depth": 1,
-        "file_count": 4
+        "file_count": 5
       },
       {
         "path": "site",
@@ -225,6 +225,11 @@
         "extension": ".py"
       },
       {
+        "path": "scripts/build_repository_sites.py",
+        "name": "build_repository_sites.py",
+        "extension": ".py"
+      },
+      {
         "path": "scripts/connect_repository.py",
         "name": "connect_repository.py",
         "extension": ".py"
@@ -317,6 +322,20 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "c1a2f14c3182c2b56e5471d6d53de573d13f96e0",
+      "type": "commit",
+      "title": "Merge pull request #18 from kaibuzz0/feature/fleet-mini-sites",
+      "timestamp": "2026-08-16T19:57:12-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c1a2f14c3182c2b56e5471d6d53de573d13f96e0"
+    },
+    {
+      "id": "4e34030afa8829edbae7630f45e9e0054e4714ce",
+      "type": "commit",
+      "title": "Sites: generate fleet mini-sites from synced snapshots",
+      "timestamp": "2026-08-16T19:56:51-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/4e34030afa8829edbae7630f45e9e0054e4714ce"
+    },
+    {
       "id": "e64e94c1ee8fc3ee612ee057f494fc7268827c37",
       "type": "commit",
       "title": "Merge pull request #17 from kaibuzz0/feature/generated-repo-sites",
@@ -371,20 +390,6 @@
       "title": "CI: validate internal editor JavaScript",
       "timestamp": "2026-08-16T19:32:45-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a76a9a93784cfa187394a30615456ba3b4c4564d"
-    },
-    {
-      "id": "e6ef60985c2d3c3e20db8e1693d5928484581ac0",
-      "type": "commit",
-      "title": "Merge pull request #15 from kaibuzz0/feature/internal-vscode-editor",
-      "timestamp": "2026-08-16T19:32:34-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e6ef60985c2d3c3e20db8e1693d5928484581ac0"
-    },
-    {
-      "id": "a1a741f3f571740fb49a1ebb298bdddf8ba19abb",
-      "type": "commit",
-      "title": "Pages: vendor pinned Monaco editor",
-      "timestamp": "2026-08-16T19:32:34-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a1a741f3f571740fb49a1ebb298bdddf8ba19abb"
     }
   ],
   "links": [
