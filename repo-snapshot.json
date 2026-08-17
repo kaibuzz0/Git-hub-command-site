@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T08:32:47Z",
-  "source_commit": "260583a21f85914527178969f347a5122da05f0e",
+  "generated_at": "2026-08-17T08:51:42Z",
+  "source_commit": "1a03aca664bf19b2173269ffd163471fa8eb5458",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 66,
+    "tracked_files": 69,
     "python_files": 20,
-    "javascript_typescript_files": 12,
+    "javascript_typescript_files": 13,
     "workflow_files": 3,
     "test_files": 13
   },
   "repository_tree": {
-    "total_files": 66,
+    "total_files": 69,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,7 +99,7 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 26
+        "file_count": 29
       },
       {
         "path": "tests",
@@ -340,6 +340,16 @@
         "extension": ".js"
       },
       {
+        "path": "site/repo_workspace_v6.css",
+        "name": "repo_workspace_v6.css",
+        "extension": ".css"
+      },
+      {
+        "path": "site/repo_workspace_v6.js",
+        "name": "repo_workspace_v6.js",
+        "extension": ".js"
+      },
+      {
         "path": "site/repository_explorer.css",
         "name": "repository_explorer.css",
         "extension": ".css"
@@ -353,6 +363,11 @@
         "path": "site/sw.js",
         "name": "sw.js",
         "extension": ".js"
+      },
+      {
+        "path": "site/vibrant_theme.css",
+        "name": "vibrant_theme.css",
+        "extension": ".css"
       },
       {
         "path": "site/workbench_v4.css",
@@ -452,6 +467,34 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "1a03aca664bf19b2173269ffd163471fa8eb5458",
+      "type": "commit",
+      "title": "Merge pull request #40 from kaibuzz0/feature/vibrant-theme-triage-v6",
+      "timestamp": "2026-08-17T03:51:34-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/1a03aca664bf19b2173269ffd163471fa8eb5458"
+    },
+    {
+      "id": "2603d8ff3b9c3859ff56eeab6c3f7dbc973f4017",
+      "type": "commit",
+      "title": "Repo triage: style ranked next-actions queue",
+      "timestamp": "2026-08-17T03:51:26-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/2603d8ff3b9c3859ff56eeab6c3f7dbc973f4017"
+    },
+    {
+      "id": "1e6bcc7943a56633875f5a4d2fdf82a936b78454",
+      "type": "commit",
+      "title": "Repo triage: add ranked next-actions queue",
+      "timestamp": "2026-08-17T03:51:08-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/1e6bcc7943a56633875f5a4d2fdf82a936b78454"
+    },
+    {
+      "id": "b04cc0ad8c0e4a3d179459aeaf61fd23cd7d7fc9",
+      "type": "commit",
+      "title": "Theme: add vibrant VS Code-inspired color system",
+      "timestamp": "2026-08-17T03:50:43-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/b04cc0ad8c0e4a3d179459aeaf61fd23cd7d7fc9"
+    },
+    {
       "id": "260583a21f85914527178969f347a5122da05f0e",
       "type": "commit",
       "title": "Merge pull request #39 from kaibuzz0/feature/repo-diagnostics-v5",
@@ -492,34 +535,6 @@
       "title": "Repo diagnostics: add health and attention view",
       "timestamp": "2026-08-17T03:30:25-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/d1207ee0549b20eb58671abcb4f82c9f16732ad1"
-    },
-    {
-      "id": "1972b4524189d18779d5ee484d0bf3024be6b8f6",
-      "type": "commit",
-      "title": "Cleanup: remove stray placeholder",
-      "timestamp": "2026-08-17T03:29:46-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/1972b4524189d18779d5ee484d0bf3024be6b8f6"
-    },
-    {
-      "id": "6351d205d6458b7b4237517aed8a23dd250b5f44",
-      "type": "commit",
-      "title": "placeholder",
-      "timestamp": "2026-08-17T03:29:13-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/6351d205d6458b7b4237517aed8a23dd250b5f44"
-    },
-    {
-      "id": "f3ec45ff6502b7cdfa9e0d9951e73d1d6af6677b",
-      "type": "commit",
-      "title": "Merge pull request #38 from kaibuzz0/feature/repo-intelligence-v4",
-      "timestamp": "2026-08-17T00:17:23-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/f3ec45ff6502b7cdfa9e0d9951e73d1d6af6677b"
-    },
-    {
-      "id": "6829d47db312dfe0dc9d539cf4b251811735a3ca",
-      "type": "commit",
-      "title": "Tests: lock repository intelligence workspace layer",
-      "timestamp": "2026-08-17T00:16:28-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/6829d47db312dfe0dc9d539cf4b251811735a3ca"
     }
   ],
   "links": [
