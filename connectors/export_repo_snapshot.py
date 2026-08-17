@@ -7,10 +7,12 @@ import json
 import os
 import subprocess
 from datetime import datetime, timezone
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 MAX_JSON_BYTES = 2_000_000
 MAX_ITEMS = 500
+MAX_REPOSITORY_FILES = 5000
+MAX_REPOSITORY_DIRECTORIES = 2500
 
 
 def git(*args: str) -> str:
@@ -39,6 +41,11 @@ def collection(path: Path, *keys: str) -> list:
     return []
 
 
+def tracked_files() -> list[str]:
+    raw = git("ls-files", "-z")
+    return sorted(x for x in raw.split("\0") if x)
+
+
 def recent_activity(full_name: str, limit: int = 10) -> list[dict]:
     raw = git("log", f"-{limit}", "--pretty=format:%H%x1f%aI%x1f%s")
     rows = []
@@ -51,16 +58,56 @@ def recent_activity(full_name: str, limit: int = 10) -> list[dict]:
     return rows
 
 
-def generic_stats() -> dict:
-    raw = git("ls-files", "-z")
-    files = [x for x in raw.split("\0") if x]
+def generic_stats(files: list[str]) -> dict:
     lower = [x.lower() for x in files]
     return {
         "tracked_files": len(files),
         "python_files": sum(x.endswith(".py") for x in lower),
         "javascript_typescript_files": sum(x.endswith((".js", ".mjs", ".cjs", ".ts", ".tsx")) for x in lower),
         "workflow_files": sum(x.startswith(".github/workflows/") for x in lower),
-        "test_files": sum("test" in Path(x).name.lower() for x in files),
+        "test_files": sum("test" in PurePosixPath(x).name.lower() for x in files),
+    }
+
+
+def repository_inventory(files: list[str]) -> dict:
+    """Build a bounded, content-free inventory suitable for a static Explorer.
+
+    Git does not track empty directories. A directory therefore appears only when
+    at least one tracked file exists beneath it.
+    """
+    directory_counts: dict[str, int] = {}
+    for file_path in files:
+        parts = PurePosixPath(file_path).parts
+        for index in range(1, len(parts)):
+            directory = "/".join(parts[:index])
+            directory_counts[directory] = directory_counts.get(directory, 0) + 1
+
+    directories = [
+        {
+            "path": path,
+            "name": PurePosixPath(path).name,
+            "depth": len(PurePosixPath(path).parts),
+            "file_count": count,
+        }
+        for path, count in sorted(directory_counts.items())[:MAX_REPOSITORY_DIRECTORIES]
+    ]
+    exported_files = [
+        {
+            "path": path,
+            "name": PurePosixPath(path).name,
+            "extension": PurePosixPath(path).suffix.lower(),
+        }
+        for path in files[:MAX_REPOSITORY_FILES]
+    ]
+    top_level = sorted({PurePosixPath(path).parts[0] for path in files if PurePosixPath(path).parts})
+    return {
+        "total_files": len(files),
+        "total_directories": len(directory_counts),
+        "files_truncated": len(files) > len(exported_files),
+        "directories_truncated": len(directory_counts) > len(directories),
+        "top_level": top_level,
+        "directories": directories,
+        "files": exported_files,
     }
 
 
@@ -78,7 +125,8 @@ def build(repo_id: str | None, full_name: str | None, default_branch: str | None
     commit = git("rev-parse", "HEAD") or "unknown-commit"
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     site, data = root / "site-data", root / "data"
-    stats = generic_stats()
+    files = tracked_files()
+    stats = generic_stats(files)
     status = doc(site / "status.json")
     if status:
         stats["project_status"] = status
@@ -88,6 +136,7 @@ def build(repo_id: str | None, full_name: str | None, default_branch: str | None
         "source_commit": commit,
         "repo": {"id": rid, "full_name": full, "url": f"https://github.com/{full}", "default_branch": branch},
         "stats": stats,
+        "repository_tree": repository_inventory(files),
         "tools": collection(data / "tools.json", "items", "tools"),
         "toolsets": collection(site / "toolsets.json", "items", "toolsets"),
         "cases": collection(site / "cases.json", "items", "cases"),
