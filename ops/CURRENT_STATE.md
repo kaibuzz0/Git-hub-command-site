@@ -1,59 +1,64 @@
 # Current State
 
-Last reconciled: 2026-08-17 00:24 UTC
+Last reconciled: 2026-08-17 01:02 UTC
 Default branch: `main`
 
-## Verified foundation
+## Verified platform
 
 - PRs #1–#7 established the multi-repository hub, remote snapshot transport, first production spoke, aggregate UI, onboarding kit, and freshness tracking.
-- PR #9 merged Command Workbench v3: VS Code-inspired operator surfaces, Repository Manager, local scratch editor, workspace tools/settings, and the trusted-runner boundary.
-- PR #10 merged the hardened fleet exporter and dedicated `command-site-data` publishing template.
-- PR #11 registered the full 19-repository public fleet; production sync fetched and validated all 19 public snapshots successfully.
-- PR #13 merged automatic repository Explorer support: bounded tracked-file/directory inventories, lazy per-repository snapshot loading, and touch/mobile scrolling fixes.
-- The central GitHub Pages deployment is live at `https://kaibuzz0.github.io/Git-hub-command-site/`.
-- Hub CI validates on Python 3.11, 3.12 and 3.13 with JavaScript syntax checks and diagnostic artifacts.
+- PR #9 established Command Workbench v3 with VS Code-inspired operator surfaces, Repository Manager, scratch editor, workspace tools/settings, and the trusted-runner boundary.
+- PR #10 hardened the fleet exporter and dedicated `command-site-data` publishing model.
+- PR #11 registered the full 19-repository public fleet; production sync has repeatedly fetched and validated all 19 public snapshots successfully.
+- PR #13 added bounded repository Explorer data, lazy per-repo snapshot loading, and touch/mobile scrolling fixes.
+- PR #16 completed the internal code-preview layer: Monaco on supported desktop browsers, mobile/touch fallback, exact-commit public file loading, and pinned Monaco packaging in Pages.
+- PR #17 added the reusable standalone repository-site generator.
+- PR #19 made generated repository websites a first-class output of the central Pages deployment.
+- The central Command Center is live at `https://kaibuzz0.github.io/Git-hub-command-site/`.
 
-## Fleet connector rollout
+## Fleet state
 
-The owner account currently exposes 25 repositories to this integration.
+The owner account exposes 25 repositories to this integration: 19 public and 6 private.
 
-- `cipher-solving-suite` retains its richer repository-specific Pages snapshot exporter; PR #21 added the same bounded repository-tree metadata and its Pages deployment completed successfully.
-- The other 24 repositories contain `.github/workflows/command-site-snapshot.yml` on their default branch.
-- Fleet workflows now pin the Explorer-capable exporter from immutable hub commit `f01dbda76e0badfb162b0ecd14c30416ba6a8582`.
-- Generated snapshots are published only to the dedicated `command-site-data` branch; source branches are not rewritten by recurring snapshot refreshes.
-- Public snapshots use `raw.githubusercontent.com/<owner>/<repo>/command-site-data/repo-snapshot.json`.
-- Private repositories use the same internal snapshot branch but remain intentionally excluded from the public hub registry until authenticated private-repository transport exists.
-- The repository-tree contract is content-free metadata: tracked file paths, directory paths/counts, extensions, and bounded totals. Empty directories cannot appear because Git does not track them.
-- Live proof on `tradingviewsigdup` shows the `BOT/` folder and its tracked Python files appearing automatically from the repository snapshot. Large repositories are bounded to 5,000 file entries and 2,500 directory entries while retaining total counts.
+- `cipher-solving-suite` retains its richer custom snapshot exporter and standalone project site while also participating in the central hub.
+- The other connected repositories publish bounded snapshots through `.github/workflows/command-site-snapshot.yml` to `command-site-data`.
+- Public snapshots are admitted through `data/repositories.json`; private repositories remain intentionally excluded from the public registry.
+- Repository-tree metadata is content-free: tracked file paths, directory paths/counts, extensions, bounded totals, and source commit provenance. Empty directories cannot appear because Git does not track them.
+- Large repositories are bounded to 5,000 individual file entries and 2,500 directory entries while retaining total counts.
 
-## Public registry
+## Generated repository websites
 
-`data/repositories.json` contains all 19 public repositories, including the hub itself and the richer cipher spoke. Remote failures remain visible in sync health rather than silently replacing verified state.
+The canonical fleet website model no longer requires GitHub Pages to be enabled in each source repository.
 
-Production proof before the Explorer rollout fetched and validated all 19 registered public repositories. A fresh post-rollout sync/deploy is triggered by this reconciliation merge to verify the Explorer-capable fleet together.
+The hub now generates one mini-site for every validated public repository and deploys it under:
 
-## User interface
+`https://kaibuzz0.github.io/Git-hub-command-site/repos/<repo-id>/`
 
-- The workbench remains VS Code-inspired and repository-agnostic.
-- Repository cards lazy-load `site-data/repo-<id>.json` only when opened, keeping the initial `hub.json` small.
-- Repository Explorer renders folders/files from `repository_tree` and links files to the exact source commit on GitHub.
-- Touch/mobile scrolling is explicitly enabled for the content pane, sidebar, repository Explorer, and bottom panel.
-- Ordinary committed folder/file changes in a connected repository flow automatically through that repository's snapshot and become visible after the next hub refresh. No per-folder HTML edit is required.
+A repository detail view exposes a `Repo Website` action pointing to that mini-site. `/repos/` also contains an automatically generated index of the public repository workspaces.
+
+The mini-sites are derived from exactly the same `repo-snapshot.json` used by the central hub and therefore update after normal source commits -> snapshot refresh -> hub sync/deploy. They include a VS Code-inspired Explorer, repository overview, exact source-commit provenance, public text-file preview, and GitHub/Actions/Issues links.
+
+The production Pages run for PR #19 passed remote-registry validation, fetched snapshots, validated snapshots, built aggregate data, generated repository mini-sites, assembled the site, uploaded the Pages artifact, and deployed successfully.
+
+## Pilot lesson
+
+A dedicated per-repository Pages pilot was tested on `tradingviewsigdup`. The snapshot and mini-site build both succeeded, but `actions/configure-pages` failed because Pages had never been enabled for that repository. The pilot workflow was removed in `tradingviewsigdup` PR #2 after the central-hosted fleet design eliminated that requirement.
+
+`connectors/command-site-pages.yml` remains available only as an optional dedicated-site template for repositories where an individual Pages URL is explicitly desired and does not conflict with an existing custom site.
 
 ## Execution and privacy boundary
 
-The static Pages workbench remains non-privileged. It does not store GitHub credentials, execute arbitrary Python in the browser, expose private repository snapshots through public raw URLs, or copy connected repository source code into the hub.
+GitHub Pages remains static/non-privileged. It does not store GitHub credentials, execute arbitrary local Python, expose private repository snapshots publicly, or perform repository writes.
 
-The hub owns shared UI, validation, exporter logic, schemas, and orchestration. Connected repositories receive only the thin connector/publisher needed to expose bounded metadata. Repository writes/execution continue through GitHub Actions, an explicitly authorized AI, local CLI, or a future authenticated trusted runner. Connected repositories remain authoritative for their own state.
+Public file previews are fetched from the public source repository at the snapshot's exact `source_commit`. Unsupported/binary/oversized files fall back to GitHub. Private repository browser support requires an authenticated private transport and non-public presentation surface before those repositories can be admitted.
 
 ## Current priorities
 
-1. Verify the post-rollout hub sync fetches all 19 public Explorer-capable snapshots and deploys successfully.
-2. Improve file inspection from metadata-only links toward safe, lazy text preview without bloating snapshots.
-3. Add repository-level classification/health summaries and richer project overview cards derived from snapshot metadata.
-4. Add authenticated private-repository snapshot transport before registering the six private repositories.
-5. Keep shared connector upgrades pinned to immutable hub commits and roll them out deliberately across the fleet.
+1. Improve generated mini-site UI richness so tools, cases, opportunities, agent state, README/project summaries, and repo health can be shown contextually when present.
+2. Add repository classification/language/health summaries and surface them in both the Command Center and individual mini-sites.
+3. Build authenticated private-repository transport without leaking private paths/content into the public Pages artifact.
+4. Continue developing the trusted-runner boundary for explicit execution/debug/write operations while keeping Pages non-privileged.
+5. Keep connector/exporter upgrades pinned, bounded, and independently validated before fleet rotation.
 
 ## Next handoff
 
-Verify the hub Pages run triggered by this state reconciliation. Confirm all 19 public snapshots fetch and validate, confirm `cipher-solving-suite` now includes `repository_tree`, and record any repository that exceeds practical snapshot/browser limits. Do not expose private snapshot URLs publicly and do not move source code into the central hub merely to make it browsable.
+Treat centrally hosted `/repos/<repo-id>/` workspaces as the default public-repository website path. Do not install generic per-repository Pages workflows across the fleet unless an owner explicitly requests a dedicated URL and existing Pages usage has been checked first. The next UI pass should deepen each generated site using structured snapshot data rather than creating per-repo HTML forks.
