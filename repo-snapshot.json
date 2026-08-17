@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T02:22:50Z",
-  "source_commit": "a213fd25a5d8ed393cbfe5a8c10ab1abd1b10a0b",
+  "generated_at": "2026-08-17T02:24:22Z",
+  "source_commit": "485e7f5af2e60ecf1697c3171a7445f0762ce75e",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 53,
-    "python_files": 15,
+    "tracked_files": 54,
+    "python_files": 16,
     "javascript_typescript_files": 8,
     "workflow_files": 3,
-    "test_files": 8
+    "test_files": 9
   },
   "repository_tree": {
-    "total_files": 53,
+    "total_files": 54,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -105,7 +105,7 @@
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 8
+        "file_count": 9
       }
     ],
     "files": [
@@ -355,6 +355,11 @@
         "extension": ".py"
       },
       {
+        "path": "tests/test_mobile_v8.py",
+        "name": "test_mobile_v8.py",
+        "extension": ".py"
+      },
+      {
         "path": "tests/test_mobile_workbench_v7.py",
         "name": "test_mobile_workbench_v7.py",
         "extension": ".py"
@@ -386,6 +391,34 @@
   "evidence": [],
   "agent_ops": {},
   "activity": [
+    {
+      "id": "485e7f5af2e60ecf1697c3171a7445f0762ce75e",
+      "type": "commit",
+      "title": "Merge pull request #34 from kaibuzz0/feature/mobile-v8-coherent-shell",
+      "timestamp": "2026-08-16T21:24:14-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/485e7f5af2e60ecf1697c3171a7445f0762ce75e"
+    },
+    {
+      "id": "d5461eda68f7cf8e138a5ba1db708d5cb79e519a",
+      "type": "commit",
+      "title": "Tests: lock coherent mobile navigation model",
+      "timestamp": "2026-08-16T21:23:15-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/d5461eda68f7cf8e138a5ba1db708d5cb79e519a"
+    },
+    {
+      "id": "26473ee963587115bfc6381d11abaa4c2f30415e",
+      "type": "commit",
+      "title": "CI: validate coherent mobile shell",
+      "timestamp": "2026-08-16T21:23:01-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/26473ee963587115bfc6381d11abaa4c2f30415e"
+    },
+    {
+      "id": "3a5bbbe62de512abfc007dd171842c18f59fcdd6",
+      "type": "commit",
+      "title": "Workbench v8: switch to coherent mobile shell",
+      "timestamp": "2026-08-16T21:22:44-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/3a5bbbe62de512abfc007dd171842c18f59fcdd6"
+    },
     {
       "id": "a213fd25a5d8ed393cbfe5a8c10ab1abd1b10a0b",
       "type": "commit",
@@ -427,34 +460,6 @@
       "title": "Tests: lock mobile drawer and gesture wiring",
       "timestamp": "2026-08-16T21:12:11-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/79e79875ab8cb5437ea1f1f03550e5f21756b4b3"
-    },
-    {
-      "id": "a76fa67601768edf5ba74321e6179a6c987a5085",
-      "type": "commit",
-      "title": "CI: validate mobile interaction controller",
-      "timestamp": "2026-08-16T21:11:59-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a76fa67601768edf5ba74321e6179a6c987a5085"
-    },
-    {
-      "id": "0968a1ddd6f81fff7b7a9d47618c91b94a44cd99",
-      "type": "commit",
-      "title": "Workbench v7: load mobile navigation styles",
-      "timestamp": "2026-08-16T21:11:54-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/0968a1ddd6f81fff7b7a9d47618c91b94a44cd99"
-    },
-    {
-      "id": "5f286082422ec762fb843eb32984ce06d2123e44",
-      "type": "commit",
-      "title": "Workbench v7: expand mobile navigation interactions",
-      "timestamp": "2026-08-16T21:11:36-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5f286082422ec762fb843eb32984ce06d2123e44"
-    },
-    {
-      "id": "a031ff3340696944c18a3a9a3137c8fd0496beeb",
-      "type": "commit",
-      "title": "Workbench v7: add mobile navigation surfaces",
-      "timestamp": "2026-08-16T21:10:52-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a031ff3340696944c18a3a9a3137c8fd0496beeb"
     }
   ],
   "links": [
