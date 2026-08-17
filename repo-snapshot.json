@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T00:21:47Z",
-  "source_commit": "bb73df308648defa1b86e6613de6252a64f9e5e4",
+  "generated_at": "2026-08-17T00:25:36Z",
+  "source_commit": "bd03ebfe2ea45ac9b015dfaf6ec8b0d624db1902",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -282,6 +282,20 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "bd03ebfe2ea45ac9b015dfaf6ec8b0d624db1902",
+      "type": "commit",
+      "title": "Merge pull request #14 from kaibuzz0/ops/reconcile-explorer-rollout",
+      "timestamp": "2026-08-16T19:25:27-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/bd03ebfe2ea45ac9b015dfaf6ec8b0d624db1902"
+    },
+    {
+      "id": "b4b5f0fd5d9cfe21c88991adea8f89b3097ba265",
+      "type": "commit",
+      "title": "Ops: reconcile repository Explorer rollout state",
+      "timestamp": "2026-08-16T19:24:38-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/b4b5f0fd5d9cfe21c88991adea8f89b3097ba265"
+    },
+    {
       "id": "bb73df308648defa1b86e6613de6252a64f9e5e4",
       "type": "commit",
       "title": "Command site: enable repository Explorer snapshots",
@@ -336,20 +350,6 @@
       "title": "Explorer: describe repository tree snapshot data",
       "timestamp": "2026-08-16T19:14:38-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/ccf84f234fa301f7022c7c1df05e56cd404ae929"
-    },
-    {
-      "id": "bb558e38c86901e72386671f182970a85a54f812",
-      "type": "commit",
-      "title": "Explorer: export bounded repository file inventory",
-      "timestamp": "2026-08-16T19:14:23-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/bb558e38c86901e72386671f182970a85a54f812"
-    },
-    {
-      "id": "74acc5cecee367d6c153c99b82b9a77acd2843b1",
-      "type": "commit",
-      "title": "Merge pull request #11 from kaibuzz0/feature/register-public-fleet",
-      "timestamp": "2026-08-16T19:03:20-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/74acc5cecee367d6c153c99b82b9a77acd2843b1"
     }
   ],
   "links": [
