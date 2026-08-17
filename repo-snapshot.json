@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T09:29:58Z",
-  "source_commit": "8060b1c9cf07fa8d45084252ab8ad3254a07e308",
+  "generated_at": "2026-08-17T09:34:42Z",
+  "source_commit": "22f915514e6b213e8f8452fcb32d37181f7a6940",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 76,
-    "python_files": 23,
-    "javascript_typescript_files": 15,
+    "tracked_files": 79,
+    "python_files": 24,
+    "javascript_typescript_files": 16,
     "workflow_files": 3,
-    "test_files": 16
+    "test_files": 17
   },
   "repository_tree": {
-    "total_files": 76,
+    "total_files": 79,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,13 +99,13 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 33
+        "file_count": 35
       },
       {
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 16
+        "file_count": 17
       }
     ],
     "files": [
@@ -270,6 +270,16 @@
         "extension": ".js"
       },
       {
+        "path": "site/command_os_finalize.css",
+        "name": "command_os_finalize.css",
+        "extension": ".css"
+      },
+      {
+        "path": "site/command_os_search.js",
+        "name": "command_os_search.js",
+        "extension": ".js"
+      },
+      {
         "path": "site/cyber_theme.css",
         "name": "cyber_theme.css",
         "extension": ".css"
@@ -420,6 +430,11 @@
         "extension": ".py"
       },
       {
+        "path": "tests/test_command_os_finalize.py",
+        "name": "test_command_os_finalize.py",
+        "extension": ".py"
+      },
+      {
         "path": "tests/test_fleet_mini_sites.py",
         "name": "test_fleet_mini_sites.py",
         "extension": ".py"
@@ -502,6 +517,48 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "22f915514e6b213e8f8452fcb32d37181f7a6940",
+      "type": "commit",
+      "title": "Merge pull request #48 from kaibuzz0/feature/command-os-finalize",
+      "timestamp": "2026-08-17T04:34:34-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/22f915514e6b213e8f8452fcb32d37181f7a6940"
+    },
+    {
+      "id": "9b3e2826fd66c4473552d3983542f19c90a7cce7",
+      "type": "commit",
+      "title": "Tests: lock universal project search and active-context layout",
+      "timestamp": "2026-08-17T04:34:20-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9b3e2826fd66c4473552d3983542f19c90a7cce7"
+    },
+    {
+      "id": "fc1fca2a6038cca8ed4e3bd8f7cb9664d05cbfff",
+      "type": "commit",
+      "title": "CI: validate universal Command OS search",
+      "timestamp": "2026-08-17T04:34:05-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/fc1fca2a6038cca8ed4e3bd8f7cb9664d05cbfff"
+    },
+    {
+      "id": "7f906c4c807d77892641917f7445f0d4b096fad6",
+      "type": "commit",
+      "title": "Command OS: wire universal project search and final layout",
+      "timestamp": "2026-08-17T04:33:41-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/7f906c4c807d77892641917f7445f0d4b096fad6"
+    },
+    {
+      "id": "e9454d69e67d5c9bba50f8a76f36746869d4d3bb",
+      "type": "commit",
+      "title": "Command OS: finalize active-context layout and universal search",
+      "timestamp": "2026-08-17T04:33:14-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e9454d69e67d5c9bba50f8a76f36746869d4d3bb"
+    },
+    {
+      "id": "92d417084da5de238dec829e9b475879732310eb",
+      "type": "commit",
+      "title": "Command OS: add repository-aware universal search",
+      "timestamp": "2026-08-17T04:32:15-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/92d417084da5de238dec829e9b475879732310eb"
+    },
+    {
       "id": "8060b1c9cf07fa8d45084252ab8ad3254a07e308",
       "type": "commit",
       "title": "Merge pull request #46 from kaibuzz0/docs/command-os-blueprint-complete",
@@ -528,48 +585,6 @@
       "title": "Docs: finalize Command OS architecture blueprint",
       "timestamp": "2026-08-17T04:29:00-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/868510f0195862c28a69b5292d5c9fadb6fde275"
-    },
-    {
-      "id": "1556a734bad3db964a1ce709f0e50b4389b7212c",
-      "type": "commit",
-      "title": "Merge pull request #45 from kaibuzz0/fix/command-os-postmerge-validation",
-      "timestamp": "2026-08-17T04:27:17-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/1556a734bad3db964a1ce709f0e50b4389b7212c"
-    },
-    {
-      "id": "c96876a871d15ad0e9e73d6b50fa1c34efa05c7d",
-      "type": "commit",
-      "title": "Tests: match semantic Command OS labels",
-      "timestamp": "2026-08-17T04:27:04-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c96876a871d15ad0e9e73d6b50fa1c34efa05c7d"
-    },
-    {
-      "id": "5313a51483c75e591e5aba70ec0c528403740e0c",
-      "type": "commit",
-      "title": "Tests: reconcile active context with Command OS runtime",
-      "timestamp": "2026-08-17T04:26:14-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5313a51483c75e591e5aba70ec0c528403740e0c"
-    },
-    {
-      "id": "bc2d783b0f2b37c4112471400acfad839a76e706",
-      "type": "commit",
-      "title": "Merge pull request #44 from kaibuzz0/feature/command-os-blueprint",
-      "timestamp": "2026-08-17T04:24:01-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/bc2d783b0f2b37c4112471400acfad839a76e706"
-    },
-    {
-      "id": "d74ce2fabd8e26f7b93ec8fba9b4395ab5c876a1",
-      "type": "commit",
-      "title": "Tests: lock Command OS blueprint surfaces and security boundary",
-      "timestamp": "2026-08-17T04:23:11-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/d74ce2fabd8e26f7b93ec8fba9b4395ab5c876a1"
-    },
-    {
-      "id": "c5d165380176adf68fd310a5069fcb7807d00dce",
-      "type": "commit",
-      "title": "CI: validate Command OS blueprint runtime",
-      "timestamp": "2026-08-17T04:22:56-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c5d165380176adf68fd310a5069fcb7807d00dce"
     }
   ],
   "links": [
