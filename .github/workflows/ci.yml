@@ -30,6 +30,7 @@ jobs:
           node --check site/workbench_v5.js
           node --check site/mobile.js
           node --check site/command_os.js
+          node --check site/command_os_search.js
           node --check site/repo_workspace_v2.js
           node --check site/repo_workspace_v3.js
           node --check site/repo_workspace_v4.js
