@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T10:05:49Z",
-  "source_commit": "61f4353ef2d02cbaf54d9860a8252bca1486a98d",
+  "generated_at": "2026-08-17T10:08:39Z",
+  "source_commit": "a00ed4b16600b7e5b1ebd4dcaaccb8d7d2cbd08c",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 81,
-    "python_files": 24,
-    "javascript_typescript_files": 16,
+    "tracked_files": 83,
+    "python_files": 25,
+    "javascript_typescript_files": 17,
     "workflow_files": 3,
-    "test_files": 17
+    "test_files": 18
   },
   "repository_tree": {
-    "total_files": 81,
+    "total_files": 83,
     "total_directories": 13,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,7 +99,7 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 37
+        "file_count": 38
       },
       {
         "path": "site/icons",
@@ -111,7 +111,7 @@
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 17
+        "file_count": 18
       }
     ],
     "files": [
@@ -346,6 +346,11 @@
         "extension": ".css"
       },
       {
+        "path": "site/pwa.js",
+        "name": "pwa.js",
+        "extension": ".js"
+      },
+      {
         "path": "site/repo_workspace_v2.css",
         "name": "repo_workspace_v2.css",
         "extension": ".css"
@@ -481,6 +486,11 @@
         "extension": ".py"
       },
       {
+        "path": "tests/test_pwa_app_shell.py",
+        "name": "test_pwa_app_shell.py",
+        "extension": ".py"
+      },
+      {
         "path": "tests/test_repo_diagnostics_v5.py",
         "name": "test_repo_diagnostics_v5.py",
         "extension": ".py"
@@ -533,6 +543,34 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "a00ed4b16600b7e5b1ebd4dcaaccb8d7d2cbd08c",
+      "type": "commit",
+      "title": "Merge pull request #51 from kaibuzz0/feature/pwa-app-shellno",
+      "timestamp": "2026-08-17T05:08:31-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a00ed4b16600b7e5b1ebd4dcaaccb8d7d2cbd08c"
+    },
+    {
+      "id": "ce181ad548d760a9d6df34406a105d9bf4b3d5b9",
+      "type": "commit",
+      "title": "Tests: validate installable Command OS PWA",
+      "timestamp": "2026-08-17T05:07:09-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/ce181ad548d760a9d6df34406a105d9bf4b3d5b9"
+    },
+    {
+      "id": "45e5bfbe274db1275bffe8c11bd034b924260c7e",
+      "type": "commit",
+      "title": "PWA: replace legacy service worker with app shell cache",
+      "timestamp": "2026-08-17T05:06:16-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/45e5bfbe274db1275bffe8c11bd034b924260c7e"
+    },
+    {
+      "id": "a851ad359382cd39e50480f89de38a707b6d9c77",
+      "type": "commit",
+      "title": "PWA: add install update and offline controller",
+      "timestamp": "2026-08-17T05:05:50-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a851ad359382cd39e50480f89de38a707b6d9c77"
+    },
+    {
       "id": "61f4353ef2d02cbaf54d9860a8252bca1486a98d",
       "type": "commit",
       "title": "Merge pull request #50 from kaibuzz0/feature/pwa-app-shell",
@@ -573,34 +611,6 @@
       "title": "Tests: lock universal project search and active-context layout",
       "timestamp": "2026-08-17T04:34:20-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9b3e2826fd66c4473552d3983542f19c90a7cce7"
-    },
-    {
-      "id": "fc1fca2a6038cca8ed4e3bd8f7cb9664d05cbfff",
-      "type": "commit",
-      "title": "CI: validate universal Command OS search",
-      "timestamp": "2026-08-17T04:34:05-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/fc1fca2a6038cca8ed4e3bd8f7cb9664d05cbfff"
-    },
-    {
-      "id": "7f906c4c807d77892641917f7445f0d4b096fad6",
-      "type": "commit",
-      "title": "Command OS: wire universal project search and final layout",
-      "timestamp": "2026-08-17T04:33:41-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/7f906c4c807d77892641917f7445f0d4b096fad6"
-    },
-    {
-      "id": "e9454d69e67d5c9bba50f8a76f36746869d4d3bb",
-      "type": "commit",
-      "title": "Command OS: finalize active-context layout and universal search",
-      "timestamp": "2026-08-17T04:33:14-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e9454d69e67d5c9bba50f8a76f36746869d4d3bb"
-    },
-    {
-      "id": "92d417084da5de238dec829e9b475879732310eb",
-      "type": "commit",
-      "title": "Command OS: add repository-aware universal search",
-      "timestamp": "2026-08-17T04:32:15-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/92d417084da5de238dec829e9b475879732310eb"
     }
   ],
   "links": [
