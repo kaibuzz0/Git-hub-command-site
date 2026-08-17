@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T02:13:40Z",
-  "source_commit": "3b4041a392761a6eb2655dff6e5440c817b8d0d8",
+  "generated_at": "2026-08-17T02:22:50Z",
+  "source_commit": "a213fd25a5d8ed393cbfe5a8c10ab1abd1b10a0b",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 51,
+    "tracked_files": 53,
     "python_files": 15,
-    "javascript_typescript_files": 7,
+    "javascript_typescript_files": 8,
     "workflow_files": 3,
     "test_files": 8
   },
   "repository_tree": {
-    "total_files": 51,
+    "total_files": 53,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,7 +99,7 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 16
+        "file_count": 18
       },
       {
         "path": "tests",
@@ -275,6 +275,16 @@
         "extension": ".webmanifest"
       },
       {
+        "path": "site/mobile.css",
+        "name": "mobile.css",
+        "extension": ".css"
+      },
+      {
+        "path": "site/mobile.js",
+        "name": "mobile.js",
+        "extension": ".js"
+      },
+      {
         "path": "site/mobile_v6.css",
         "name": "mobile_v6.css",
         "extension": ".css"
@@ -377,6 +387,27 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "a213fd25a5d8ed393cbfe5a8c10ab1abd1b10a0b",
+      "type": "commit",
+      "title": "Merge pull request #33 from kaibuzz0/feature/mobile-v8-coherent-shell",
+      "timestamp": "2026-08-16T21:22:43-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a213fd25a5d8ed393cbfe5a8c10ab1abd1b10a0b"
+    },
+    {
+      "id": "17e271cb9354004a19cf4eccf821009be63be014",
+      "type": "commit",
+      "title": "Workbench v8: add simple mobile navigation controller",
+      "timestamp": "2026-08-16T21:22:22-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/17e271cb9354004a19cf4eccf821009be63be014"
+    },
+    {
+      "id": "38f4b4a34cd84d5a22fc652fd67db47e25015a1a",
+      "type": "commit",
+      "title": "Workbench v8: add coherent mobile-first shell",
+      "timestamp": "2026-08-16T21:21:57-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/38f4b4a34cd84d5a22fc652fd67db47e25015a1a"
+    },
+    {
       "id": "3b4041a392761a6eb2655dff6e5440c817b8d0d8",
       "type": "commit",
       "title": "Merge pull request #32 from kaibuzz0/feature/mobile-workbench-v7",
@@ -424,27 +455,6 @@
       "title": "Workbench v7: add mobile navigation surfaces",
       "timestamp": "2026-08-16T21:10:52-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a031ff3340696944c18a3a9a3137c8fd0496beeb"
-    },
-    {
-      "id": "a794830455016343896dcfb634b4a6319d6c1736",
-      "type": "commit",
-      "title": "Workbench v7: enable mobile interaction controller",
-      "timestamp": "2026-08-16T21:08:21-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a794830455016343896dcfb634b4a6319d6c1736"
-    },
-    {
-      "id": "5e06fcdc82fe706aa5fc7899f3c5c3d0927ae54f",
-      "type": "commit",
-      "title": "Workbench v7: add mobile drawer, top bar, FAB and swipe polish",
-      "timestamp": "2026-08-16T21:07:46-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5e06fcdc82fe706aa5fc7899f3c5c3d0927ae54f"
-    },
-    {
-      "id": "4c9ba14e882d3ba8c0189dba2d9e14dd251eb0a0",
-      "type": "commit",
-      "title": "Workbench v7: add mobile interaction controller",
-      "timestamp": "2026-08-16T21:07:17-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/4c9ba14e882d3ba8c0189dba2d9e14dd251eb0a0"
     }
   ],
   "links": [
