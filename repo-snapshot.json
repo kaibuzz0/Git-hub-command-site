@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T00:31:00Z",
-  "source_commit": "1d07687f9f1bcc9d364253984f3b9a59cf2ee8e6",
+  "generated_at": "2026-08-17T00:32:42Z",
+  "source_commit": "e6ef60985c2d3c3e20db8e1693d5928484581ac0",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 32,
+    "tracked_files": 34,
     "python_files": 7,
-    "javascript_typescript_files": 3,
+    "javascript_typescript_files": 4,
     "workflow_files": 3,
     "test_files": 2
   },
   "repository_tree": {
-    "total_files": 32,
+    "total_files": 34,
     "total_directories": 12,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,7 +99,7 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 7
+        "file_count": 9
       },
       {
         "path": "tests",
@@ -240,6 +240,16 @@
         "extension": ".html"
       },
       {
+        "path": "site/internal_editor.css",
+        "name": "internal_editor.css",
+        "extension": ".css"
+      },
+      {
+        "path": "site/internal_editor.js",
+        "name": "internal_editor.js",
+        "extension": ".js"
+      },
+      {
         "path": "site/manifest.webmanifest",
         "name": "manifest.webmanifest",
         "extension": ".webmanifest"
@@ -282,6 +292,48 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "e6ef60985c2d3c3e20db8e1693d5928484581ac0",
+      "type": "commit",
+      "title": "Merge pull request #15 from kaibuzz0/feature/internal-vscode-editor",
+      "timestamp": "2026-08-16T19:32:34-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e6ef60985c2d3c3e20db8e1693d5928484581ac0"
+    },
+    {
+      "id": "025df91ecd830f8661324da9fa929fe5dc2bdbac",
+      "type": "commit",
+      "title": "Explorer: style internal file actions",
+      "timestamp": "2026-08-16T19:32:21-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/025df91ecd830f8661324da9fa929fe5dc2bdbac"
+    },
+    {
+      "id": "24743ede7f8b309db345cfd21d3ef265cba03069",
+      "type": "commit",
+      "title": "Explorer: open text files inside workbench",
+      "timestamp": "2026-08-16T19:32:02-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/24743ede7f8b309db345cfd21d3ef265cba03069"
+    },
+    {
+      "id": "1ec573bf11c8a6fe803797796ce606ae8f18bb1e",
+      "type": "commit",
+      "title": "Workbench: wire internal Monaco editor",
+      "timestamp": "2026-08-16T19:31:44-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/1ec573bf11c8a6fe803797796ce606ae8f18bb1e"
+    },
+    {
+      "id": "6e1d95f87d751cf558634c8f5e797dcf36964f28",
+      "type": "commit",
+      "title": "Workbench: style internal file editor",
+      "timestamp": "2026-08-16T19:31:31-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/6e1d95f87d751cf558634c8f5e797dcf36964f28"
+    },
+    {
+      "id": "e5a3e00fdd98fc8da985c05648774d8c323f6cc3",
+      "type": "commit",
+      "title": "Workbench: add internal VS Code-style file editor",
+      "timestamp": "2026-08-16T19:31:21-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/e5a3e00fdd98fc8da985c05648774d8c323f6cc3"
+    },
+    {
       "id": "1d07687f9f1bcc9d364253984f3b9a59cf2ee8e6",
       "type": "commit",
       "title": "Revert accidental placeholder file",
@@ -308,48 +360,6 @@
       "title": "Ops: reconcile repository Explorer rollout state",
       "timestamp": "2026-08-16T19:24:38-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/b4b5f0fd5d9cfe21c88991adea8f89b3097ba265"
-    },
-    {
-      "id": "bb73df308648defa1b86e6613de6252a64f9e5e4",
-      "type": "commit",
-      "title": "Command site: enable repository Explorer snapshots",
-      "timestamp": "2026-08-16T19:21:41-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/bb73df308648defa1b86e6613de6252a64f9e5e4"
-    },
-    {
-      "id": "f01dbda76e0badfb162b0ecd14c30416ba6a8582",
-      "type": "commit",
-      "title": "Merge pull request #13 from kaibuzz0/feature/repository-explorer-v2",
-      "timestamp": "2026-08-16T19:16:21-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/f01dbda76e0badfb162b0ecd14c30416ba6a8582"
-    },
-    {
-      "id": "2c8a3db75ee1322a380bdbd7e6e220377d5fa806",
-      "type": "commit",
-      "title": "Test: cover file inventory and Explorer wiring",
-      "timestamp": "2026-08-16T19:15:31-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/2c8a3db75ee1322a380bdbd7e6e220377d5fa806"
-    },
-    {
-      "id": "f11c81921b1bd2593bba9f0145d95086645da644",
-      "type": "commit",
-      "title": "UI: load repository Explorer layer",
-      "timestamp": "2026-08-16T19:15:19-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/f11c81921b1bd2593bba9f0145d95086645da644"
-    },
-    {
-      "id": "25141876417fa195eea64b92e1b3eee8fe2c92ce",
-      "type": "commit",
-      "title": "UI: restore scrolling and style repository Explorer",
-      "timestamp": "2026-08-16T19:15:08-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/25141876417fa195eea64b92e1b3eee8fe2c92ce"
-    },
-    {
-      "id": "cdc6d6b51ce9c5b8133ab20f4f48756d8175d6ae",
-      "type": "commit",
-      "title": "Explorer: add lazy repository file browser",
-      "timestamp": "2026-08-16T19:14:57-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/cdc6d6b51ce9c5b8133ab20f4f48756d8175d6ae"
     }
   ],
   "links": [
