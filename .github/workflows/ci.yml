@@ -31,6 +31,7 @@ jobs:
           node --check site/mobile.js
           node --check site/repo_workspace_v2.js
           node --check site/repo_workspace_v3.js
+          node --check site/repo_workspace_v4.js
       - name: Run tests
         run: python -m pytest tests/ -vv --tb=short --junitxml=test-results.xml
       - name: Validate remote registry
