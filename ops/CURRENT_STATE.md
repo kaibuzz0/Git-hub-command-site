@@ -1,65 +1,76 @@
 # Current State
 
-Last reconciled: 2026-08-17 01:32 UTC
+Last reconciled: 2026-08-17 09:30 UTC
 Default branch: `main`
 
 ## Verified platform
 
-- PRs #1–#7 established the multi-repository hub, remote snapshot transport, first production spoke, aggregate UI, onboarding kit, and freshness tracking.
-- PR #9 established Command Workbench v3 with VS Code-inspired operator surfaces, Repository Manager, scratch editor, workspace tools/settings, and the trusted-runner boundary.
-- PR #10 hardened the fleet exporter and dedicated `command-site-data` publishing model.
-- PR #11 registered the full 19-repository public fleet; production sync has repeatedly fetched and validated all 19 public snapshots successfully.
-- PR #13 added bounded repository Explorer data, lazy per-repo snapshot loading, and touch/mobile scrolling fixes.
-- PR #16 completed the internal code-preview layer: Monaco on supported desktop browsers, mobile/touch fallback, exact-commit public file loading, and pinned Monaco packaging in Pages.
-- PR #17 added the reusable standalone repository-site generator.
-- PR #19 made generated repository websites a first-class output of the central Pages deployment.
-- PR #22 restored the Cipher Suite VS Code layout as the reusable visual baseline for generated repository workspaces.
-- PR #24 added the dockable Workbench v4 shell: resizable sidebar/inspector/output panes, workspace tabs, update checks, and a browser-local whiteboard. Its production Pages run completed successfully.
-- PR #27 completed Workbench v5: split editor groups, second resource surface, README preview, scratch diff, repository-site pane, saved layout presets/custom layouts, and tab drag/reorder. Its production Pages run completed successfully.
-- The central Command Center is live at `https://kaibuzz0.github.io/Git-hub-command-site/`.
+The repository is the source of truth for a static multi-repository GitHub Command Workbench. The public fleet remains 19 connected public repositories; six private repositories remain intentionally excluded from public Pages.
 
-## Fleet state
+Major verified foundations include remote snapshot sync/validation, central aggregate data, generated per-repo sites, fleet connector publishing, Explorer/file inventories, Monaco/mobile exact-commit preview, dockable/split workbench composition, saved layouts, whiteboard, repo intelligence/diagnostics/triage, and generated repo project-console tooling.
 
-The owner account exposes 25 repositories to this integration: 19 public and 6 private.
+## Command OS blueprint
 
-- `cipher-solving-suite` retains its richer custom snapshot exporter and standalone project site while also participating in the central hub.
-- The other connected repositories publish bounded snapshots through `.github/workflows/command-site-snapshot.yml` to `command-site-data`.
-- Public snapshots are admitted through `data/repositories.json`; private repositories remain intentionally excluded from the public registry and public Pages output.
-- Repository-tree metadata is content-free: tracked file paths, directory paths/counts, extensions, bounded totals, and source commit provenance. Empty directories cannot appear because Git does not track them.
-- Large repositories are bounded to 5,000 individual file entries and 2,500 directory entries while retaining total counts.
+PR #44 replaced the earlier active-context shim with the canonical `site/command_os.js` + `site/command_os.css` runtime. Post-merge test reconciliation landed through PR #45; the corrected `main` validation completed successfully.
+
+The workbench now has two canonical modes:
+
+### Global fleet mode
+
+With no active repository, Home is a fleet operating view with connected repositories, truthful attention/staleness signals, browser-local open task counts, browser-local active agent slots, P1 queue, tools, recent aggregate activity, and direct project activation.
+
+### Active Repository Context
+
+Selecting a repository from Explorer or a repository card establishes the active project context and persists it browser-locally. The workbench then exposes:
+
+- Overview / Mission Control
+- Repository Intelligence
+- Files
+- Code
+- GitHub links (Issues / PRs / Commits / Actions / Branches / Releases)
+- Tests / CI
+- Tasks
+- Agents
+- Research
+- Notes
+- Commands
+- History
+
+Repository file/code/test/script views lazy-load the bounded `site-data/repo-<id>.json` snapshot and use the exact exported source commit. Local project memory is namespaced per repo in browser localStorage.
+
+## Visual system
+
+The production architecture now treats the workbench as a jet-black developer/cyber workstation rather than generic VS Code charcoal. `site/command_os.css` establishes black/near-black surfaces with semantic cyan, blue, purple, pink, green, lime, yellow, orange, red and white tokens. Color conveys information; panel borders use thin restrained luminous accents and metadata uses syntax-like typography.
 
 ## Generated repository websites
 
-The canonical fleet website model no longer requires GitHub Pages to be enabled in each source repository.
-
-The hub generates one mini-site for every validated public repository and deploys it under:
+Every validated public repository continues to receive a centrally generated mini-site under:
 
 `https://kaibuzz0.github.io/Git-hub-command-site/repos/<repo-id>/`
 
-A repository detail view exposes a `Repo Website` action pointing to that mini-site. `/repos/` also contains an automatically generated index of the public repository workspaces.
-
-The mini-sites are derived from exactly the same `repo-snapshot.json` used by the central hub and update after normal source commits -> snapshot refresh -> hub sync/deploy. They use the Cipher Suite-style VS Code layout, repository Explorer, exact source-commit provenance, public text-file preview, and contextual structured-data sections when available.
-
-## Workbench composition
-
-Workbench v5 is the current verified production shell. The far-left Activity Bar is the fleet/Command Center layer; the left sidebar is repository/data navigation; the center is the primary editor/workspace; the optional secondary editor group can dock right or down; the right Inspector carries repository context and external links; and the bottom panel remains available for output/runner adapters.
-
-The v4 resizable sidebar/Inspector/output behavior, workspace tabs, update checks and whiteboard remain active. V5 adds README/reference preview at the exact snapshot commit, browser-local unified-diff review, central-hosted Repo Site embedding, Coding/Research/Repo Review/Focus presets, custom browser-local saved layouts, and tab drag/reorder behavior. These workspace preferences do not mutate repositories.
+Those workspaces share the same snapshot contract and remain public-only. Private repositories are not admitted to the public registry or Pages artifact.
 
 ## Execution and privacy boundary
 
-GitHub Pages remains static/non-privileged. It does not store GitHub credentials, execute arbitrary local Python, expose private repository snapshots publicly, or perform repository writes.
+GitHub Pages remains static/non-privileged. It does not store GitHub credentials, send browser Authorization/Bearer headers, execute arbitrary local Python, expose private repository snapshots publicly, or perform repository writes from remote snapshot data.
 
-Public file/README previews are fetched from the public source repository at the snapshot's exact `source_commit` with bounded size limits. Unsupported/binary/oversized resources fall back to GitHub. Private repository browser support requires an authenticated private transport and non-public presentation surface before those repositories can be admitted.
+Tests, commands, task/agent assignments and debug operations prepare bounded handoff/runner specs. Actual execution/writes require a trusted runner, GitHub Actions, or an explicitly authorized agent.
+
+## Validation state
+
+The Command OS runtime is covered by `node --check`, blueprint/context security tests, and the existing Python 3.11/3.12/3.13 CI matrix. The corrected post-merge `main` run after PR #45 completed successfully, including tests, registry validation, snapshot validation, aggregate generation and repository mini-site generation.
 
 ## Current priorities
 
-1. Add richer document composition: Markdown/source side-by-side, search-result tabs, commit/PR/check review surfaces, and recently opened resources.
-2. Add movable/dockable panel registry so hub-owned tools can participate in the same workspace composition model.
-3. Add repository classification/language/health summaries and surface them in both the Command Center and individual mini-sites.
-4. Build authenticated private-repository transport without leaking private paths/content into the public Pages artifact.
-5. Continue developing the trusted-runner boundary for explicit execution/debug/write operations while keeping Pages non-privileged.
+The blueprint itself is implemented. Future work should deepen the existing Command OS instead of creating a parallel dashboard system:
+
+1. authenticated trusted-runner transport and result ingestion;
+2. richer public PR/check/issue collectors without browser credentials;
+3. stronger language/static-analysis intelligence and dependency graphs;
+4. authenticated private-repository transport/presentation;
+5. near-immediate repository refresh via GitHub App/repository dispatch;
+6. promote/export browser-local project memory into explicit repository-backed records when authorized.
 
 ## Next handoff
 
-Treat the Command Center as a single-page multi-repository operating workspace, not a collection of fixed dashboards. Extend shared editor groups/panels/layouts rather than creating one-off full-page UIs. Keep public repo content exact-commit and bounded, keep private repositories outside the public build, and route execution/writes through the trusted runner or authorized-agent boundary.
+Treat `command_os.js` as the canonical active-context/project-operating layer. New project capabilities should subscribe to the active repository and extend the existing surfaces/panel model. Preserve exact-commit bounded public content, static browser privilege boundaries, and public/private separation.
