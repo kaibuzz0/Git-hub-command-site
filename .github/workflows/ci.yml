@@ -32,6 +32,7 @@ jobs:
           node --check site/workbench_v5.js
           node --check site/command_os.js
           node --check site/command_os_search.js
+          node --check site/living_info.js
           node --check site/ultimate_ui.js
           node --check site/pwa.js
           node --check site/repo_workspace_v2.js
