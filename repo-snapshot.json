@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-18T03:19:22Z",
-  "source_commit": "a121f84681e5e99781858bb993b649a280d96f0b",
+  "generated_at": "2026-08-18T05:01:32Z",
+  "source_commit": "87e8390bc8cab28d0d6d9d733f5fc680eb369a61",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -593,6 +593,34 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "87e8390bc8cab28d0d6d9d733f5fc680eb369a61",
+      "type": "commit",
+      "title": "Merge pull request #54 from kaibuzz0/fix/mobile-workspace-greyzone",
+      "timestamp": "2026-08-18T00:01:24-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/87e8390bc8cab28d0d6d9d733f5fc680eb369a61"
+    },
+    {
+      "id": "ffdb701614a8692265697f5931869a75c99b43dc",
+      "type": "commit",
+      "title": "PWA: refresh shell after workspace layout fix",
+      "timestamp": "2026-08-18T00:00:01-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/ffdb701614a8692265697f5931869a75c99b43dc"
+    },
+    {
+      "id": "c9144dd1242ad1857a5a8f7ed08d8ab3676b107e",
+      "type": "commit",
+      "title": "Test: lock mobile workspace collapse contract",
+      "timestamp": "2026-08-17T23:59:36-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c9144dd1242ad1857a5a8f7ed08d8ab3676b107e"
+    },
+    {
+      "id": "091483143e63d6ef508cf1e47db7f56b0dd6d6cf",
+      "type": "commit",
+      "title": "Fix: collapse empty Workbench v5 space in Ultimate UI",
+      "timestamp": "2026-08-17T23:59:08-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/091483143e63d6ef508cf1e47db7f56b0dd6d6cf"
+    },
+    {
       "id": "a121f84681e5e99781858bb993b649a280d96f0b",
       "type": "commit",
       "title": "Merge pull request #53 from kaibuzz0/feature/ultimate-ui-blueprint",
@@ -633,34 +661,6 @@
       "title": "Tests: move four-edge contract to ultimate UI",
       "timestamp": "2026-08-17T22:16:09-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/63b4dd2f5bbda66bdd216041646c14156d189047"
-    },
-    {
-      "id": "21acc0dea044663fc188df6855ad712ca2bbfc62",
-      "type": "commit",
-      "title": "Tests: retire legacy mobile presentation wiring",
-      "timestamp": "2026-08-17T22:15:48-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/21acc0dea044663fc188df6855ad712ca2bbfc62"
-    },
-    {
-      "id": "6a676eddff03af3066d0aaeb78d6473f730eb125",
-      "type": "commit",
-      "title": "Tests: make ultimate UI own mobile shell",
-      "timestamp": "2026-08-17T22:15:34-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/6a676eddff03af3066d0aaeb78d6473f730eb125"
-    },
-    {
-      "id": "bbd679ce0bc64632fde4fddb0e4b10048bdaba78",
-      "type": "commit",
-      "title": "Tests: move semantic theme assertions to ultimate UI",
-      "timestamp": "2026-08-17T22:15:18-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/bbd679ce0bc64632fde4fddb0e4b10048bdaba78"
-    },
-    {
-      "id": "6a95ac2ca02465fe7acd230d8f745a421388b754",
-      "type": "commit",
-      "title": "CI: validate canonical UI blueprint and runtime",
-      "timestamp": "2026-08-17T22:14:11-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/6a95ac2ca02465fe7acd230d8f745a421388b754"
     }
   ],
   "links": [
