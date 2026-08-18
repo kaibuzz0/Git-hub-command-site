@@ -1,8 +1,8 @@
-const CACHE='command-os-shell-v6';
+const CACHE='command-os-shell-v7';
 const SHELL=[
   './','./index.html','./manifest.webmanifest','./icons/command-os.svg','./ui_blueprint.json',
-  './app.css','./repository_explorer.css','./internal_editor.css','./workbench_v4.css','./workbench_v5.css','./command_os.css','./command_os_finalize.css','./ultimate_ui.css','./pwa.css',
-  './app.js','./internal_editor.js','./repository_explorer.js','./workbench_v4.js','./workbench_v5.js','./command_os.js','./command_os_search.js','./ultimate_ui.js','./pwa.js','./vendor/monaco/vs/loader.js'
+  './app.css','./repository_explorer.css','./internal_editor.css','./workbench_v4.css','./workbench_v5.css','./command_os.css','./command_os_finalize.css','./ultimate_ui.css','./living_info.css','./pwa.css',
+  './app.js','./internal_editor.js','./repository_explorer.js','./workbench_v4.js','./workbench_v5.js','./command_os.js','./command_os_search.js','./living_info.js','./ultimate_ui.js','./pwa.js','./vendor/monaco/vs/loader.js'
 ];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL))));
 self.addEventListener('activate',event=>event.waitUntil(Promise.all([
