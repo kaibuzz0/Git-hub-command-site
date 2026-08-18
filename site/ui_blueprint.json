@@ -24,46 +24,221 @@
     "red": "#ff3155"
   },
   "left": [
-    ["home", "⌂", "Command Center", "cyan"],
-    ["repositories", "▱", "Repositories", "blue"],
-    ["search", "⌕", "Search", "cyan"],
-    ["source-control", "⑂", "Source Control", "blue"],
-    ["run-debug", "▷", "Run / Debug", "green"],
-    ["editor", "▤", "Editor", "pink"],
-    ["workspace-tools", "⬡", "Tools", "purple"],
-    ["whiteboard", "✎", "Whiteboard", "orange"],
-    ["settings", "⚙", "Settings", "yellow"],
-    ["palette", "›_", "Command Palette", "cyan"]
+    [
+      "home",
+      "⌂",
+      "Command Center",
+      "cyan"
+    ],
+    [
+      "repositories",
+      "▱",
+      "Repositories",
+      "blue"
+    ],
+    [
+      "search",
+      "⌕",
+      "Search",
+      "cyan"
+    ],
+    [
+      "source-control",
+      "⑂",
+      "Source Control",
+      "blue"
+    ],
+    [
+      "run-debug",
+      "▷",
+      "Run / Debug",
+      "green"
+    ],
+    [
+      "editor",
+      "▤",
+      "Editor",
+      "pink"
+    ],
+    [
+      "workspace-tools",
+      "⬡",
+      "Tools",
+      "purple"
+    ],
+    [
+      "whiteboard",
+      "✎",
+      "Whiteboard",
+      "orange"
+    ],
+    [
+      "settings",
+      "⚙",
+      "Settings",
+      "yellow"
+    ],
+    [
+      "palette",
+      "›_",
+      "Command Palette",
+      "cyan"
+    ]
   ],
   "project": [
-    ["project-overview", "⌂", "Overview", "cyan"],
-    ["project-intelligence", "◈", "Intelligence", "purple"],
-    ["project-files", "▱", "Files", "blue"],
-    ["project-code", "</>", "Code", "pink"],
-    ["project-github", "⑂", "GitHub", "blue"],
-    ["project-tests", "✓", "Tests / CI", "green"],
-    ["project-tasks", "☑", "Tasks", "yellow"],
-    ["project-agents", "🤖", "Agents", "purple"],
-    ["project-research", "◇", "Research", "orange"],
-    ["project-notes", "✎", "Notes", "cyan"],
-    ["project-commands", "›_", "Commands", "pink"],
-    ["project-history", "◷", "History", "blue"]
+    [
+      "project-overview",
+      "⌂",
+      "Overview",
+      "cyan"
+    ],
+    [
+      "project-intelligence",
+      "◈",
+      "Intelligence",
+      "purple"
+    ],
+    [
+      "project-files",
+      "▱",
+      "Files",
+      "blue"
+    ],
+    [
+      "project-code",
+      "</>",
+      "Code",
+      "pink"
+    ],
+    [
+      "project-github",
+      "⑂",
+      "GitHub",
+      "blue"
+    ],
+    [
+      "project-tests",
+      "✓",
+      "Tests / CI",
+      "green"
+    ],
+    [
+      "project-tasks",
+      "☑",
+      "Tasks",
+      "yellow"
+    ],
+    [
+      "project-agents",
+      "🤖",
+      "Agents",
+      "purple"
+    ],
+    [
+      "project-research",
+      "◇",
+      "Research",
+      "orange"
+    ],
+    [
+      "project-notes",
+      "✎",
+      "Notes",
+      "cyan"
+    ],
+    [
+      "project-commands",
+      "›_",
+      "Commands",
+      "pink"
+    ],
+    [
+      "project-history",
+      "◷",
+      "History",
+      "blue"
+    ]
   ],
   "bottom": [
-    ["search", "⌕", "Search", "cyan"],
-    ["editor", "▤", "Editor", "pink"],
-    ["run-debug", "▷", "Run / Debug", "green"],
-    ["source-control", "⑂", "Git / PRs", "blue"],
-    ["workspace-tools", "⬡", "Tools", "purple"],
-    ["project-notes", "✎", "Notes", "cyan"],
-    ["output", "≡", "Output", "yellow"],
-    ["palette", "›_", "Palette", "orange"]
+    [
+      "search",
+      "⌕",
+      "Search",
+      "cyan"
+    ],
+    [
+      "editor",
+      "▤",
+      "Editor",
+      "pink"
+    ],
+    [
+      "run-debug",
+      "▷",
+      "Run / Debug",
+      "green"
+    ],
+    [
+      "source-control",
+      "⑂",
+      "Git / PRs",
+      "blue"
+    ],
+    [
+      "workspace-tools",
+      "⬡",
+      "Tools",
+      "purple"
+    ],
+    [
+      "project-notes",
+      "✎",
+      "Notes",
+      "cyan"
+    ],
+    [
+      "output",
+      "≡",
+      "Output",
+      "yellow"
+    ],
+    [
+      "palette",
+      "›_",
+      "Palette",
+      "orange"
+    ]
   ],
   "mobile": [
-    ["home", "⌂", "Home", "cyan"],
-    ["repositories", "▱", "Repos", "blue"],
-    ["search", "⌕", "Search", "cyan"],
-    ["editor", "▤", "Editor", "pink"],
-    ["more", "•••", "More", "purple"]
+    [
+      "home",
+      "⌂",
+      "Home",
+      "cyan"
+    ],
+    [
+      "repositories",
+      "▱",
+      "Repos",
+      "blue"
+    ],
+    [
+      "search",
+      "⌕",
+      "Search",
+      "cyan"
+    ],
+    [
+      "editor",
+      "▤",
+      "Editor",
+      "pink"
+    ],
+    [
+      "more",
+      "•••",
+      "More",
+      "purple"
+    ]
   ]
 }
