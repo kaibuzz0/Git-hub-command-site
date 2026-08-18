@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="Jet-black multi-repository GitHub command operating workspace">
+  <meta name="description" content="Command OS: multi-repository GitHub project operating environment">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Command OS">
-  <title>GitHub Command Workbench</title>
+  <title>Command OS · GitHub Workbench</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icons/command-os.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icons/command-os.svg">
@@ -17,17 +17,14 @@
   <link rel="stylesheet" href="internal_editor.css">
   <link rel="stylesheet" href="workbench_v4.css">
   <link rel="stylesheet" href="workbench_v5.css">
-  <link rel="stylesheet" href="mobile.css">
-  <link rel="stylesheet" href="vibrant_theme.css">
-  <link rel="stylesheet" href="cyber_theme.css">
   <link rel="stylesheet" href="command_os.css">
   <link rel="stylesheet" href="command_os_finalize.css">
-  <link rel="stylesheet" href="edge_shell.css">
+  <link rel="stylesheet" href="ultimate_ui.css">
   <link rel="stylesheet" href="pwa.css">
 </head>
 <body>
 <div id="app">
-  <aside class="activity" aria-label="Activity Bar"><button data-view="home" class="active" title="Command Center">⌂</button><button data-view="repositories" title="Explorer">▱</button><button data-view="search" title="Search">⌕</button><button data-view="source-control" title="Source Control">⑂</button><button data-view="run-debug" title="Run and Debug">▷</button><button data-view="editor" title="Editor">▤</button><button data-view="workspace-tools" title="Workspace Tools">⬡</button><button id="whiteboardBtn" data-view="whiteboard" title="Whiteboard">✎</button><span class="activity-spacer"></span><button data-view="settings" title="Settings">⚙</button><button id="paletteBtn" title="Command Palette">›_</button></aside>
+  <aside class="activity" aria-label="Legacy activity router"><button data-view="home" class="active" title="Command Center">⌂</button><button data-view="repositories" title="Explorer">▱</button><button data-view="search" title="Search">⌕</button><button data-view="source-control" title="Source Control">⑂</button><button data-view="run-debug" title="Run and Debug">▷</button><button data-view="editor" title="Editor">▤</button><button data-view="workspace-tools" title="Workspace Tools">⬡</button><button id="whiteboardBtn" data-view="whiteboard" title="Whiteboard">✎</button><span class="activity-spacer"></span><button data-view="settings" title="Settings">⚙</button><button id="paletteBtn" title="Command Palette">›_</button></aside>
   <aside class="sidebar"><div class="brand">COMMAND WORKBENCH</div><div id="sidebarTitle" class="sidebar-title">EXPLORER</div><input id="search" placeholder="Search workspace…" autocomplete="off"><div id="tree"></div></aside><div class="wb-splitter vertical sidebar-splitter" aria-label="Resize repository sidebar"></div>
   <main><header><span id="crumb">WORKBENCH / HOME</span><span id="status">loading…</span></header><nav id="workspaceTabs" class="wb-tabs" aria-label="Open workspace tabs"></nav><section id="content"></section><section id="bottomPanel" class="bottom-panel hidden"><div class="panel-tabs"><button class="active">OUTPUT</button><button id="closePanel">×</button></div><pre id="panelOutput">Command Workbench ready.</pre></section><footer><span>◉ main</span><span id="syncState">snapshot registry</span><span id="runnerState">runner: adapter</span><span class="footer-spacer"></span><span>Ctrl+K palette</span></footer></main>
   <div class="wb-splitter vertical inspector-splitter" aria-label="Resize inspector"></div><aside id="wbInspector" class="wb-inspector"><div class="wb-inspector-head">INSPECTOR <button id="wbInspectorClose" title="Hide inspector">×</button></div><div id="wbInspectorBody" class="wb-inspector-body"><p class="muted">Loading workspace context…</p></div></aside>
@@ -39,10 +36,9 @@
 <script src="repository_explorer.js"></script>
 <script src="workbench_v4.js"></script>
 <script src="workbench_v5.js"></script>
-<script src="mobile.js"></script>
 <script src="command_os.js"></script>
 <script src="command_os_search.js"></script>
-<script src="edge_shell.js"></script>
+<script src="ultimate_ui.js"></script>
 <script src="pwa.js"></script>
 </body>
 </html>

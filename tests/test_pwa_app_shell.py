@@ -30,7 +30,8 @@ def test_service_worker_caches_current_shell_and_has_update_path():
     sw = (SITE / "sw.js").read_text(encoding="utf-8")
     for asset in (
         "command_os.js", "command_os_search.js", "command_os_finalize.css",
-        "mobile.js", "pwa.js", "pwa.css", "manifest.webmanifest", "icons/command-os.svg",
+        "ultimate_ui.js", "ultimate_ui.css", "ui_blueprint.json",
+        "pwa.js", "pwa.css", "manifest.webmanifest", "icons/command-os.svg",
     ):
         assert asset in sw
     assert "SKIP_WAITING" in sw
