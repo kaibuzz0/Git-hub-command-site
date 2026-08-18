@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-18T05:01:32Z",
-  "source_commit": "87e8390bc8cab28d0d6d9d733f5fc680eb369a61",
+  "generated_at": "2026-08-18T05:38:52Z",
+  "source_commit": "0b95a7a1f312e1b5830dfba3c3b2cf1d754905fb",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 93,
-    "python_files": 28,
-    "javascript_typescript_files": 20,
+    "tracked_files": 96,
+    "python_files": 29,
+    "javascript_typescript_files": 21,
     "workflow_files": 3,
-    "test_files": 20
+    "test_files": 21
   },
   "repository_tree": {
-    "total_files": 93,
+    "total_files": 96,
     "total_directories": 13,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,7 +99,7 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 45
+        "file_count": 47
       },
       {
         "path": "site/icons",
@@ -111,7 +111,7 @@
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 20
+        "file_count": 21
       }
     ],
     "files": [
@@ -326,6 +326,16 @@
         "extension": ".js"
       },
       {
+        "path": "site/living_info.css",
+        "name": "living_info.css",
+        "extension": ".css"
+      },
+      {
+        "path": "site/living_info.js",
+        "name": "living_info.js",
+        "extension": ".js"
+      },
+      {
         "path": "site/manifest.webmanifest",
         "name": "manifest.webmanifest",
         "extension": ".webmanifest"
@@ -521,6 +531,11 @@
         "extension": ".py"
       },
       {
+        "path": "tests/test_living_project_pulse.py",
+        "name": "test_living_project_pulse.py",
+        "extension": ".py"
+      },
+      {
         "path": "tests/test_mobile_v8.py",
         "name": "test_mobile_v8.py",
         "extension": ".py"
@@ -593,6 +608,55 @@
   "agent_ops": {},
   "activity": [
     {
+      "id": "0b95a7a1f312e1b5830dfba3c3b2cf1d754905fb",
+      "type": "commit",
+      "title": "Merge pull request #55 from kaibuzz0/feature/living-project-pulse",
+      "timestamp": "2026-08-18T00:38:44-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/0b95a7a1f312e1b5830dfba3c3b2cf1d754905fb"
+    },
+    {
+      "id": "51885ddfbbd76cb38af575d01253d88ba9823f46",
+      "type": "commit",
+      "title": "CI: validate living project pulse runtime",
+      "timestamp": "2026-08-18T00:37:28-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/51885ddfbbd76cb38af575d01253d88ba9823f46"
+    },
+    {
+      "id": "79f0c5a42e09d00bd3fb8711d39d05c88121e7e5",
+      "type": "commit",
+      "title": "Tests: lock living internal information layer",
+      "timestamp": "2026-08-18T00:36:52-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/79f0c5a42e09d00bd3fb8711d39d05c88121e7e5"
+    },
+    {
+      "id": "129911d43353cc0bb9d2cdfa5a0984c5b2c5a8ff",
+      "type": "commit",
+      "title": "PWA: cache living project pulse assets",
+      "timestamp": "2026-08-18T00:36:38-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/129911d43353cc0bb9d2cdfa5a0984c5b2c5a8ff"
+    },
+    {
+      "id": "702cd5f8fc458e19492fd82c027b811bc46908e8",
+      "type": "commit",
+      "title": "Command OS: wire living project pulse into main site",
+      "timestamp": "2026-08-18T00:36:11-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/702cd5f8fc458e19492fd82c027b811bc46908e8"
+    },
+    {
+      "id": "a524e78f9dbe6e8dea0b3a137932e510aeda67f0",
+      "type": "commit",
+      "title": "Command OS: style living project information panels",
+      "timestamp": "2026-08-18T00:35:51-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a524e78f9dbe6e8dea0b3a137932e510aeda67f0"
+    },
+    {
+      "id": "d9f54b9e505b8cef37c3b9f1a9b621870d842020",
+      "type": "commit",
+      "title": "Command OS: surface living repository pulse data",
+      "timestamp": "2026-08-18T00:35:27-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/d9f54b9e505b8cef37c3b9f1a9b621870d842020"
+    },
+    {
       "id": "87e8390bc8cab28d0d6d9d733f5fc680eb369a61",
       "type": "commit",
       "title": "Merge pull request #54 from kaibuzz0/fix/mobile-workspace-greyzone",
@@ -612,55 +676,6 @@
       "title": "Test: lock mobile workspace collapse contract",
       "timestamp": "2026-08-17T23:59:36-05:00",
       "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c9144dd1242ad1857a5a8f7ed08d8ab3676b107e"
-    },
-    {
-      "id": "091483143e63d6ef508cf1e47db7f56b0dd6d6cf",
-      "type": "commit",
-      "title": "Fix: collapse empty Workbench v5 space in Ultimate UI",
-      "timestamp": "2026-08-17T23:59:08-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/091483143e63d6ef508cf1e47db7f56b0dd6d6cf"
-    },
-    {
-      "id": "a121f84681e5e99781858bb993b649a280d96f0b",
-      "type": "commit",
-      "title": "Merge pull request #53 from kaibuzz0/feature/ultimate-ui-blueprint",
-      "timestamp": "2026-08-17T22:19:13-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a121f84681e5e99781858bb993b649a280d96f0b"
-    },
-    {
-      "id": "8551f31ec9c8912486c68b478b42580a188371df",
-      "type": "commit",
-      "title": "UI: synchronize generated blueprint JSON",
-      "timestamp": "2026-08-17T22:19:08-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8551f31ec9c8912486c68b478b42580a188371df"
-    },
-    {
-      "id": "615b9ffedf74bbda823de2ab7219e75232cc5bce",
-      "type": "commit",
-      "title": "Tests: lock canonical UI blueprint architecture",
-      "timestamp": "2026-08-17T22:17:03-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/615b9ffedf74bbda823de2ab7219e75232cc5bce"
-    },
-    {
-      "id": "dac68463627d56ec31612b9b8b0ae1348712f167",
-      "type": "commit",
-      "title": "Tests: make PWA cache canonical ultimate UI shell",
-      "timestamp": "2026-08-17T22:16:47-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/dac68463627d56ec31612b9b8b0ae1348712f167"
-    },
-    {
-      "id": "5f12a339f58501e94b1d70001f3f9d2d6eba79b3",
-      "type": "commit",
-      "title": "Tests: keep vibrant repo tools while consolidating main theme",
-      "timestamp": "2026-08-17T22:16:23-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5f12a339f58501e94b1d70001f3f9d2d6eba79b3"
-    },
-    {
-      "id": "63b4dd2f5bbda66bdd216041646c14156d189047",
-      "type": "commit",
-      "title": "Tests: move four-edge contract to ultimate UI",
-      "timestamp": "2026-08-17T22:16:09-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/63b4dd2f5bbda66bdd216041646c14156d189047"
     }
   ],
   "links": [
