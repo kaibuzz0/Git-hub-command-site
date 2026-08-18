@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-18T02:56:30Z",
-  "source_commit": "80f8bdd8600921a489cedb67d1db6c1a168da80c",
+  "generated_at": "2026-08-18T03:19:22Z",
+  "source_commit": "a121f84681e5e99781858bb993b649a280d96f0b",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 88,
-    "python_files": 26,
-    "javascript_typescript_files": 19,
+    "tracked_files": 93,
+    "python_files": 28,
+    "javascript_typescript_files": 20,
     "workflow_files": 3,
-    "test_files": 19
+    "test_files": 20
   },
   "repository_tree": {
-    "total_files": 88,
+    "total_files": 93,
     "total_directories": 13,
     "files_truncated": false,
     "directories_truncated": false,
@@ -93,13 +93,13 @@
         "path": "scripts",
         "name": "scripts",
         "depth": 1,
-        "file_count": 5
+        "file_count": 6
       },
       {
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 42
+        "file_count": 45
       },
       {
         "path": "site/icons",
@@ -111,7 +111,7 @@
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 19
+        "file_count": 20
       }
     ],
     "files": [
@@ -248,6 +248,11 @@
       {
         "path": "scripts/sync_repositories.py",
         "name": "sync_repositories.py",
+        "extension": ".py"
+      },
+      {
+        "path": "scripts/ui_blueprint.py",
+        "name": "ui_blueprint.py",
         "extension": ".py"
       },
       {
@@ -436,6 +441,21 @@
         "extension": ".js"
       },
       {
+        "path": "site/ui_blueprint.json",
+        "name": "ui_blueprint.json",
+        "extension": ".json"
+      },
+      {
+        "path": "site/ultimate_ui.css",
+        "name": "ultimate_ui.css",
+        "extension": ".css"
+      },
+      {
+        "path": "site/ultimate_ui.js",
+        "name": "ultimate_ui.js",
+        "extension": ".js"
+      },
+      {
         "path": "site/vibrant_theme.css",
         "name": "vibrant_theme.css",
         "extension": ".css"
@@ -541,6 +561,11 @@
         "extension": ".py"
       },
       {
+        "path": "tests/test_ultimate_ui_blueprint.py",
+        "name": "test_ultimate_ui_blueprint.py",
+        "extension": ".py"
+      },
+      {
         "path": "tests/test_vibrant_triage.py",
         "name": "test_vibrant_triage.py",
         "extension": ".py"
@@ -568,74 +593,74 @@
   "agent_ops": {},
   "activity": [
     {
-      "id": "80f8bdd8600921a489cedb67d1db6c1a168da80c",
+      "id": "a121f84681e5e99781858bb993b649a280d96f0b",
       "type": "commit",
-      "title": "Merge pull request #52 from kaibuzz0/feature/edge-command-shell",
-      "timestamp": "2026-08-17T21:56:20-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/80f8bdd8600921a489cedb67d1db6c1a168da80c"
+      "title": "Merge pull request #53 from kaibuzz0/feature/ultimate-ui-blueprint",
+      "timestamp": "2026-08-17T22:19:13-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a121f84681e5e99781858bb993b649a280d96f0b"
     },
     {
-      "id": "5a51fe8c47ca401738d56f4ae09d5562d97b1cfb",
+      "id": "8551f31ec9c8912486c68b478b42580a188371df",
       "type": "commit",
-      "title": "PWA: cache four-edge shell assets",
-      "timestamp": "2026-08-17T21:54:22-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5a51fe8c47ca401738d56f4ae09d5562d97b1cfb"
+      "title": "UI: synchronize generated blueprint JSON",
+      "timestamp": "2026-08-17T22:19:08-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8551f31ec9c8912486c68b478b42580a188371df"
     },
     {
-      "id": "f62aebe328ff9804301462eafcaf2e2dae6755c3",
+      "id": "615b9ffedf74bbda823de2ab7219e75232cc5bce",
       "type": "commit",
-      "title": "PWA: preserve install metadata in edge shell",
-      "timestamp": "2026-08-17T21:54:07-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/f62aebe328ff9804301462eafcaf2e2dae6755c3"
+      "title": "Tests: lock canonical UI blueprint architecture",
+      "timestamp": "2026-08-17T22:17:03-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/615b9ffedf74bbda823de2ab7219e75232cc5bce"
     },
     {
-      "id": "8b1dcf72ef2e9d82790fa8a1e970ae2233ccd62e",
+      "id": "dac68463627d56ec31612b9b8b0ae1348712f167",
       "type": "commit",
-      "title": "Tests: lock four-edge shell and repo navigation contract",
-      "timestamp": "2026-08-17T21:52:01-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8b1dcf72ef2e9d82790fa8a1e970ae2233ccd62e"
+      "title": "Tests: make PWA cache canonical ultimate UI shell",
+      "timestamp": "2026-08-17T22:16:47-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/dac68463627d56ec31612b9b8b0ae1348712f167"
     },
     {
-      "id": "4fbe93222879d25d80a69509c9c8f178eceb3ec3",
+      "id": "5f12a339f58501e94b1d70001f3f9d2d6eba79b3",
       "type": "commit",
-      "title": "CI: validate edge shell and repo v7 runtime",
-      "timestamp": "2026-08-17T21:51:44-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/4fbe93222879d25d80a69509c9c8f178eceb3ec3"
+      "title": "Tests: keep vibrant repo tools while consolidating main theme",
+      "timestamp": "2026-08-17T22:16:23-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5f12a339f58501e94b1d70001f3f9d2d6eba79b3"
     },
     {
-      "id": "c2f9b773258dad23ff3ee06619bfae15b9be4f77",
+      "id": "63b4dd2f5bbda66bdd216041646c14156d189047",
       "type": "commit",
-      "title": "Repo UI: inject v7 navigation and neon frame into mini-sites",
-      "timestamp": "2026-08-17T21:51:13-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c2f9b773258dad23ff3ee06619bfae15b9be4f77"
+      "title": "Tests: move four-edge contract to ultimate UI",
+      "timestamp": "2026-08-17T22:16:09-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/63b4dd2f5bbda66bdd216041646c14156d189047"
     },
     {
-      "id": "8ef56add99e18238c27fd7f111faf17c863eb22b",
+      "id": "21acc0dea044663fc188df6855ad712ca2bbfc62",
       "type": "commit",
-      "title": "UI: wire four-edge command shell",
-      "timestamp": "2026-08-17T21:50:48-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8ef56add99e18238c27fd7f111faf17c863eb22b"
+      "title": "Tests: retire legacy mobile presentation wiring",
+      "timestamp": "2026-08-17T22:15:48-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/21acc0dea044663fc188df6855ad712ca2bbfc62"
     },
     {
-      "id": "3ac74dd9ca686078c48d0054f5ec5afcdc7eaa09",
+      "id": "6a676eddff03af3066d0aaeb78d6473f730eb125",
       "type": "commit",
-      "title": "Repo UI: add compact edge navigation controller",
-      "timestamp": "2026-08-17T21:50:22-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/3ac74dd9ca686078c48d0054f5ec5afcdc7eaa09"
+      "title": "Tests: make ultimate UI own mobile shell",
+      "timestamp": "2026-08-17T22:15:34-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/6a676eddff03af3066d0aaeb78d6473f730eb125"
     },
     {
-      "id": "d7c3d0e8190af64fe27faeb91ac3cee2418596ef",
+      "id": "bbd679ce0bc64632fde4fddb0e4b10048bdaba78",
       "type": "commit",
-      "title": "Repo UI: add neon frame and compact edge navigation",
-      "timestamp": "2026-08-17T21:50:04-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/d7c3d0e8190af64fe27faeb91ac3cee2418596ef"
+      "title": "Tests: move semantic theme assertions to ultimate UI",
+      "timestamp": "2026-08-17T22:15:18-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/bbd679ce0bc64632fde4fddb0e4b10048bdaba78"
     },
     {
-      "id": "c1d2379035271deb99e13f301a3132295177ddee",
+      "id": "6a95ac2ca02465fe7acd230d8f745a421388b754",
       "type": "commit",
-      "title": "UI: add four-edge labeled navigation controller",
-      "timestamp": "2026-08-17T21:49:25-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c1d2379035271deb99e13f301a3132295177ddee"
+      "title": "CI: validate canonical UI blueprint and runtime",
+      "timestamp": "2026-08-17T22:14:11-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/6a95ac2ca02465fe7acd230d8f745a421388b754"
     }
   ],
   "links": [
