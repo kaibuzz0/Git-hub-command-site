@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T10:08:39Z",
-  "source_commit": "a00ed4b16600b7e5b1ebd4dcaaccb8d7d2cbd08c",
+  "generated_at": "2026-08-18T02:56:30Z",
+  "source_commit": "80f8bdd8600921a489cedb67d1db6c1a168da80c",
   "repo": {
     "id": "git-hub-command-site",
     "full_name": "kaibuzz0/Git-hub-command-site",
@@ -9,14 +9,14 @@
     "default_branch": "main"
   },
   "stats": {
-    "tracked_files": 83,
-    "python_files": 25,
-    "javascript_typescript_files": 17,
+    "tracked_files": 88,
+    "python_files": 26,
+    "javascript_typescript_files": 19,
     "workflow_files": 3,
-    "test_files": 18
+    "test_files": 19
   },
   "repository_tree": {
-    "total_files": 83,
+    "total_files": 88,
     "total_directories": 13,
     "files_truncated": false,
     "directories_truncated": false,
@@ -99,7 +99,7 @@
         "path": "site",
         "name": "site",
         "depth": 1,
-        "file_count": 38
+        "file_count": 42
       },
       {
         "path": "site/icons",
@@ -111,7 +111,7 @@
         "path": "tests",
         "name": "tests",
         "depth": 1,
-        "file_count": 18
+        "file_count": 19
       }
     ],
     "files": [
@@ -291,6 +291,16 @@
         "extension": ".css"
       },
       {
+        "path": "site/edge_shell.css",
+        "name": "edge_shell.css",
+        "extension": ".css"
+      },
+      {
+        "path": "site/edge_shell.js",
+        "name": "edge_shell.js",
+        "extension": ".js"
+      },
+      {
         "path": "site/icons/command-os.svg",
         "name": "command-os.svg",
         "extension": ".svg"
@@ -401,6 +411,16 @@
         "extension": ".js"
       },
       {
+        "path": "site/repo_workspace_v7.css",
+        "name": "repo_workspace_v7.css",
+        "extension": ".css"
+      },
+      {
+        "path": "site/repo_workspace_v7.js",
+        "name": "repo_workspace_v7.js",
+        "extension": ".js"
+      },
+      {
         "path": "site/repository_explorer.css",
         "name": "repository_explorer.css",
         "extension": ".css"
@@ -453,6 +473,11 @@
       {
         "path": "tests/test_command_os_finalize.py",
         "name": "test_command_os_finalize.py",
+        "extension": ".py"
+      },
+      {
+        "path": "tests/test_edge_shell.py",
+        "name": "test_edge_shell.py",
         "extension": ".py"
       },
       {
@@ -543,74 +568,74 @@
   "agent_ops": {},
   "activity": [
     {
-      "id": "a00ed4b16600b7e5b1ebd4dcaaccb8d7d2cbd08c",
+      "id": "80f8bdd8600921a489cedb67d1db6c1a168da80c",
       "type": "commit",
-      "title": "Merge pull request #51 from kaibuzz0/feature/pwa-app-shellno",
-      "timestamp": "2026-08-17T05:08:31-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a00ed4b16600b7e5b1ebd4dcaaccb8d7d2cbd08c"
+      "title": "Merge pull request #52 from kaibuzz0/feature/edge-command-shell",
+      "timestamp": "2026-08-17T21:56:20-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/80f8bdd8600921a489cedb67d1db6c1a168da80c"
     },
     {
-      "id": "ce181ad548d760a9d6df34406a105d9bf4b3d5b9",
+      "id": "5a51fe8c47ca401738d56f4ae09d5562d97b1cfb",
       "type": "commit",
-      "title": "Tests: validate installable Command OS PWA",
-      "timestamp": "2026-08-17T05:07:09-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/ce181ad548d760a9d6df34406a105d9bf4b3d5b9"
+      "title": "PWA: cache four-edge shell assets",
+      "timestamp": "2026-08-17T21:54:22-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5a51fe8c47ca401738d56f4ae09d5562d97b1cfb"
     },
     {
-      "id": "45e5bfbe274db1275bffe8c11bd034b924260c7e",
+      "id": "f62aebe328ff9804301462eafcaf2e2dae6755c3",
       "type": "commit",
-      "title": "PWA: replace legacy service worker with app shell cache",
-      "timestamp": "2026-08-17T05:06:16-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/45e5bfbe274db1275bffe8c11bd034b924260c7e"
+      "title": "PWA: preserve install metadata in edge shell",
+      "timestamp": "2026-08-17T21:54:07-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/f62aebe328ff9804301462eafcaf2e2dae6755c3"
     },
     {
-      "id": "a851ad359382cd39e50480f89de38a707b6d9c77",
+      "id": "8b1dcf72ef2e9d82790fa8a1e970ae2233ccd62e",
       "type": "commit",
-      "title": "PWA: add install update and offline controller",
-      "timestamp": "2026-08-17T05:05:50-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/a851ad359382cd39e50480f89de38a707b6d9c77"
+      "title": "Tests: lock four-edge shell and repo navigation contract",
+      "timestamp": "2026-08-17T21:52:01-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8b1dcf72ef2e9d82790fa8a1e970ae2233ccd62e"
     },
     {
-      "id": "61f4353ef2d02cbaf54d9860a8252bca1486a98d",
+      "id": "4fbe93222879d25d80a69509c9c8f178eceb3ec3",
       "type": "commit",
-      "title": "Merge pull request #50 from kaibuzz0/feature/pwa-app-shell",
-      "timestamp": "2026-08-17T05:05:40-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/61f4353ef2d02cbaf54d9860a8252bca1486a98d"
+      "title": "CI: validate edge shell and repo v7 runtime",
+      "timestamp": "2026-08-17T21:51:44-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/4fbe93222879d25d80a69509c9c8f178eceb3ec3"
     },
     {
-      "id": "c62d1aa5344a9bd702ef808da63103f900787fa6",
+      "id": "c2f9b773258dad23ff3ee06619bfae15b9be4f77",
       "type": "commit",
-      "title": "PWA: add install and update controls",
-      "timestamp": "2026-08-17T05:05:34-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c62d1aa5344a9bd702ef808da63103f900787fa6"
+      "title": "Repo UI: inject v7 navigation and neon frame into mini-sites",
+      "timestamp": "2026-08-17T21:51:13-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c2f9b773258dad23ff3ee06619bfae15b9be4f77"
     },
     {
-      "id": "008507732f58edb45384d3c77a0f10818930c40e",
+      "id": "8ef56add99e18238c27fd7f111faf17c863eb22b",
       "type": "commit",
-      "title": "PWA: upgrade install manifest",
-      "timestamp": "2026-08-17T05:05:22-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/008507732f58edb45384d3c77a0f10818930c40e"
+      "title": "UI: wire four-edge command shell",
+      "timestamp": "2026-08-17T21:50:48-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/8ef56add99e18238c27fd7f111faf17c863eb22b"
     },
     {
-      "id": "5be4871d1dafe816a3de7d9121cd28df2a2c4a70",
+      "id": "3ac74dd9ca686078c48d0054f5ec5afcdc7eaa09",
       "type": "commit",
-      "title": "PWA: add Command OS install icon",
-      "timestamp": "2026-08-17T05:04:59-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/5be4871d1dafe816a3de7d9121cd28df2a2c4a70"
+      "title": "Repo UI: add compact edge navigation controller",
+      "timestamp": "2026-08-17T21:50:22-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/3ac74dd9ca686078c48d0054f5ec5afcdc7eaa09"
     },
     {
-      "id": "22f915514e6b213e8f8452fcb32d37181f7a6940",
+      "id": "d7c3d0e8190af64fe27faeb91ac3cee2418596ef",
       "type": "commit",
-      "title": "Merge pull request #48 from kaibuzz0/feature/command-os-finalize",
-      "timestamp": "2026-08-17T04:34:34-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/22f915514e6b213e8f8452fcb32d37181f7a6940"
+      "title": "Repo UI: add neon frame and compact edge navigation",
+      "timestamp": "2026-08-17T21:50:04-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/d7c3d0e8190af64fe27faeb91ac3cee2418596ef"
     },
     {
-      "id": "9b3e2826fd66c4473552d3983542f19c90a7cce7",
+      "id": "c1d2379035271deb99e13f301a3132295177ddee",
       "type": "commit",
-      "title": "Tests: lock universal project search and active-context layout",
-      "timestamp": "2026-08-17T04:34:20-05:00",
-      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/9b3e2826fd66c4473552d3983542f19c90a7cce7"
+      "title": "UI: add four-edge labeled navigation controller",
+      "timestamp": "2026-08-17T21:49:25-05:00",
+      "url": "https://github.com/kaibuzz0/Git-hub-command-site/commit/c1d2379035271deb99e13f301a3132295177ddee"
     }
   ],
   "links": [
