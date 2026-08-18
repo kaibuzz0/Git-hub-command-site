@@ -1,8 +1,8 @@
-const CACHE='command-os-shell-v3';
+const CACHE='command-os-shell-v4';
 const SHELL=[
   './','./index.html','./manifest.webmanifest','./icons/command-os.svg',
-  './app.css','./repository_explorer.css','./internal_editor.css','./workbench_v4.css','./workbench_v5.css','./mobile.css','./vibrant_theme.css','./cyber_theme.css','./command_os.css','./command_os_finalize.css','./pwa.css',
-  './app.js','./internal_editor.js','./repository_explorer.js','./workbench_v4.js','./workbench_v5.js','./mobile.js','./command_os.js','./command_os_search.js','./pwa.js','./vendor/monaco/vs/loader.js'
+  './app.css','./repository_explorer.css','./internal_editor.css','./workbench_v4.css','./workbench_v5.css','./mobile.css','./vibrant_theme.css','./cyber_theme.css','./command_os.css','./command_os_finalize.css','./edge_shell.css','./pwa.css',
+  './app.js','./internal_editor.js','./repository_explorer.js','./workbench_v4.js','./workbench_v5.js','./mobile.js','./command_os.js','./command_os_search.js','./edge_shell.js','./pwa.js','./vendor/monaco/vs/loader.js'
 ];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL))));
 self.addEventListener('activate',event=>event.waitUntil(Promise.all([
