@@ -31,11 +31,13 @@ jobs:
           node --check site/mobile.js
           node --check site/command_os.js
           node --check site/command_os_search.js
+          node --check site/edge_shell.js
           node --check site/repo_workspace_v2.js
           node --check site/repo_workspace_v3.js
           node --check site/repo_workspace_v4.js
           node --check site/repo_workspace_v5.js
           node --check site/repo_workspace_v6.js
+          node --check site/repo_workspace_v7.js
       - name: Run tests
         run: python -m pytest tests/ -vv --tb=short --junitxml=test-results.xml
       - name: Validate remote registry

@@ -19,11 +19,11 @@ from connectors.build_repo_site import load_snapshot, write_site
 ID_RE = re.compile(r"^[A-Za-z0-9._-]+$")
 EXTRA_CSS = [ROOT / "site" / name for name in (
     "repo_workspace_v2.css", "repo_workspace_v3.css", "repo_workspace_v4.css",
-    "repo_workspace_v5.css", "repo_workspace_v6.css", "vibrant_theme.css"
+    "repo_workspace_v5.css", "repo_workspace_v6.css", "repo_workspace_v7.css", "vibrant_theme.css"
 )]
 EXTRA_JS = [ROOT / "site" / name for name in (
     "repo_workspace_v2.js", "repo_workspace_v3.js", "repo_workspace_v4.js",
-    "repo_workspace_v5.js", "repo_workspace_v6.js"
+    "repo_workspace_v5.js", "repo_workspace_v6.js", "repo_workspace_v7.js"
 )]
 
 
@@ -70,16 +70,17 @@ def main() -> int:
         install_workspace_tools(target)
         rows.append((rid, str(repo.get("full_name") or rid), snapshot.get("generated_at") or ""))
 
+    tones = ["#00e5ff55", "#2979ff55", "#b026ff55", "#ff2bd655", "#39ff8855", "#ffe60055", "#ff8a0055", "#ff315555"]
     links = "\n".join(
-        f'<li><a href="{html.escape(rid)}/">{html.escape(full)}</a><span>{html.escape(str(stamp))}</span></li>'
-        for rid, full, stamp in rows
+        f'<li style="border-color:{tones[i % len(tones)]}"><a href="{html.escape(rid)}/">{html.escape(full)}</a><span>{html.escape(str(stamp))}</span></li>'
+        for i, (rid, full, stamp) in enumerate(rows)
     )
     (output / "index.html").write_text(
         "<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"
-        "<title>Repository Workspaces</title><style>body{margin:0;background:#17191f;color:#e6edf3;font:14px Segoe UI,sans-serif}"
-        "main{max-width:900px;margin:auto;padding:24px}h1{color:#ffd866}a{color:#6ee7f9;text-decoration:none}ul{list-style:none;padding:0}"
-        "li{display:flex;justify-content:space-between;gap:16px;padding:10px 12px;border-bottom:1px solid #39414d;background:#20232a}"
-        "span{color:#9aa4b2;font-size:12px}</style><main><h1>Repository Workspaces</h1>"
+        "<title>Repository Workspaces</title><style>body{margin:0;background:#000;color:#f4f7ff;font:14px Segoe UI,sans-serif}"
+        "main{max-width:1000px;margin:auto;padding:24px}h1{color:#00e5ff;font-family:Consolas,monospace}a{color:#f4f7ff;text-decoration:none}ul{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:8px;list-style:none;padding:0}"
+        "li{display:grid;gap:7px;padding:12px;border:1px solid;background:#050505}li:hover{background:#090909;box-shadow:0 0 12px #00e5ff10}"
+        "span{color:#7d8799;font:11px Consolas,monospace}</style><main><h1>Repository Workspaces</h1>"
         f"<p>{len(rows)} generated public repository workspaces.</p><ul>{links}</ul></main>",
         encoding="utf-8",
     )
