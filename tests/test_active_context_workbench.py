@@ -16,16 +16,17 @@ def test_active_repository_context_is_wired():
     assert 'repoView=function(id){activate(id)}' in js
 
 
-def test_cyber_theme_is_jet_black_and_semantic():
+def test_canonical_theme_is_jet_black_and_semantic():
     index = (SITE / "index.html").read_text(encoding="utf-8")
-    css = (SITE / "cyber_theme.css").read_text(encoding="utf-8").lower()
-    assert 'cyber_theme.css' in index
-    assert '--bg:#000' in css
+    css = (SITE / "ultimate_ui.css").read_text(encoding="utf-8").lower()
+    assert 'ultimate_ui.css' in index
+    assert 'cyber_theme.css' not in index
+    assert '--u-black:#000' in css
     for color in ('#00e5ff', '#2979ff', '#b026ff', '#ff2bd6', '#39ff88', '#ffe600', '#ff8a00', '#ff3155'):
         assert color in css
-    assert '.neon-card.cyan' in css
-    assert '.neon-card.purple' in css
-    assert '.syn-key' in css
+    assert '.os-panel.cyan' in css
+    assert '.os-panel.purple' in css
+    assert '.tone-cyan' in css
 
 
 def test_context_layer_keeps_browser_credential_boundary():
