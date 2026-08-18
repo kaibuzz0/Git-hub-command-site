@@ -20,7 +20,9 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install pytest
       - name: Compile workbench scripts
-        run: python -m py_compile scripts/build_hub.py scripts/build_repository_sites.py scripts/sync_repositories.py scripts/onboard_repository.py scripts/connect_repository.py connectors/export_repo_snapshot.py connectors/build_repo_site.py
+        run: python -m py_compile scripts/build_hub.py scripts/build_repository_sites.py scripts/sync_repositories.py scripts/onboard_repository.py scripts/connect_repository.py scripts/ui_blueprint.py connectors/export_repo_snapshot.py connectors/build_repo_site.py
+      - name: Verify canonical UI blueprint
+        run: python scripts/ui_blueprint.py --check
       - name: Validate workbench JavaScript
         run: |
           node --check site/app.js
@@ -28,10 +30,10 @@ jobs:
           node --check site/internal_editor.js
           node --check site/workbench_v4.js
           node --check site/workbench_v5.js
-          node --check site/mobile.js
           node --check site/command_os.js
           node --check site/command_os_search.js
-          node --check site/edge_shell.js
+          node --check site/ultimate_ui.js
+          node --check site/pwa.js
           node --check site/repo_workspace_v2.js
           node --check site/repo_workspace_v3.js
           node --check site/repo_workspace_v4.js
