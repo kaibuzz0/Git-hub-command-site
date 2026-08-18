@@ -3,16 +3,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_command_center_loads_vibrant_theme():
+def test_command_center_uses_ultimate_theme_only():
     index = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
-    css = (ROOT / "site" / "vibrant_theme.css").read_text(encoding="utf-8")
-    assert 'vibrant_theme.css' in index
-    assert '--v-cyan:' in css
-    assert '--v-purple:' in css
-    assert 'linear-gradient' in css
+    css = (ROOT / "site" / "ultimate_ui.css").read_text(encoding="utf-8")
+    assert 'ultimate_ui.css' in index
+    assert 'vibrant_theme.css' not in index
+    assert '--u-cyan:' in css
+    assert '--u-purple:' in css
+    assert '--u-black:#000' in css
 
 
-def test_repo_builder_injects_vibrant_theme_and_triage():
+def test_repo_builder_still_injects_vibrant_theme_and_triage():
     builder = (ROOT / "scripts" / "build_repository_sites.py").read_text(encoding="utf-8")
     assert 'repo_workspace_v6.css' in builder
     assert 'repo_workspace_v6.js' in builder
