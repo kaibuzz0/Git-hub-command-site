@@ -1,4 +1,4 @@
-const CACHE='command-os-shell-v5';
+const CACHE='command-os-shell-v6';
 const SHELL=[
   './','./index.html','./manifest.webmanifest','./icons/command-os.svg','./ui_blueprint.json',
   './app.css','./repository_explorer.css','./internal_editor.css','./workbench_v4.css','./workbench_v5.css','./command_os.css','./command_os_finalize.css','./ultimate_ui.css','./pwa.css',

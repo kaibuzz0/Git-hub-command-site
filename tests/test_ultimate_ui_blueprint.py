@@ -45,3 +45,14 @@ def test_all_major_workspace_boxes_receive_semantic_borders():
         assert selector in css
     for color in ("#00e5ff55", "#2979ff55", "#b026ff55", "#ff2bd655", "#39ff8855", "#ffe60055", "#ff8a0055", "#ff315555"):
         assert color in css
+
+
+def test_ultimate_ui_places_wrapped_workbench_in_real_workspace_row():
+    css = (SITE / "workbench_v5.css").read_text(encoding="utf-8")
+    assert "body.ultimate-ready .wb-session-banner{display:none!important}" in css
+    assert "body.ultimate-ready #wbEditorArea{grid-row:4!important" in css
+    assert "body.ultimate-ready #wbPrimaryBody>#content{height:auto!important" in css
+    assert "@media(max-width:767px)" in css
+    assert "body.ultimate-ready #wbEditorArea{grid-row:3!important" in css
+    assert "body.ultimate-ready #wbEditorArea>.wb-editor-group.primary>.wb-group-head{display:none!important}" in css
+    assert "body.ultimate-ready #wbEditorArea>.wb-editor-group.secondary{display:none!important}" in css
